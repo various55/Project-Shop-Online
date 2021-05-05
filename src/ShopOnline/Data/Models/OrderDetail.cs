@@ -7,7 +7,7 @@ namespace Data.Models
     using System.Data.Entity.Spatial;
 
     [Table("OrderDetai")]
-    public partial class OrderDetai
+    public partial class OrderDetail
     {
         [Key]
         [Column(Order = 0)]

@@ -167,3 +167,4 @@ C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\De
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.dll
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csprojAssemblyReference.cache
