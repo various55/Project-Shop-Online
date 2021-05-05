@@ -31,17 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,9 +75,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="Migrations\202105051511553_create-database.cs" />
     <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105051955581_update-db-v1.cs" />
+    <Compile Include="Migrations\202105051955581_update-db-v1.Designer.cs">
+      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -62,11 +92,38 @@
     <Compile Include="Models\ImageDetail.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetai.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Repositories\DbFactory.cs" />
+    <Compile Include="Repositories\Disposable.cs" />
+    <Compile Include="Repositories\IDbFactory.cs" />
+    <Compile Include="Repositories\imp\CategoryRepository.cs" />
+    <Compile Include="Repositories\imp\ColorRepository.cs" />
+    <Compile Include="Repositories\imp\ConfirmStatusRepository.cs" />
+    <Compile Include="Repositories\imp\ContactRepository.cs" />
+    <Compile Include="Repositories\imp\ImageDetailRepository.cs" />
+    <Compile Include="Repositories\imp\LogRepository.cs" />
+    <Compile Include="Repositories\imp\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\imp\OrderRepository.cs" />
+    <Compile Include="Repositories\imp\PostRepository.cs" />
+    <Compile Include="Repositories\imp\ProductDetailRepository.cs" />
+    <Compile Include="Repositories\imp\ProductRepository.cs" />
+    <Compile Include="Repositories\imp\RoleRepository.cs" />
+    <Compile Include="Repositories\imp\ShopInformationRepository.cs" />
+    <Compile Include="Repositories\imp\SizeRepository.cs" />
+    <Compile Include="Repositories\imp\StatisticalRepository.cs" />
+    <Compile Include="Repositories\imp\SuppelierRepository.cs" />
+    <Compile Include="Repositories\imp\TagProductRepository.cs" />
+    <Compile Include="Repositories\imp\TagRepository.cs" />
+    <Compile Include="Repositories\imp\TransactionRepository.cs" />
+    <Compile Include="Repositories\imp\UserRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="ShopContext.cs" />
     <Compile Include="Models\ShopInformation.cs" />
     <Compile Include="Models\Size.cs" />
@@ -79,10 +136,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="ConnectionStrings.config" />
@@ -94,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105051511553_create-database.resx">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105051955581_update-db-v1.resx">
+      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
