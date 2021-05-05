@@ -13,18 +13,38 @@ namespace ShopOnline.Controllers
             return View();
         }
 
-        public ActionResult About()
+       public PartialViewResult Sale()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView();
         }
-
-        public ActionResult Contact()
+        public PartialViewResult Banner()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView();
         }
+        public PartialViewResult BannerFooter()
+        {
+            return PartialView();
+        }
+        public PartialViewResult BlogLeft()
+        {
+            return PartialView();
+        }
+        public PartialViewResult CategoriesLeft()
+        {
+            return PartialView();
+        }
+        public PartialViewResult Product()
+        {
+            return PartialView();
+        }
+        public PartialViewResult LeftFooter()
+        {
+            return PartialView();
+        }
+        public PartialViewResult Left()
+        {
+            return PartialView();
+        }
+       
     }
 }
