@@ -19,7 +19,7 @@ namespace Data
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<ImageDetail> ImageDetails { get; set; }
         public virtual DbSet<Log> Logs { get; set; }
-        public virtual DbSet<OrderDetai> OrderDetais { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<ProductDetail> ProductDetails { get; set; }
