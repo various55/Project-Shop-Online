@@ -1,42 +1,177 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+﻿<!doctype html>
+<html class="no-js" lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fashion : Everything </title>
+    <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="HTMLCooker">
+    <link href='http://fonts.googleapis.com/css?family=Lato:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lora:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- ================= Google Fonts ================== -->
+    <!-- Cloud Zoom CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/em_cloudzoom.css" media="all" />
+    <!-- Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/menu.css" media="all" />
+    <!-- Mega Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/megamenu.css" media="all" />
+
+    <!-- Widget CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/widgets.css" media="all" />
+    <!-- Default CSS -->
+
+    <link rel="stylesheet" type="text/css" href="~/Content/css/styles.css" media="all" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/font-awesome.css" media="all" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/owl.carousel.css" media="all" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css" media="all" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.css" media="all" />
+
+    <!-- Ajax Cart CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/em_ajaxcart.css" media="all" />
+    <!-- Blog Style CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/blog-styles.css" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/css/em_multidealpro.css" media="all" />
+    <!-- Product Labels CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/em_productlabels.css" media="all" />
+
+    <!-- Quick Shop CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/em_quickshop.css" media="all" />
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery.fancybox.css" media="all" />
+
+    <!-- Responsive Tab CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive-tabs.css" media="all" />
+    <!-- Print CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/print.css" media="print" />
+
+    <!-- Fashion CSS -->
+    <link rel='stylesheet' type='text/css' media='all' href='~/Content/css/color1.css' />
+    <link rel="stylesheet" type="text/css" href="~/Content/blog-styles.css" media="all" />
+
+
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/lightbox.css" media="all" />
+
+    <!-- Responsive Tab CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive-tabs.css" media="all" />
+    <!-- Print CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/print.css" media="print" />
+
+    <!-- Style Fashion CSS -->
+    <link rel='stylesheet' type='text/css' media='all' href='~/Content/css/style_fashion.css' />
+
+    <!-- Jquery Js -->
+    <script type="text/javascript" src="~/Content/js/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap Js -->
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+    <!-- Lazy Load Js -->
+    <script type="text/javascript" src="~/Content/js/jquery.lazyload.min.js"></script>
+    <!-- Owl Carousel Js -->
+    <script type="text/javascript" src="~/Content/js/owl.carousel.js"></script>
+    <!-- Ios Orientation Change Js -->
+    <script type="text/javascript" src="~/Content/js/ios-orientationchange-fix.js"></script>
+    <!-- Hover Intent Js -->
+    <script type="text/javascript" src="~/Content/js/jquery.hoverIntent.js"></script>
+    <!-- Select UI Js -->
+    <script type="text/javascript" src="~/Content/js/selectUl.js"></script>
+    <!-- Throttle Js -->
+    <script type="text/javascript" src="~/Content/js/jquery.ba-throttle-debounce.js"></script>
+    <!-- EM Js -->
+    <script type="text/javascript" src="~/Content/js/em0131.js"></script>
+    <!-- MegaMenu Js -->
+    <script type="text/javascript" src="~/Content/js/megamenu.js"></script>
+    <!-- Responsive Tab Js -->
+    <script type="text/javascript" src="~/Content/js/jquery.custom.responsiveTabs.js"></script>
+    <!-- Fancybox Js -->
+    <script type="text/javascript" src="~/Content/js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="~/Content/js/cloud-zoom.js"></script>
+    <!-- Custom Js -->
+    <script type="text/javascript" src="~/Content/js/custom.js"></script>
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="cms-index-index">
+
+    <div class="wrapper ">
+      
+        <div class="page two-columns-left">
+
+            <div class="em-wrapper-header">
+               
+                <div class="hidden-xs em-header-style08">
+                    <div class="em-header-top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-24">
+                                    <div class="">
+                                        @Html.Partial("_Search")
+                                        <div class="em-top-links">
+                                            <div class="f-right"></div>
+
+                                                @Html.Partial("_Register")
+
+                                                @Html.Partial("_Login")
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="em-top-links">
+              
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.em-header-top -->
+                    <div id="em-fixed-top">@Html.Partial("_Narbar")</div>
+                    
+                </div>
+            </div><!-- /.em-wrapper-header -->
+
+            @RenderBody()
+           
+
+
+            @Html.Partial("_Footer")<!-- /.popup-content -->
+          
+        </div><!-- /.page -->
+    </div><!-- /.wrapper -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
+
