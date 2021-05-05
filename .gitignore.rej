@@ -1,0 +1,9 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -73,6 +73,7 @@
+ *.nupkg
+ *.ncrunchsolution
+ *.dot[Cc]over
++<<<<<<< HEAD
+ # Cấu hình connection String
+ connectionStrings.config
+ =======
