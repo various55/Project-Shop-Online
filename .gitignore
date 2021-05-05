@@ -74,9 +74,14 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Cấu hình connection String
 connectionStrings.config
 =======
 # File config connection string
 ConnectionStrings.config
 >>>>>>> master
+=======
+# Cấu hình connection String
+connectionStrings.config
+>>>>>>> 5e245a1ff8dcaba7f72e12019d0eaf52b02a73cb
