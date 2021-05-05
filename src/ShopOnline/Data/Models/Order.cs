@@ -39,7 +39,7 @@ namespace Data.Models
 
         public virtual ConfirmStatus ConfirmStatus { get; set; }
 
-        public virtual ICollection<OrderDetai> OrderDetais { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetais { get; set; }
 
     }
 }
