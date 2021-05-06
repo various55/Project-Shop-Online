@@ -24,7 +24,9 @@ namespace Business.Services
     public class ProductService : IProductService
     {
         public IProductRepository _productRepository;
+
         public IUnitOfWork _unitOfWork;
+
         public ProductService()
         {
 
@@ -37,8 +39,8 @@ namespace Business.Services
 
         public bool Add(Product product)
         {
-            var res = _productRepository.add(product);
-            return res == null;
+           var res = _productRepository.add(product);
+           return res != null;
         }
 
         public bool Delete(int id)

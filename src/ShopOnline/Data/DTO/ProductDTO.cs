@@ -19,9 +19,11 @@
         public string Name { get; set; }
 
         [Display(Name="Danh mục")]
+        [Required]
         public int? CategoryID { get; set; }
 
         [Display(Name="Nhà cung cấp")]
+        [Required]
         public int? SupplierID { get; set; }
 
         [Display(Name="Ảnh mô tả")]
