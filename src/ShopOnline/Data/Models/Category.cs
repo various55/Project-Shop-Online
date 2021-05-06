@@ -8,6 +8,11 @@ namespace Data.Models
 
     public partial class Category
     {
+        public Category()
+        {
+            Status = true;
+        }
+
         [Key]
         public int ID { get; set; }
 
