@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,7 +63,6 @@ namespace Data.Repositories
 
         public virtual ICollection<T> findAll(string[] includes = null)
         {
-            if (includes == null) return findAll();
             if (includes != null && includes.Count() > 0)
             {
                 var query = context.Set<T>().Include(includes.First());
@@ -72,6 +72,17 @@ namespace Data.Repositories
             }
 
             return context.Set<T>().AsQueryable().ToList();
+        }
+        public virtual ICollection<T> findByCondition(Expression<Func<T,bool>> expression,string[] includes = null)
+        {
+            if (includes != null && includes.Count() > 0)
+            {
+                var query = context.Set<T>().Include(includes.First());
+                foreach (var include in includes.Skip(1))
+                    query = query.Include(include);
+                return (ICollection<T>)query.Where<T>(expression).AsQueryable<T>();
+            }
+            return (ICollection<T>)(IConvertible)context.Set<T>().Where<T>(expression).AsQueryable<T>();
         }
     }
 }
