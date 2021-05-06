@@ -30,7 +30,13 @@ namespace Data.Repositories
 
         public virtual T add(T model)
         {
-            return dbSet.Add(model);
+            try
+            {
+                return dbSet.Add(model);
+            }catch
+            {
+                throw;
+            }
         }
 
         public virtual void update(T model)

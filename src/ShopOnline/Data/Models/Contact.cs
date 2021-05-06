@@ -8,6 +8,11 @@ namespace Data.Models
 
     public partial class Contact
     {
+        public Contact()
+        {
+            CreatedAt = DateTime.Now;
+        }
+
         [Key]
         public int ID { get; set; }
 
