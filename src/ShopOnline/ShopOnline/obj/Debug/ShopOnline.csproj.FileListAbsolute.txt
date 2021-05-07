@@ -208,3 +208,5 @@ D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Micr
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.dll
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.pdb

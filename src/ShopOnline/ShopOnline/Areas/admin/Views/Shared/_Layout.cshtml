@@ -27,7 +27,8 @@
 
     <!-- Custom Css -->
     <link href="~/Content/admin/css/style.css" rel="stylesheet">
-
+    <!--Alert2-->
+    <link href="~/Content/common/package/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="~/Content/admin/css/themes/all-themes.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -112,7 +113,8 @@
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="~/Content/admin/plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
+    <!--Alert2-->
+    <script src="~/Content/common/package/dist/sweetalert2.all.min.js"></script>
     <!-- Custom Js -->
     <script src="~/Content/admin/js/admin.js"></script>
 
@@ -139,9 +141,9 @@
     <script src="/Content/admin/plugins/jquery-datatable/extensions/export/buttons.print.min.js">
     </script>
     <script src="~/Content/admin/js/pages/tables/jquery-datatable.js"></script>
-
+    <!-- Common Custom-->
+    <script src="~/Content/common/common.js"></script>
 </body>
-@RenderSection("Js", required: false);
-@RenderSection("MyJs", required: false);
-}
+@RenderSection("Js", required: false)
+@RenderSection("MyJs", required: false)
 </html>

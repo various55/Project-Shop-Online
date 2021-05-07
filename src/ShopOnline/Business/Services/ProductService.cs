@@ -31,7 +31,7 @@ namespace Business.Services
         {
 
         }
-        public ProductService(IProductRepository productRepository,IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
         {
             this._productRepository = productRepository;
             this._unitOfWork = unitOfWork;
@@ -39,8 +39,8 @@ namespace Business.Services
 
         public bool Add(Product product)
         {
-           var res = _productRepository.add(product);
-           return res != null;
+            var res = _productRepository.add(product);
+            return res != null;
         }
 
         public bool Delete(int id)

@@ -10,56 +10,30 @@
 <section class="content">
     <div class="container-fluid">
         <!-- Exportable Table -->
-        <div id="tableProducts" class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            Danh sách sản phẩm
-                        </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table id="example" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Hope Fuentes</td>
-                                        <td>Secretary</td>
-                                        <td>San Francisco</td>
-                                        <td>41</td>
-                                        <td>2010/02/12</td>
-                                        <td>$109,850</td>
-                                        <td>
-                                            @Html.ActionLink("Chi tiết", "Detail", new { @class = "btn-detail" }) | 
-                                            @Html.ActionLink("Sửa", "Edit", new { @class = "btn-edit" }) |
-                                            @Html.ActionLink("Xóa", "Delete", new { @class = "btn-delete" }) |
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
-
-                        </div>
-                    </div>
+        <div id="tableProducts" class="row clearfix dataTable">
+            <!-- Data đổ vào đây-->
+            @Html.Action("Load","Base")
+        </div>
+        <form id="FormOrder">
+            <div class="form-group row">
+                <label for="staticName" class="col-sm-2 col-form-label">Tên khác hàng</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" name="Name" id="staticName" value="email@example.com">
                 </div>
             </div>
-        </div>
-
+            <div class="form-group row">
+                <label for="staticAddress" class="col-sm-2 col-form-label">Địa chỉ</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" name="Address" id="staticAddress" value="email@example.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Mobile</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" name="Mobile" id="staticEmail" value="email@example.com">
+                </div>
+            </div>
+        </form>
         <!-- #END# Exportable Table -->
     </div>
 
@@ -72,7 +46,8 @@
 @section MyJs{
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#example').DataTable();  
         });
+
     </script>
 }
