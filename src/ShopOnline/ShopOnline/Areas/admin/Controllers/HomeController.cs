@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: admin/Home
