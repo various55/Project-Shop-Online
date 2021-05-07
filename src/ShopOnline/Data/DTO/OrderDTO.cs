@@ -13,13 +13,16 @@ namespace Data.DTO
         public int ID { get; set; }
 
         [StringLength(50)]
+        [Required]
         [Display(Name="Tên khách hàng")]
         public string Name { get; set; }
 
         [StringLength(256)]
+        [Required]
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
+        [Required]
         [Display(Name = "Số điện thoại")]
         [StringLength(15)]
         public string Mobile { get; set; }

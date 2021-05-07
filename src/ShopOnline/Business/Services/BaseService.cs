@@ -13,12 +13,14 @@ namespace Business.Services
     public interface IOrderService
     {
         ICollection<Order> FindAll();
-        ICollection<Order> FindByUserId(int id);
+        Order FindByUserId(int id);
+        Order FindById(int id);
         ICollection<Order> FindByEmail(string email);
         ICollection<Order> FindByTotal(float total);
         bool Add(Order order);
         bool Remove(int id);
 
+        bool Update(Order order);
         void Save();
     }
     public class BaseService : IOrderService
@@ -44,11 +46,15 @@ namespace Business.Services
         {
             return OrderRepository.findAll(new string[] { "UserMember" });
         }
+        public Order FindById(int id)
+        {
+            return OrderRepository.findById(id);
+        }
         // Tìm tất cả các order của user có id
-        public ICollection<Order> FindByUserId(int id)
+        public Order FindByUserId(int id)
         {
             // findByCondition: Tìm kiếm theo điều kiện
-            var orders = OrderRepository.findByCondition(o => o.UserID == id);
+            var orders = OrderRepository.findByCondition(o => o.UserID == id).FirstOrDefault();
             return orders;
         }
         // Tìm tất cả các order của user có email là abc@gmail.com
@@ -74,9 +80,9 @@ namespace Business.Services
             var res = OrderRepository.delete(id);
             return res != null;
         }
-        public void Update(Order order)
+        public bool Update(Order order)
         {
-            OrderRepository.update(order);
+            return OrderRepository.update(order);
         }
 
         public void Save()

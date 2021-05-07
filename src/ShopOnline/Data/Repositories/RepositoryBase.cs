@@ -39,11 +39,11 @@ namespace Data.Repositories
             }
         }
 
-        public virtual void update(T model)
+        public virtual bool update(T model)
         {
             dbSet.Attach(model);
             context.Entry(model).State = EntityState.Modified;
-            context.SaveChanges();
+            return context.SaveChanges()>0;
         }
 
         public virtual T delete(int id)
