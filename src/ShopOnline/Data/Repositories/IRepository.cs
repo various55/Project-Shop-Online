@@ -12,7 +12,7 @@ namespace Data.Repositories
 
         // Repository pattern
         T add(T model);
-        void update(T model);
+        bool update(T model);
         T delete(int id);
         T delete(T model);
 

@@ -42,7 +42,7 @@ function LoadData(url, classAppend) {
  * Hàm để xóa, tham số lưu ý trên đầu
  */
 function Delete(id, url_delete, url, classAppend) {
-    console.log(url_delete);
+    
     Swal.fire({
         title: 'Bạn có chắc chắn không?',
         text: "Dữ liêu sau khi xóa sẽ bị mất, bạn vẫn muốn tiếp tục chứ!",
@@ -63,7 +63,7 @@ function Delete(id, url_delete, url, classAppend) {
 
                 },
                 success: function (res) {
-                    if (res.status) {
+                    if (res==true) {
                         Swal.fire(
                             'Thành công!',
                             'Dữ liệu đã được xóa thành công.',
@@ -96,7 +96,9 @@ function Delete(id, url_delete, url, classAppend) {
  */
 function AddOrUpdate(idForm, url_add,url,classAppend) {
     let data = GetData(idForm);
-    console.log(url_add);
+    console.log('data' + data);
+    console.log('url_add' + url_add);
+    console.log('url' + url);
     $.ajax({
         url: url_add,
         type: 'POST',
@@ -124,7 +126,26 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
  * Hàm để set dữ liệu vào form, dùng cho chức năng cập nhật
  */
 function setDataForm(idForm,url,classAppend) {
+    $.ajax({
+        url: url,
+        type: "Get",
+        dataType: "html",
+        data: {
+            id: idForm
+        },
+        beforeSend: function () {
+        },
+        success: function (res) {
+            $('.' + classAppend + '').html('');
+            $('.' + classAppend + '').append(res);
+        },
+        error: function () {
 
+        },
+        complete: function () {
+
+        }
+    })
 }
 /* Validation form
  */
