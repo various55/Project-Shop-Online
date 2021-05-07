@@ -18,6 +18,8 @@ namespace Business.Services
         ICollection<Order> FindByTotal(float total);
         bool Add(Order order);
         bool Remove(int id);
+
+        void Save();
     }
     public class BaseService : IOrderService
     {
@@ -75,6 +77,11 @@ namespace Business.Services
         public void Update(Order order)
         {
             OrderRepository.update(order);
+        }
+
+        public void Save()
+        {
+            unitOfWork.commit();
         }
     }
 }

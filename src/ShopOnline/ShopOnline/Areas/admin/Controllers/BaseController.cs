@@ -29,5 +29,24 @@ namespace ShopOnline.Areas.admin.Controllers
             ICollection<OrderDTO> orderDTO = AutoMapper.Mapper.Map<ICollection<OrderDTO>>(orders);
             return View(orderDTO);
         }
+        [HttpPost]
+        public JsonResult AddOrUpdate(OrderDTO data)
+        {
+            var status = true;
+            return Json(status, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var status = orderService.Remove(id);
+            orderService.Save();
+            return Json(status, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Load()
+        {
+            var orders = orderService.FindAll();
+            var orderDTO = AutoMapper.Mapper.Map<ICollection<OrderDTO>>(orders);
+            return PartialView("Order/_Orders",orderDTO);
+        }
     }
 }

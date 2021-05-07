@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -3592,6 +3594,76 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\common\common.js" />
+    <Content Include="Content\common\package\dist\sweetalert2.all.js" />
+    <Content Include="Content\common\package\dist\sweetalert2.all.min.js" />
+    <Content Include="Content\common\package\dist\sweetalert2.css" />
+    <Content Include="Content\common\package\dist\sweetalert2.js" />
+    <Content Include="Content\common\package\dist\sweetalert2.min.css" />
+    <Content Include="Content\common\package\dist\sweetalert2.min.js" />
+    <Content Include="Content\common\package\src\constants.js" />
+    <Content Include="Content\common\package\src\globalState.js" />
+    <Content Include="Content\common\package\src\instanceMethods.js" />
+    <Content Include="Content\common\package\src\instanceMethods\buttons-handlers.js" />
+    <Content Include="Content\common\package\src\instanceMethods\close.js" />
+    <Content Include="Content\common\package\src\instanceMethods\enable-disable-elements.js" />
+    <Content Include="Content\common\package\src\instanceMethods\getInput.js" />
+    <Content Include="Content\common\package\src\instanceMethods\hideLoading.js" />
+    <Content Include="Content\common\package\src\instanceMethods\keydown-handler.js" />
+    <Content Include="Content\common\package\src\instanceMethods\popup-click-handler.js" />
+    <Content Include="Content\common\package\src\instanceMethods\progress-steps.js" />
+    <Content Include="Content\common\package\src\instanceMethods\update.js" />
+    <Content Include="Content\common\package\src\instanceMethods\validation-message.js" />
+    <Content Include="Content\common\package\src\instanceMethods\_destroy.js" />
+    <Content Include="Content\common\package\src\instanceMethods\_main.js" />
+    <Content Include="Content\common\package\src\privateMethods.js" />
+    <Content Include="Content\common\package\src\privateProps.js" />
+    <Content Include="Content\common\package\src\staticMethods.js" />
+    <Content Include="Content\common\package\src\staticMethods\argsToParams.js" />
+    <Content Include="Content\common\package\src\staticMethods\bindClickHandler.js" />
+    <Content Include="Content\common\package\src\staticMethods\dom.js" />
+    <Content Include="Content\common\package\src\staticMethods\fire.js" />
+    <Content Include="Content\common\package\src\staticMethods\mixin.js" />
+    <Content Include="Content\common\package\src\staticMethods\queue.js" />
+    <Content Include="Content\common\package\src\staticMethods\showLoading.js" />
+    <Content Include="Content\common\package\src\staticMethods\timer.js" />
+    <Content Include="Content\common\package\src\SweetAlert.js" />
+    <Content Include="Content\common\package\src\sweetalert2.js" />
+    <Content Include="Content\common\package\src\utils\aria.js" />
+    <Content Include="Content\common\package\src\utils\classes.js" />
+    <Content Include="Content\common\package\src\utils\defaultInputValidators.js" />
+    <Content Include="Content\common\package\src\utils\DismissReason.js" />
+    <Content Include="Content\common\package\src\utils\dom\animationEndEvent.js" />
+    <Content Include="Content\common\package\src\utils\dom\domUtils.js" />
+    <Content Include="Content\common\package\src\utils\dom\getters.js" />
+    <Content Include="Content\common\package\src\utils\dom\index.js" />
+    <Content Include="Content\common\package\src\utils\dom\init.js" />
+    <Content Include="Content\common\package\src\utils\dom\inputUtils.js" />
+    <Content Include="Content\common\package\src\utils\dom\measureScrollbar.js" />
+    <Content Include="Content\common\package\src\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\render.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderActions.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderCloseButton.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderContainer.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderContent.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderFooter.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderHeader.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderIcon.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderImage.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderInput.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderPopup.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderProgressSteps.js" />
+    <Content Include="Content\common\package\src\utils\dom\renderers\renderTitle.js" />
+    <Content Include="Content\common\package\src\utils\getTemplateParams.js" />
+    <Content Include="Content\common\package\src\utils\ieFix.js" />
+    <Content Include="Content\common\package\src\utils\iosFix.js" />
+    <Content Include="Content\common\package\src\utils\isNodeEnv.js" />
+    <Content Include="Content\common\package\src\utils\openPopup.js" />
+    <Content Include="Content\common\package\src\utils\params.js" />
+    <Content Include="Content\common\package\src\utils\scrollbarFix.js" />
+    <Content Include="Content\common\package\src\utils\setParameters.js" />
+    <Content Include="Content\common\package\src\utils\Timer.js" />
+    <Content Include="Content\common\package\src\utils\utils.js" />
     <Content Include="Content\css\AjaxLoader.html" />
     <Content Include="Content\css\blog-styles.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -4080,6 +4152,23 @@
     <Content Include="Areas\admin\Views\Shared\Layout\UserPartial.cshtml" />
     <Content Include="Areas\admin\Views\Base\Index.cshtml" />
     <Content Include="Areas\admin\Views\Home\Index.cshtml" />
+    <Content Include="Content\common\package\CHANGELOG.md" />
+    <Content Include="Content\common\package\LICENSE" />
+    <Content Include="Content\common\package\package.json" />
+    <Content Include="Content\common\package\README.md" />
+    <Content Include="Content\common\package\src\scss\_animations.scss" />
+    <Content Include="Content\common\package\src\scss\_body.scss" />
+    <Content Include="Content\common\package\src\scss\_core.scss" />
+    <Content Include="Content\common\package\src\scss\_mixins.scss" />
+    <Content Include="Content\common\package\src\scss\_polyfills.scss" />
+    <Content Include="Content\common\package\src\scss\_theming.scss" />
+    <Content Include="Content\common\package\src\scss\_toasts-animations.scss" />
+    <Content Include="Content\common\package\src\scss\_toasts-body.scss" />
+    <Content Include="Content\common\package\src\scss\_toasts.scss" />
+    <Content Include="Content\common\package\src\sweetalert2.scss" />
+    <Content Include="Content\common\package\src\variables.scss" />
+    <Content Include="Areas\admin\Views\Order\_Orders.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\Order\_Orders.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4127,7 +4216,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Areas\admin\Views\Shared\Order\" />
     <Folder Include="Areas\admin\Views\Shared\Product\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
@@ -4154,12 +4242,23 @@
       <Project>{FCDF8760-D827-475E-B65E-BA52EE392BAC}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{de4ac1ed-2709-458c-b4d3-8bed01ba12d0}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\common\package\sweetalert2.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
