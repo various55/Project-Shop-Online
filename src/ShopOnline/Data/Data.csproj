@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Migrations\202105051511553_create-database.cs" />
     <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>
