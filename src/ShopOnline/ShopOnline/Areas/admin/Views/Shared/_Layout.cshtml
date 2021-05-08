@@ -31,8 +31,10 @@
     <link href="~/Content/common/package/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="~/Content/admin/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="~/Content/admin/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    @RenderSection("MyCss", required: false) ;
+    @RenderSection("MyCss", required: false)
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 <body class="theme-red">
@@ -70,7 +72,7 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            @Html.Partial("Layout/UserPartial")
+            @Html.Action("GetUser","User")
             <!-- #User Info -->
             <!-- Left Menu -->
             @Html.Partial("Layout/LeftMenu")

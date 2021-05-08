@@ -12,7 +12,7 @@ namespace Business.Services
     public interface IProductService
     {
         bool Add(Product product);
-        void Update(Product product);
+        bool Update(Product product);
         bool Delete(int id);
         ICollection<Product> FindAll();
         ICollection<Product> FindAll(string[] includes);
@@ -23,9 +23,9 @@ namespace Business.Services
     }
     public class ProductService : IProductService
     {
-        public IProductRepository _productRepository;
+        public IProductRepository productRepository;
 
-        public IUnitOfWork _unitOfWork;
+        public IUnitOfWork unitOfWork;
 
         public ProductService()
         {
@@ -33,58 +33,60 @@ namespace Business.Services
         }
         public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
         {
-            this._productRepository = productRepository;
-            this._unitOfWork = unitOfWork;
+            this.productRepository = productRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         public bool Add(Product product)
         {
-            var res = _productRepository.add(product);
+            var res = productRepository.add(product);
             return res != null;
         }
 
         public bool Delete(int id)
         {
-            var res = _productRepository.delete(id);
+            var res = productRepository.delete(id);
             return res == null;
         }
-        public void Update(Product product)
+        public bool Update(Product product)
         {
-            _productRepository.update(product);
+           var res= productRepository.update(product);
+            return res;
         }
 
         public ICollection<Product> FindAll()
         {
-            var products = _productRepository.findAll();
+            var products = productRepository.findAll();
             return products;
         }
 
         public ICollection<Product> FindAll(string[] includes)
         {
-            var products = _productRepository.findAll(includes);
+            var products = productRepository.findAll(includes);
             return products;
         }
 
         public ICollection<Product> FindByCategory(int id)
         {
-            var products = _productRepository.findByCondition(x => x.CategoryID == id, new string[] { "Category" });
+            // Làm theo cái này, join thì join cái kia, findByCondition này tìm theo nhiều điều kiện + join đc nhiều bảng đc, kieeru ddaasy
+            var products = productRepository.findByCondition(x => x.CategoryID == id  , new string[] { "Color","Size","ProductDetail" });
             return products;
         }
 
         public Product FindById(int id)
         {
-            return _productRepository.findById(id);
+            return productRepository.findById(id);
         }
 
         public ICollection<Product> FindBySupplier(int id)
         {
-            var products = _productRepository.findByCondition(x => x.SupplierID == id, new string[] { "Category" });
+            var products = productRepository.findByCondition(x => x.SupplierID == id, new string[] { "Category" });
             return products;
         }
 
         public void Save()
         {
-            _unitOfWork.commit();
+            unitOfWork.commit();
         }
     }
 }

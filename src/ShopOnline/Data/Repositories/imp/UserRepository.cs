@@ -9,7 +9,7 @@ namespace Data.Repositories.imp
 {
     public interface IUserRepository : IRepository<User>
     {
-
+        User Login(string username, string password);
     }
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
@@ -18,5 +18,9 @@ namespace Data.Repositories.imp
 
         }
 
+        public User Login(string username, string password)
+        {
+            return DbContext.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+        }
     }
 }
