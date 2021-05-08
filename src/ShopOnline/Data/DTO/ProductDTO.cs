@@ -1,12 +1,13 @@
-﻿namespace Data.Models
-{
-    using System;
+﻿
+using Data.Models;
+using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
-    public partial class ProductDTO
+namespace Data.DTO
+{
+    public class ProductDTO
     {
         public int ID { get; set; }
 
@@ -59,5 +60,6 @@
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
         public virtual Category Category { get; set; }
         public virtual Suppelier Suppelier { get; set; }
+
     }
 }

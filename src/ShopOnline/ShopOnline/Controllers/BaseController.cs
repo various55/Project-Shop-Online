@@ -1,4 +1,5 @@
 ﻿using Business.Services;
+using Data.DTO;
 using Data.Models;
 using System;
 using System.Collections.Generic;
@@ -71,11 +72,7 @@ namespace ShopOnline.Controllers
         [HttpPost]
         public ActionResult Update(ProductDTO productDTO)
         {
-            // Update cx tương tự, update sẽ có method là POST và GET
-            // GET dùng để lấy dữ liệu và đổ lên client
-            // POST sẽ nhận dữ liệu từ client và tiến hành cập nhật
-            // Đây là method GET, nhận vào 1 id và trả về đối tượng đấy
-            // Chuyển nó thành productDTO để hiển thị lên view
+           
             Product product = AutoMapper.Mapper.Map<Product>(productDTO);
             productService.Update(product);
             productService.Save();
