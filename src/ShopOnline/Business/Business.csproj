@@ -70,9 +70,13 @@
     <Compile Include="Services\ColorService.cs" />
     <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductService.cs" />
+<<<<<<< HEAD
     <Compile Include="Services\SizeService.cs" />
     <Compile Include="Services\SuppelierService.cs" />
     <Compile Include="Services\TagsService.cs" />
+=======
+    <Compile Include="Services\UserService.cs" />
+>>>>>>> 298bf95a3027b6e33f8a0023451b64b663fd5039
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
