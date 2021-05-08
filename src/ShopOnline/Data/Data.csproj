@@ -83,14 +83,13 @@
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
     <Compile Include="DTO\ProductDetaiDTO.cs" />
+    <Compile Include="DTO\PostsDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
-<<<<<<< HEAD
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\SuppelierDTO.cs" />
     <Compile Include="DTO\TagDTO.cs" />
-=======
     <Compile Include="DTO\UserDTO.cs" />
->>>>>>> 298bf95a3027b6e33f8a0023451b64b663fd5039
+    <Compile Include="DTO\ShopInformationDTO.cs" />
     <Compile Include="Migrations\202105051511553_create-database.cs" />
     <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>
@@ -98,6 +97,14 @@
     <Compile Include="Migrations\202105051955581_update-db-v1.cs" />
     <Compile Include="Migrations\202105051955581_update-db-v1.Designer.cs">
       <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105071745360_fix-length-img-post.cs" />
+    <Compile Include="Migrations\202105071745360_fix-length-img-post.designer.cs">
+      <DependentUpon>202105071745360_fix-length-img-post.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105080854285_v2.cs" />
+    <Compile Include="Migrations\202105080854285_v2.designer.cs">
+      <DependentUpon>202105080854285_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -166,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105051955581_update-db-v1.resx">
       <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105071745360_fix-length-img-post.resx">
+      <DependentUpon>202105071745360_fix-length-img-post.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105080854285_v2.resx">
+      <DependentUpon>202105080854285_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

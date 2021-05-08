@@ -1,15 +1,14 @@
-﻿namespace Data.Models
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    [Table("ShopInformation")]
-    public partial class ShopInformation
+namespace Data.DTO
+{
+    public class ShopInformationDTO
     {
-        [Key]
         public int ID { get; set; }
 
         [StringLength(50)]
