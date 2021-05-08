@@ -81,8 +81,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\PDetailDTO.cs" />
+    <Compile Include="DTO\ProductDetaiDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\SizeDTO.cs" />
+    <Compile Include="DTO\SuppelierDTO.cs" />
+    <Compile Include="DTO\TagDTO.cs" />
     <Compile Include="Migrations\202105051511553_create-database.cs" />
     <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>

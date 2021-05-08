@@ -12,7 +12,7 @@ namespace Data.Models
         {
             Discount = 0;
             TotalPurchase = 0;
-            TotalPurchase = 0;
+          
             ImportPrice = 0;
             ExportPrice = 0;
             Status = true;

@@ -86,9 +86,9 @@ namespace Data.Repositories
                 var query = context.Set<T>().Include(includes.First());
                 foreach (var include in includes.Skip(1))
                     query = query.Include(include);
-                return (ICollection<T>)query.Where<T>(expression).AsQueryable<T>();
+                return  query.Where<T>(expression).ToList();
             }
-            return (ICollection<T>)(IConvertible)context.Set<T>().Where<T>(expression).AsQueryable<T>();
+            return context.Set<T>().Where<T>(expression).ToList();
         }
     }
 }

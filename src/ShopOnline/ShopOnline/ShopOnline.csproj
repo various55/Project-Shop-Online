@@ -205,8 +205,12 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\admin\Controllers\SuppelierController.cs" />
+    <Compile Include="Areas\admin\Controllers\TagController.cs" />
     <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -214,6 +218,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4836,6 +4841,21 @@
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Category\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Category\listCategory.cshtml" />
+    <Content Include="Areas\admin\Views\Suppelier\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Suppelier\listSuppelier.cshtml" />
+    <Content Include="Areas\admin\Views\Suppelier\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Suppelier\InfoDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Tag\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Tag\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Tag\listTag.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Product\listProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Product\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Product\FormProductDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Product\listProductDetail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4887,6 +4907,7 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Tags\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
