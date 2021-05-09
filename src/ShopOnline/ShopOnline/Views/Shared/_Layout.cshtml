@@ -134,7 +134,12 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="~/Content/js/CommonJS.js"></script>
+    <script src="~/Content/common/cart.js"></script>
+    <script>
+        $(document).ready(() => {
+            LoadCart();
+        })
+    </script>
 </body>
-
 </html>
 

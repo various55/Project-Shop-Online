@@ -18,11 +18,14 @@ namespace Business.Services
         ICollection<ProductDetail> FindAll(string[] includes);
         ProductDetail FindById(int id);
       
+        ProductDetail Find(int id, int size, int color);
+        ProductDetail FindByProduct(int id);
         void Save();
     }
-    public class ProductDetailService: IProductDetailService
+    public class ProductDetailService : IProductDetailService
     {
-        public IProductDetailRepository productRepository;
+        IProductDetailRepository productDetailRepository;
+        IUnitOfWork unitOfWork;
 
         public IUnitOfWork unitOfWork;
 
@@ -30,16 +33,22 @@ namespace Business.Services
         {
 
         }
-        public ProductDetailService(IProductDetailRepository productRepository, IUnitOfWork unitOfWork)
+        public ProductDetailService(IProductDetailRepository productDetailRepository,
+        IUnitOfWork unitOfWork)
         {
-            this.productRepository = productRepository;
+            this.productDetailRepository = productDetailRepository;
             this.unitOfWork = unitOfWork;
         }
 
+        public ProductDetail Find(int id, int size, int color)
+        {
+            return productDetailRepository.Find(id, size, color);
+        }
         public bool Add(ProductDetail product)
         {
             var res = productRepository.add(product);
             return res != null;
+            return productDetailRepository.Find(id,size,color);
         }
 
         public bool Delete(int id)
@@ -58,6 +67,10 @@ namespace Business.Services
             var products = productRepository.findAll();
             return products;
         }
+        public ProductDetail FindByProduct(int id)
+        {
+            return productDetailRepository.findAll(new string[] { "Product", "Color", "Size" }).SingleOrDefault(x=>x.ID==id);
+        }
 
         public ICollection<ProductDetail> FindAll(string[] includes )
         {
@@ -72,5 +85,6 @@ namespace Business.Services
         {
             unitOfWork.commit();
         }
+
     }
 }

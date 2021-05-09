@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
     <Compile Include="DTO\ProductDetaiDTO.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\SuppelierDTO.cs" />
     <Compile Include="DTO\TagDTO.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
     <Compile Include="Migrations\202105051511553_create-database.cs" />
@@ -97,6 +99,9 @@
     <Compile Include="Migrations\202105051955581_update-db-v1.cs" />
     <Compile Include="Migrations\202105051955581_update-db-v1.Designer.cs">
       <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
+    <Compile Include="Migrations\202105090714227_database-v1.cs" />
+    <Compile Include="Migrations\202105090714227_database-v1.designer.cs">
+      <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202105071745360_fix-length-img-post.cs" />
     <Compile Include="Migrations\202105071745360_fix-length-img-post.designer.cs">
@@ -111,6 +116,7 @@
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\ConfirmStatus.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\DiscountCode.cs" />
     <Compile Include="Models\ImageDetail.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Order.cs" />
@@ -158,7 +164,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105090714227_database-v1.resx">
+      <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="ConnectionStrings.config" />

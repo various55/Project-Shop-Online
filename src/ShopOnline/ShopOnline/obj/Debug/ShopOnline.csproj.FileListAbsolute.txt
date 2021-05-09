@@ -403,3 +403,4 @@ C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKF
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.pdb
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.pdb
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config

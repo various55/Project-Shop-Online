@@ -8,6 +8,11 @@ namespace Data.Models
 
     public partial class Transaction
     {
+        public Transaction()
+        {
+            CreateAt = DateTime.Now;
+        }
+
         [Key]
         public int ID { get; set; }
 
@@ -23,6 +28,7 @@ namespace Data.Models
         public bool? Status { get; set; }
 
         public virtual Order Order { get; set; }
+        [ForeignKey("CreateBy")]
         public virtual User User { get; set; }
 
     }
