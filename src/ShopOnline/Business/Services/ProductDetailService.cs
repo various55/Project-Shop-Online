@@ -27,8 +27,6 @@ namespace Business.Services
         IProductDetailRepository productDetailRepository;
         IUnitOfWork unitOfWork;
 
-        public IUnitOfWork unitOfWork;
-
         public ProductDetailService()
         {
 
@@ -46,25 +44,24 @@ namespace Business.Services
         }
         public bool Add(ProductDetail product)
         {
-            var res = productRepository.add(product);
+            var res = productDetailRepository.add(product);
             return res != null;
-            return productDetailRepository.Find(id,size,color);
         }
 
         public bool Delete(int id)
         {
-            var res = productRepository.delete(id);
+            var res = productDetailRepository.delete(id);
             return res!=null;
         }
         public bool Update(ProductDetail product)
         {
-            var res = productRepository.update(product);
+            var res = productDetailRepository.update(product);
             return res;
         }
 
         public ICollection<ProductDetail> FindAll()
         {
-            var products = productRepository.findAll();
+            var products = productDetailRepository.findAll();
             return products;
         }
         public ProductDetail FindByProduct(int id)
@@ -74,12 +71,12 @@ namespace Business.Services
 
         public ICollection<ProductDetail> FindAll(string[] includes )
         {
-            var products = productRepository.findAll(includes);
+            var products = productDetailRepository.findAll(includes);
             return products;
         }
         public ProductDetail FindById(int id)
         {
-            return productRepository.findById(id);
+            return productDetailRepository.findById(id);
         }
         public void Save()
         {
