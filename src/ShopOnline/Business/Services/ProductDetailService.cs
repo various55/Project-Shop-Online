@@ -11,6 +11,13 @@ namespace Business.Services
 {
     public interface IProductDetailService
     {
+        bool Add(ProductDetail product);
+        bool Update(ProductDetail product);
+        bool Delete(int id);
+        ICollection<ProductDetail> FindAll();
+        ICollection<ProductDetail> FindAll(string[] includes);
+        ProductDetail FindById(int id);
+      
         ProductDetail Find(int id, int size, int color);
         ProductDetail FindByProduct(int id);
         void Save();
@@ -19,6 +26,8 @@ namespace Business.Services
     {
         IProductDetailRepository productDetailRepository;
         IUnitOfWork unitOfWork;
+
+        public IUnitOfWork unitOfWork;
 
         public ProductDetailService()
         {
@@ -33,13 +42,45 @@ namespace Business.Services
 
         public ProductDetail Find(int id, int size, int color)
         {
+            return productDetailRepository.Find(id, size, color);
+        }
+        public bool Add(ProductDetail product)
+        {
+            var res = productRepository.add(product);
+            return res != null;
             return productDetailRepository.Find(id,size,color);
+        }
+
+        public bool Delete(int id)
+        {
+            var res = productRepository.delete(id);
+            return res!=null;
+        }
+        public bool Update(ProductDetail product)
+        {
+            var res = productRepository.update(product);
+            return res;
+        }
+
+        public ICollection<ProductDetail> FindAll()
+        {
+            var products = productRepository.findAll();
+            return products;
         }
         public ProductDetail FindByProduct(int id)
         {
             return productDetailRepository.findAll(new string[] { "Product", "Color", "Size" }).SingleOrDefault(x=>x.ID==id);
         }
 
+        public ICollection<ProductDetail> FindAll(string[] includes )
+        {
+            var products = productRepository.findAll(includes);
+            return products;
+        }
+        public ProductDetail FindById(int id)
+        {
+            return productRepository.findById(id);
+        }
         public void Save()
         {
             unitOfWork.commit();

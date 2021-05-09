@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Services;
+using Data.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,15 @@ namespace ShopOnline.Controllers
 {
     public class HomeController : Controller
     {
+        ICategoryService categoryService;
+        public HomeController()
+        {
+
+        }
+        public HomeController(ICategoryService categoryService)
+        {
+            this.categoryService = categoryService;
+        }
         public ActionResult Index()
         {
             return View();
@@ -29,9 +40,11 @@ namespace ShopOnline.Controllers
         {
             return PartialView();
         }
-        public PartialViewResult CategoriesLeft()
+        public ActionResult CategoriesLeft()
         {
-            return PartialView();
+            var categories = categoryService.FindAll();
+            var categoriDTO = AutoMapper.Mapper.Map<IEnumerable<CategoryDTO>>(categories);
+            return PartialView(categoriDTO);
         }
         public PartialViewResult Product()
         {

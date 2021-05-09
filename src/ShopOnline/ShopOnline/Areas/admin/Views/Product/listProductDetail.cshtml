@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Data.DTO.PDetailDTO>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Danh sách chi tiết sản phẩm
+            </h2>
+        </div>
+        <div class="body">
+            <div class="table-responsive">
+                <table id="example1" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Tên SP</th>
+                            <th>Màu sắc</th>
+                            <th>Size</th>
+                            <th>Ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Color.Name</td>
+                                <td>@item.Size.Name</td>
+                                <td><img src="@item.UrlImage" style="width:50px;height:50px" /> </td>
+                                <td>@item.Invenory</td>
+                                <td>
+                                    <button class="btn btn-delete" title="Xóa" onclick="Delete(@item.ID, '/admin/Product/DeletePDetail', '/admin/Product/listProductDetail', 'dataPDetail')"><i class="fas fa-trash-alt text-danger"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+
+

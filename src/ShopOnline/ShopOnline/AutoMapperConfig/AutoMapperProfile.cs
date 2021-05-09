@@ -14,6 +14,7 @@ namespace ShopOnline.AutoMapperConfig
         {
             CreateMap<Product, ProductDTO>();
             CreateMap<Order, OrderDTO>().ForMember(dto => dto.ConfirmStatusName, model => model.MapFrom(m => m.ConfirmStatus.Name));
+            CreateMap<Post, PostsDTO>().ForMember(dto => dto.Title, model => model.MapFrom(m => m.Title));
         }
     }
 }
