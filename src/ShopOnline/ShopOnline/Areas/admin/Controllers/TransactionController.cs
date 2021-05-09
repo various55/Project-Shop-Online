@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+    [Authorize]
     public class TransactionController : Controller
     {
         ITransactionService transactionService;
@@ -29,7 +30,7 @@ namespace ShopOnline.Areas.admin.Controllers
         {
             var transactions = transactionService.FindAll(new string[] { "User", "Order" });
             var tranDTO = AutoMapper.Mapper.Map<IEnumerable<TransactionDTO>>(transactions);
-            return PartialView("Transactions/_TransactionsPartial",tranDTO);
+            return PartialView("Transactions/_TransactionsPartial", tranDTO);
         }
     }
 }

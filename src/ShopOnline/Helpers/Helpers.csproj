@@ -79,18 +79,18 @@
     <Compile Include="ViewToString.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Constants\Constants.csproj">
-      <Project>{8AB8234E-D3FF-4DD0-A91C-AFB54A312CF6}</Project>
+      <Project>{8ab8234e-d3ff-4dd0-a91c-afb54a312cf6}</Project>
       <Name>Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{FCDF8760-D827-475E-B65E-BA52EE392BAC}</Project>
+      <Project>{fcdf8760-d827-475e-b65e-ba52ee392bac}</Project>
       <Name>Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

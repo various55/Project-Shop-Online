@@ -92,13 +92,6 @@
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
-    <Compile Include="Migrations\202105051511553_create-database.cs" />
-    <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
-      <DependentUpon>202105051511553_create-database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105051955581_update-db-v1.cs" />
-    <Compile Include="Migrations\202105051955581_update-db-v1.Designer.cs">
-      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
     <Compile Include="Migrations\202105090714227_database-v1.cs" />
     <Compile Include="Migrations\202105090714227_database-v1.designer.cs">
       <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
@@ -110,6 +103,10 @@
     <Compile Include="Migrations\202105080854285_v2.cs" />
     <Compile Include="Migrations\202105080854285_v2.designer.cs">
       <DependentUpon>202105080854285_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105090910100_db-v2.cs" />
+    <Compile Include="Migrations\202105090910100_db-v2.designer.cs">
+      <DependentUpon>202105090910100_db-v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -168,6 +165,9 @@
     <EmbeddedResource Include="Migrations\202105090714227_database-v1.resx">
       <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105090910100_db-v2.resx">
+      <DependentUpon>202105090910100_db-v2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -178,12 +178,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105051511553_create-database.resx">
-      <DependentUpon>202105051511553_create-database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105051955581_update-db-v1.resx">
-      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105071745360_fix-length-img-post.resx">
       <DependentUpon>202105071745360_fix-length-img-post.cs</DependentUpon>
     </EmbeddedResource>

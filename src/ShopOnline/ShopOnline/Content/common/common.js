@@ -113,11 +113,13 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
+            $('#modalAdd').modal().hide();
         },
         error: function (res) {
             MessageSuccess('Thêm thất bại !' +res);
         },
         complete: function () {
+            console.log('Đóng');
         }
     })
 }

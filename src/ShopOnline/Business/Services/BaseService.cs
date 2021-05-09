@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Business.Services
 {
     // File ví dụ hướng dẫn làm
-    public interface IOrderService
+    public interface IBaseService
     {
         ICollection<Order> FindAll();
         Order FindByUserId(int id);
@@ -23,7 +23,7 @@ namespace Business.Services
         bool Update(Order order);
         void Save();
     }
-    public class BaseService : IOrderService
+    public class BaseService : IBaseService
     {
         public IOrderRepository OrderRepository;
         public IUserRepository userRepository;

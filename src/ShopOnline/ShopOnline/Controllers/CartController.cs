@@ -33,14 +33,22 @@ namespace ShopOnline.Controllers
         {
             return View();
         }
+        public ActionResult GetCode(string code)
+        {
+            var status = code == "ABCD1234";
+            return Json(status, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Checkout(OrderDTO orderDTO)
         {
             var status = false;
             var cart = ShoppingCart.Cart;
             var order = AutoMapper.Mapper.Map<Order>(orderDTO);
+            // Lấy ra thông tin order detail
             order.OrderDetais = cart.Items;
+            // Lấy code kiểm tra
             order.Discount = 0;
-            order.Fee = 0;
+            order.Fee = order.Fee;
             order.Total = cart.Total() * (1.0 - order.Discount/100) + order.Fee;
             status = orderService.Add(order);
             return Json(status, JsonRequestBehavior.AllowGet);
