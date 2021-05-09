@@ -53,7 +53,9 @@ namespace Data.Models
         public bool? ShowOnHome { get; set; }
 
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
+        [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
+        [ForeignKey("SupplierID")]
         public virtual Suppelier Suppelier { get; set; }
     }
 }

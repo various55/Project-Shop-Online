@@ -207,6 +207,8 @@
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\admin\Controllers\TransactionController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -4296,6 +4298,7 @@
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\skin_v1.html" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\standalone.html" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Content\common\cart.js" />
     <Content Include="Content\common\common.js" />
     <Content Include="Content\common\package\dist\sweetalert2.all.js" />
     <Content Include="Content\common\package\dist\sweetalert2.all.min.js" />
@@ -4870,7 +4873,6 @@
     <Content Include="Content\common\package\src\sweetalert2.scss" />
     <Content Include="Content\common\package\src\variables.scss" />
     <Content Include="Areas\admin\Views\Order\_Orders.cshtml" />
-    <Content Include="Areas\admin\Views\Shared\Order\_Orders.cshtml" />
     <Content Include="Areas\admin\Views\Base\FromCreateUpdate.cshtml" />
     <Content Include="Areas\admin\Views\Base\listbase.cshtml" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
@@ -4896,6 +4898,10 @@
     <Content Include="Content\admin\login\fonts\ionicons\fonts\ionicons.eot" />
     <Content Include="Content\admin\login\fonts\ionicons\fonts\ionicons.ttf" />
     <Content Include="Content\admin\login\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Areas\admin\Views\Shared\OrderAdmin\_OrderPartial.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\OrderAdmin\_OrderDetailParial.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\Transactions\_TransactionsPartial.cshtml" />
+    <Content Include="Areas\admin\Views\Transaction\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4939,6 +4945,8 @@
     <Content Include="Views\Shared\_Narbar.cshtml" />
     <Content Include="Views\Shared\_Register.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\Cart\_QuickCart.cshtml" />
+    <Content Include="Views\Shared\Cart\_Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4946,6 +4954,7 @@
     <Folder Include="Areas\admin\Views\Shared\Product\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

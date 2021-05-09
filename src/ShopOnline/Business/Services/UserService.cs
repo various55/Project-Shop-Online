@@ -18,6 +18,7 @@ namespace Business.Services
         ICollection<User> FindAll(string[] includes);
         User FindById(int id);
         User Login(string username,string password);
+        User FindByUsername(string username);
         void Save();
     }
     public class UserService : IUserService
@@ -78,6 +79,11 @@ namespace Business.Services
         public void Save()
         {
             _unitOfWork.commit();
+        }
+
+        public User FindByUsername(string username)
+        {
+            return _UserRepository.findByCondition(x => x.Username == username).SingleOrDefault();
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿@model      Data.DTO.OrderDTO
+
+@{ 
+    var count = 1;
+}
+<input name="ID" type="hidden" value="@Model.ID" />
+<label>Họ và tên</label>
+<input class="form-control" type="text" placeholder="@Model.Name" readonly>
+<label>Số điện thoại</label>
+<input class="form-control" type="text" placeholder="@Model.Mobile" readonly>
+<label>Địa chỉ</label>
+<input class="form-control" type="text" placeholder="@Model.Address" readonly>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">TÊN</th>
+            <th scope="col">CODE</th>
+            <th scope="col">SIZE</th>
+            <th scope="col">MÀU</th>
+            <th scope="col">SỐ LƯỢNG</th>
+            <th scope="col">TIỀN</th>
+            <th scope="col">THÀNH TIỀN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetais)
+        {
+            var product = item.ProductDetail;
+            <tr>
+                <th scope="row">@(count++)</th>
+                <td>@product.Product.Name</td>
+                <td>@product.Product.Code</td>
+                <td>@product.Size.Name</td>
+                <td>@product.Color.Name</td>
+                <td>@item.Quantity</td>
+                <td>@product.Product.ExportPrice</td>
+                <td>@(item.Quantity*product.Product.ExportPrice)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Giảm giá: @Model.Discount %</p>
+<p>Tổng tiền : @Model.Total</p>

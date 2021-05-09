@@ -27,7 +27,9 @@ namespace Data.DTO
         [StringLength(15)]
         public string Mobile { get; set; }
 
-        
+        [Display(Name="Ngày order")]
+        public DateTime? CreatedAt { get; set; }
+
         [Display(Name = "Phương thức thanh toán")]
         [StringLength(50)]
         public string Payment { get; set; }
@@ -43,6 +45,10 @@ namespace Data.DTO
 
         [Display(Name = "Trạng thái")]
         public string ConfirmStatusName { get; set; }
+
+        [Display(Name="Danh sách sản phẩm")]
+        public virtual ICollection<OrderDetail> OrderDetais { get; set; }
+        public virtual ConfirmStatus ConfirmStatus { get; set; }
 
     }
 }

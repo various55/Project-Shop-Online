@@ -269,3 +269,4 @@ D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFi
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.pdb
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.dll
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config

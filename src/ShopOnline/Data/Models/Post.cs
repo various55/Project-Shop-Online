@@ -33,6 +33,7 @@ namespace Data.Models
 
         public DateTime? ModifyAt { get; set; }
 
+        [ForeignKey("CreatedBy")]
         public virtual User user { get; set; }
     }
 }

@@ -70,7 +70,10 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            @Html.Action("GetUser","User")
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Action("GetUser","User")
+            }
             <!-- #User Info -->
             <!-- Left Menu -->
             @Html.Partial("Layout/LeftMenu")
