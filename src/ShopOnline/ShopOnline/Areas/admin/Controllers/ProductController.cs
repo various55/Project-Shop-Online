@@ -103,14 +103,12 @@ namespace ShopOnline.Areas.admin.Controllers
             return PartialView();
         }
         [HttpGet]
-        public PartialViewResult Detail(int id)
+        public ActionResult Detail(int id)
         {
-            //t muốn kết hợp giữa lấy theo id và join vs các bảng 
-            Product product = productService.FindById(id);
-            var productDetail = productService.FindAll(new string[] { "product", "Color", "Size" });
-
-            var ProductsDTO = AutoMapper.Mapper.Map<ICollection<PDetailDTO>>(productDetail);
-            return PartialView();
+            var product= productService.FindBy(id).FirstOrDefault();
+           
+            var ProductsDTO = AutoMapper.Mapper.Map<ProductDTO>(product);
+            return PartialView(ProductsDTO);
         }
         [HttpPost]
         public JsonResult Delete(int id)

@@ -91,14 +91,9 @@ function Delete(id, url_delete, url, classAppend) {
         }
     })
 }
-/*
- * Hàm để Thêm mới hoặc cập nhật, tham số lưu ý trên đầu
- */
+
 function AddOrUpdate(idForm, url_add,url,classAppend) {
     let data = GetData(idForm);
-    console.log('data' + data);
-    console.log('url_add' + url_add);
-    console.log('url' + url);
     $.ajax({
         url: url_add,
         type: 'POST',
@@ -110,8 +105,9 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
         },
         success: function (res) {
             if (res) {
-                MessageSuccess('Thêm thành công !');
+                MessageSuccess('thành công !');
                 LoadData(url, classAppend);
+                
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
@@ -122,9 +118,31 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
         }
     })
 }
-/* 
- * Hàm để set dữ liệu vào form, dùng cho chức năng cập nhật
- */
+function AddLog(content,url_add) {
+    $.ajax({
+        url: url_add,
+        type: 'POST',
+        dataType: "json",
+        data: { data: content},
+
+        beforeSend: function () {
+            console.log(url_add);
+        },
+        success: function (res) {
+            if (res) {
+                alert("ok")
+
+            } else {
+               
+            }
+        },
+        error: function (res) {
+            alert("lỗi")
+        },
+        complete: function () {
+        }
+    })
+}
 function setDataForm(idForm,url,classAppend) {
     $.ajax({
         url: url,

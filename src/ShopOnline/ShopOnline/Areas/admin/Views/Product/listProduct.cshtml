@@ -35,7 +35,7 @@
                                 <td>
                                     <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Product/FromCreateUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
                                     <button class="btn btn-add" data-id="@item.ID" title="Thêm" data-toggle="modal" data-target="#modalPDetail" onclick="setDataForm(@item.ID, '/admin/Product/FormProductDetail', 'add-detail')"><i class="far fa-calendar-plus"></i></button>
-                                    <button class="btn btn-details" data-toggle="modal" data-target="#myModal">
+                                    <button class="btn btn-details" data-toggle="modal" data-target="#myModal" onclick="setDataForm(@item.ID,'/admin/Product/Detail','details')">
                                         <i class="fas fa-info-circle text-primary"></i>
                                     </button>
                                 </td>

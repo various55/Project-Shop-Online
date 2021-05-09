@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Suppelier/AddOrUpdate','/admin/Suppelier/listSuppelier','dataTable')"> Thêm mới</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Suppelier/AddOrUpdate', '/admin/Suppelier/listSuppelier', 'dataTable');AddLog('Thêm 1 Nhà Cung cấp', '/admin/Log/addLog/')"> Thêm mới</button>
             </div>
         }
         else
@@ -75,7 +75,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Suppelier/AddOrUpdate','/admin/Suppelier/listSuppelier','dataTable')"> Cập nhập</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Suppelier/AddOrUpdate', '/admin/Suppelier/listSuppelier', 'dataTable'); AddLog('Thay đổi thông tin 1 Nhà Cung cấp có ID=' +@ViewBag.data.ID, '/admin/Log/addLog/')"> Cập nhập</button>
             </div>
         }
     </form>
