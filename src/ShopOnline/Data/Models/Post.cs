@@ -11,16 +11,13 @@ namespace Data.Models
         [Key]
         public int ID { get; set; }
 
-        [StringLength(50)]
         public string Title { get; set; }
 
-        [StringLength(50)]
+        [StringLength(256)]
         public string Image { get; set; }
 
-        [StringLength(50)]
         public string Description { get; set; }
 
-        [StringLength(50)]
         public string Content { get; set; }
 
         public bool? Status { get; set; }
@@ -33,6 +30,7 @@ namespace Data.Models
 
         public DateTime? ModifyAt { get; set; }
 
+        [ForeignKey("CreatedBy")]
         public virtual User user { get; set; }
     }
 }

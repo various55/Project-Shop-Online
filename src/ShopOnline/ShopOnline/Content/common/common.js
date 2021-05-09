@@ -94,6 +94,7 @@ function Delete(id, url_delete, url, classAppend) {
 
 function AddOrUpdate(idForm, url_add,url,classAppend) {
     let data = GetData(idForm);
+    
     $.ajax({
         url: url_add,
         type: 'POST',
@@ -111,6 +112,7 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
+            $('#modalAdd').modal().hide();
         },
         error: function (res) {
         },
@@ -140,6 +142,7 @@ function AddLog(content,url_add) {
             alert("lỗi")
         },
         complete: function () {
+            console.log('Đóng');
         }
     })
 }

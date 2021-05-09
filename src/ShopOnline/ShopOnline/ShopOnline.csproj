@@ -208,10 +208,13 @@
     <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\admin\Controllers\LogController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Controllers\SuppelierController.cs" />
     <Compile Include="Areas\admin\Controllers\TagController.cs" />
+    <Compile Include="Areas\admin\Controllers\TransactionController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -4302,6 +4305,7 @@
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\skin_v1.html" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\standalone.html" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Content\common\cart.js" />
     <Content Include="Content\common\common.js" />
     <Content Include="Content\common\package\dist\sweetalert2.all.js" />
     <Content Include="Content\common\package\dist\sweetalert2.all.min.js" />
@@ -4877,7 +4881,6 @@
     <Content Include="Content\common\package\src\sweetalert2.scss" />
     <Content Include="Content\common\package\src\variables.scss" />
     <Content Include="Areas\admin\Views\Order\_Orders.cshtml" />
-    <Content Include="Areas\admin\Views\Shared\Order\_Orders.cshtml" />
     <Content Include="Areas\admin\Views\Base\FromCreateUpdate.cshtml" />
     <Content Include="Areas\admin\Views\Base\listbase.cshtml" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
@@ -4886,6 +4889,7 @@
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ckfinder_aspnet_2.6.2.1\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\admin\Views\Category\FromCreateUpdate.cshtml" />
     <Content Include="Areas\admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\admin\Views\Category\listCategory.cshtml" />
@@ -4901,6 +4905,20 @@
     <Content Include="Areas\admin\Views\Tag\FromCreateUpdate.cshtml" />
     <Content Include="Areas\admin\Views\Tag\Index.cshtml" />
     <Content Include="Areas\admin\Views\Tag\listTag.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Product\listProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Product\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Product\FormProductDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Product\listProductDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\OrderAdmin\_OrderPartial.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\OrderAdmin\_OrderDetailParial.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\Transactions\_TransactionsPartial.cshtml" />
+    <Content Include="Areas\admin\Views\Transaction\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Posts\FromCreateUpdate.cshtml" />
+    <Content Include="Areas\admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Posts\InfoDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Posts\ListPost.cshtml" />
+    <Content Include="Areas\admin\Views\ShopInformation\FromCreateUpdate.cshtml" />
     <Content Include="Areas\admin\Views\User\Index.cshtml" />
     <Content Include="Areas\admin\Views\Product\Detail.cshtml" />
     <Content Include="Areas\admin\Views\Log\listLog.cshtml" />
@@ -4948,6 +4966,8 @@
     <Content Include="Views\Shared\_Narbar.cshtml" />
     <Content Include="Views\Shared\_Register.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\Cart\_QuickCart.cshtml" />
+    <Content Include="Views\Shared\Cart\_Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4955,6 +4975,7 @@
     <Folder Include="Areas\admin\Views\Shared\Product\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\Order\" />
     <Folder Include="Views\Tags\" />
   </ItemGroup>
   <ItemGroup>
@@ -4971,6 +4992,12 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Content\common\package\sweetalert2.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{c86d1867-5d61-45d3-ba06-a28e49d9a022}</Project>
       <Name>Business</Name>
@@ -4980,19 +5007,13 @@
       <Name>Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{FCDF8760-D827-475E-B65E-BA52EE392BAC}</Project>
+      <Project>{fcdf8760-d827-475e-b65e-ba52ee392bac}</Project>
       <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{de4ac1ed-2709-458c-b4d3-8bed01ba12d0}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Content\common\package\sweetalert2.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -12,54 +12,7 @@
 <section class="content">
     <div class="container-fluid">
         <!-- Exportable Table -->
-        <div id="tableProducts" class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            Danh sách sản phẩm
-                        </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table id="example" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Hope Fuentes</td>
-                                        <td>Secretary</td>
-                                        <td>San Francisco</td>
-                                        <td>41</td>
-                                        <td>2010/02/12</td>
-                                        <td>$109,850</td>
-                                        <td>
-                                            @Html.ActionLink("Sửa", "Edit", new { @class = "btn-edit" })
-                                            @Html.ActionLink("Chi tiết", "Edit", new { @class = "btn-detail" })
-                                            @Html.ActionLink("Xóa", "Edit",new { @class = "btn-delete" })
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="tableProducts" class="row clearfix data-Table">
         </div>
 
         <!-- #END# Exportable Table -->
@@ -67,9 +20,100 @@
 
 
 </section>
+<div id="modalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Xác nhận đơn hàng</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="confirm">
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="Confirm()"> Xác nhận</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 @section js{
-    
 }
 @section MyJs{
+    <script>
+        function loadAll(){
+            $.ajax({
+                url: 'Order/LoadAll',
+                type: 'post',
+                dataType: 'html',
+                success: (res) => {
+                    $('.data-Table').html('')
+                    $('.data-Table').html(res)
+                },
+                error: (res) => {
+                    console.log(res)
+                },
+                complete: () => {
+
+                }
+            })
+        }
+        $(document).ready(() => {
+            loadAll();
+        })
+        function Confirm() {
+            Swal.fire({
+                title: 'Xác nhận đơn hàng',
+                html:
+                    '<input name="note" class="swal2-input">' +
+                    '<select class="form-control confirm-status" name="status">' +
+                    '<option value="true">Xác nhận</option>' +
+                    '<option value="false">Hủy đơn</option>' +
+                    '</select >',
+                focusConfirm: false,
+                showCancelButton: true,
+                confirmButtonText: 'Xác nhận',
+                showLoaderOnConfirm: true,
+                preConfirm: () => {
+                    var id = $('input[name="ID"]').val();
+                    var note = $('input[name="note"]').val();
+                    var status = $('.confirm-status').val();
+                    console.log(id + note + status);
+                    $.ajax({
+                        url: 'Order/Confirm',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            id: id,
+                            note: note,
+                            status:status
+                        },
+                        success: (res) => {
+                            if (res) {
+                                MessageSuccess("Xác nhận đơn hàng thành công !");
+                            } else {
+                                MessageFailed("Có lỗi ra xảy khi xác nhận đơn hàng !");
+                            }
+                        },
+                        error: (res) => {
+                            console.log(res)
+                        },
+                        complete: () => {
+
+                        }
+                    })
+                    $("#modalAdd").modal('toggle');
+                    loadAll();
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            })
+        }
+    </script>
+
 }

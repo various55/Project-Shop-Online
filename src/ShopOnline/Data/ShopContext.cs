@@ -34,6 +34,7 @@ namespace Data
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<DiscountCode> DiscountCodes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

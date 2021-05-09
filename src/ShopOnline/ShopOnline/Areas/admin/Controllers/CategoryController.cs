@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         // GET: admin/Category
