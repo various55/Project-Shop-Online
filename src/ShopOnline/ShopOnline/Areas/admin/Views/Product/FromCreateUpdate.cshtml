@@ -77,7 +77,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Product/AddOrUpdate','/admin/Product/listProduct','dataTable')"> Thêm mới</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddOrUpdate', '/admin/Product/listProduct', 'dataTable');AddLog('Thêm 1 sản phẩm', '/admin/Log/addLog/'"> Thêm mới</button>
             </div>
         }
         else
@@ -181,7 +181,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Product/AddOrUpdate','/admin/Product/listProduct','dataTable')"> Cập nhập</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddOrUpdate', '/admin/Product/listProduct', 'dataTable');AddLog('Update 1 sản phẩm', '/admin/Log/addLog/')"> Cập nhập</button>
             </div>
         }
     </form>

@@ -17,7 +17,7 @@ namespace Business.Services
         ICollection<Product> FindAll();
         ICollection<Product> FindAll(string[] includes);
         Product FindById(int id);
-        ICollection<Product> FindByCategory(int id);
+        ICollection<Product> FindBy(int id);
         ICollection<Product> FindBySupplier(int id);
         void Save();
     }
@@ -66,10 +66,10 @@ namespace Business.Services
             return products;
         }
 
-        public ICollection<Product> FindByCategory(int id)
+        public ICollection<Product> FindBy(int id)
         {
             // Làm theo cái này, join thì join cái kia, findByCondition này tìm theo nhiều điều kiện + join đc nhiều bảng đc, kieeru ddaasy
-            var products = productRepository.findByCondition(x => x.CategoryID == id  , new string[] { "Color","Size","ProductDetail" });
+            var products = productRepository.findByCondition(x => x.ID == id  , new string[] { "Category", "Suppelier" });
             return products;
         }
 

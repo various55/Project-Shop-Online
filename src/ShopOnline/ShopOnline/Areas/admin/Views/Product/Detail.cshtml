@@ -1,0 +1,57 @@
+﻿@model Data.DTO.ProductDTO
+
+<table class="table table-triped">
+    <tr>
+        <th>Mã SP</th>
+        <th>@Model.Code</th>
+    </tr>
+    <tr>
+        <th>Tên SP</th>
+        <th>@Model.Name</th>
+    </tr>
+    <tr>
+        <th>Danh mục</th>
+        <th>@Model.Category.Name</th>
+    </tr>
+    <tr>
+        <th>Nhà CC</th>
+        <th>@Model.Suppelier.Name</th>
+    </tr>
+    <tr>
+        <th>Ảnh</th>
+        <th><img src="@Model.UrlImage" style="width:100px;height:100px" /></th>
+    </tr>
+    <tr>
+        <th>Giá nhập</th>
+        <th>@Model.ImportPrice</th>
+    </tr>
+    <tr>
+        <th>Giá bán
+        <th>@Model.ExportPrice</th>
+    </tr>
+    <tr>
+        <th>Mô tả</th>
+        <th>@Model.Description</th>
+    </tr>
+    <tr>
+        <th>Sale</th>
+        <th>@Model.Discount</th>
+    </tr>
+    <tr>
+        <th>Số lượng nhập</th>
+        <th>@Model.TotalPurchase</th>
+    </tr>
+    <tr>
+        <th>Số lượng bán</th>
+        <th>@Model.TotalInventory</th>
+    </tr>
+    <tr>
+        <th>Trạng thái</th>
+        <th>@Model.Status</th>
+    </tr>
+    <tr>
+        <th>Hiển thị ở Client</th>
+        <th>@Model.ShowOnHome</th>
+    </tr>
+    
+</table>

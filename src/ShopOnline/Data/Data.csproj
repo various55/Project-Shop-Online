@@ -80,17 +80,15 @@
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
+    <Compile Include="DTO\LogDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
     <Compile Include="DTO\ProductDetaiDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
-<<<<<<< HEAD
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\SuppelierDTO.cs" />
     <Compile Include="DTO\TagDTO.cs" />
-=======
     <Compile Include="DTO\UserDTO.cs" />
->>>>>>> 298bf95a3027b6e33f8a0023451b64b663fd5039
     <Compile Include="Migrations\202105051511553_create-database.cs" />
     <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
       <DependentUpon>202105051511553_create-database.cs</DependentUpon>
