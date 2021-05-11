@@ -15,6 +15,7 @@ namespace Business.Services
         bool Update(ProductDetail product);
         bool Delete(int id);
         ICollection<ProductDetail> FindAll();
+        ICollection<ProductDetail> Find(int id);
         ICollection<ProductDetail> FindAll(string[] includes);
         ProductDetail FindById(int id);
 
@@ -68,7 +69,10 @@ namespace Business.Services
         {
             return productDetailRepository.findAll(new string[] { "Product", "Color", "Size" }).SingleOrDefault(x => x.ID == id);
         }
-
+        public ICollection<ProductDetail> Find(int id)
+        {
+            return productDetailRepository.findByCondition(p => p.ProductID == id, new string[] { "Product", "Color", "Size" });
+        }
         public ICollection<ProductDetail> FindAll(string[] includes)
         {
             var products = productDetailRepository.findAll(includes);
