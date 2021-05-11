@@ -21,7 +21,7 @@ namespace ShopOnline.Authorize
         {
             filterContext.Result = new ViewResult
             {
-                ViewName = "~/Areas/Admin/Views/Shared/_401.cshtml"
+                ViewName = "~/Views/_401.cshtml"
             };
         }
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -30,7 +30,7 @@ namespace ShopOnline.Authorize
             var roles = HttpContext.Current.Request.Cookies.Get(CookieConst.ROLE);
             if (roles == null)
             {
-                return false;
+                return true;
             }
             else
             {

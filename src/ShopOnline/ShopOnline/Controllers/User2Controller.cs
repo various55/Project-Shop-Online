@@ -9,40 +9,40 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace ShopOnline.Areas.admin.Controllers
+namespace ShopOnline.Controllers
 {
-    [AllowAnonymous]
-    public class UserController : Controller
+    public class User2Controller : Controller
     {
         IUserService userService;
-        public UserController()
+
+        public User2Controller()
         {
 
         }
-        public UserController(IUserService userService)
+        public User2Controller(IUserService userService)
         {
             this.userService = userService;
         }
-        // GET: admin/User
+
+
+        // GET: User2
         public ActionResult Index()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string username,string password)
+        public ActionResult Login(string username, string password)
         {
             if (ModelState.IsValid)
             {
                 var res = userService.Login(username, MD5.CreateMD5(password));
-                if (res!=null)
+                if (res != null)
                 {
                     var role = res.Role.Name;
-                    if(role==RoleConst.CUSTOMER) ModelState.AddModelError("", "Tài khoản của bạn không có đủ quyền truy cập");
+                    if (role != RoleConst.CUSTOMER) ModelState.AddModelError("", "Chỉ tài khoản customer mới có quyền truy cập !!!");
                     else
                     {
-                        //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
                         FormsAuthentication.SetAuthCookie(username, true);
                         Response.Cookies[CookieConst.USER].Value = res.ID.ToString();
                         Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(1);
@@ -63,19 +63,18 @@ namespace ShopOnline.Areas.admin.Controllers
             FormsAuthentication.SignOut();
             Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(-2);
             Response.Cookies[CookieConst.ROLE].Expires = DateTime.Now.AddDays(-2);
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Index", "User2");
         }
         public ActionResult GetUser()
         {
-            var id = Request.Cookies.Get(CookieConst.USER);
-            if(id != null)
+            var username = User.Identity.Name;
+            if (username != null)
             {
-                var user = userService.FindById(Int32.Parse(id.Value));
+                var user = userService.FindByUsername(username);
                 var userDTO = AutoMapper.Mapper.Map<UserDTO>(user);
                 return PartialView("Layout/UserPartial", userDTO);
             }
             return Redirect("/");
         }
-
     }
 }

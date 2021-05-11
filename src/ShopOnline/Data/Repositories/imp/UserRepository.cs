@@ -20,7 +20,7 @@ namespace Data.Repositories.imp
 
         public User Login(string username, string password)
         {
-            return DbContext.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+            return DbContext.Users.Include("Role").SingleOrDefault(u => u.Username == username && u.Password == password);
         }
     }
 }

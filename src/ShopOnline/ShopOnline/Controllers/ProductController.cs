@@ -48,7 +48,7 @@ namespace ShopOnline.Controllers
         }
         public ActionResult Product(int idCategory, int pageNumber, int pageSize, string search)
         {
-            var products = productService.FindAll(new String[] { "DiscountCode" });
+            var products = productService.FindAll();
             ViewBag.idCategory = idCategory;
             TempData["idCategory"] = idCategory;
             if (idCategory == 0)
