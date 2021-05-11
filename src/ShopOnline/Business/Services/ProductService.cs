@@ -14,6 +14,7 @@ namespace Business.Services
         bool Add(Product product);
         bool Update(Product product);
         bool Delete(int id);
+        
         ICollection<Product> FindAll();
         ICollection<Product> FindAll(string[] includes);
         Product FindById(int id);
@@ -27,7 +28,7 @@ namespace Business.Services
         public IProductRepository productRepository;
 
         public IUnitOfWork unitOfWork;
-
+        
         public ProductService()
         {
 
@@ -69,10 +70,10 @@ namespace Business.Services
 
         public ICollection<Product> FindBy(int id)
         {
-            // Làm theo cái này, join thì join cái kia, findByCondition này tìm theo nhiều điều kiện + join đc nhiều bảng đc, kieeru ddaasy
             var products = productRepository.findByCondition(x => x.ID == id  , new string[] { "Category", "Suppelier" });
             return products;
         }
+      
 
         public Product FindById(int id)
         {
