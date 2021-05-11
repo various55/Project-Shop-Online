@@ -67,7 +67,7 @@ namespace Data.Repositories
             return dbSet.Remove(model);
         }
 
-        public virtual ICollection<T> findAll(string[] includes )
+        public virtual ICollection<T> findAll(string[] includes)
         {
             if (includes != null && includes.Count() > 0)
             {
