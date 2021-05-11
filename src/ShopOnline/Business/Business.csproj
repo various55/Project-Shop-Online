@@ -74,12 +74,12 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ColorService.cs" />
+    <Compile Include="Services\DiscountCodeService.cs" />
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\PostsService.cs" />
-    <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\SizeService.cs" />

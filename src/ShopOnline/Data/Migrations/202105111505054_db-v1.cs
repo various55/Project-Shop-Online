@@ -3,16 +3,14 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class fixlengthimgpost : DbMigration
+    public partial class dbv1 : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Posts", "Image", c => c.String(maxLength: 256));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Posts", "Image", c => c.String(maxLength: 50));
         }
     }
 }

@@ -51,6 +51,7 @@ namespace ShopOnline.Controllers
             order.Fee = order.Fee;
             order.Total = cart.Total() * (1.0 - order.Discount/100) + order.Fee;
             status = orderService.Add(order);
+            orderService.Save();
             return Json(status, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Update(int id, string action, int? size=1, int? color=1, int? quantity=1)
@@ -80,6 +81,7 @@ namespace ShopOnline.Controllers
                     }
                 }
             }
+
             return Json(status, JsonRequestBehavior.AllowGet);
         }
         public ActionResult LoadAll()

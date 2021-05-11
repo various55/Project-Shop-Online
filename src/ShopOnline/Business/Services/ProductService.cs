@@ -20,6 +20,7 @@ namespace Business.Services
         ICollection<Product> FindBy(int id);
         ICollection<Product> FindBySupplier(int id);
         void Save();
+        ICollection<Product> FindByCategory(int idCategory);
     }
     public class ProductService : IProductService
     {
@@ -83,7 +84,11 @@ namespace Business.Services
             var products = productRepository.findByCondition(x => x.SupplierID == id, new string[] { "Category" });
             return products;
         }
-
+        public ICollection<Product> FindByCategory(int idCategory)
+        {
+            var products = productRepository.findByCondition(x => x.CategoryID == idCategory);
+            return products;
+        }
         public void Save()
         {
             unitOfWork.commit();

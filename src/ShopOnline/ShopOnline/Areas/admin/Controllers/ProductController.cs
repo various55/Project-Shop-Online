@@ -19,11 +19,12 @@ namespace ShopOnline.Areas.admin.Controllers
         IProductDetailService productDetailService;
         IColorService colorService;
         ISizeService sizeService;
+        IDiscountCodeService discountCodeService;
         public ProductController()
         {
 
         }
-        public ProductController(IProductService productService, ICategoryService categoryService, ISuppelierService suppelierService, IProductDetailService productDetailService, IColorService colorService, ISizeService sizeService)
+        public ProductController(IProductService productService, ICategoryService categoryService, ISuppelierService suppelierService, IProductDetailService productDetailService, IColorService colorService, ISizeService sizeService, IDiscountCodeService discountCodeService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
@@ -31,6 +32,7 @@ namespace ShopOnline.Areas.admin.Controllers
             this.productDetailService = productDetailService;
             this.colorService = colorService;
             this.sizeService = sizeService;
+            this.discountCodeService = discountCodeService;
         }
 
         // GET: admin/Order
@@ -42,13 +44,15 @@ namespace ShopOnline.Areas.admin.Controllers
         [HttpPost]
         public JsonResult AddOrUpdate(ProductDTO model)
         {
+            model.TotalInventory = 0;
+            model.ShowOnHome = true;
             var status = false;
-            //if (!ModelState.IsValid)
-            //{
-            //    var errors = ModelState.Values.SelectMany(v => v.Errors);
-            //}
-            //if (ModelState.IsValid)
-            //{
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+            }
+            if (ModelState.IsValid)
+            {
                 Product product = new Product();
                 product = AutoMapper.Mapper.Map<Product>(model);
             
@@ -61,7 +65,7 @@ namespace ShopOnline.Areas.admin.Controllers
                    status= productService.Update(product);
                 }
                 productService.Save();
-           // }
+            }
             return Json(status, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
@@ -97,6 +101,8 @@ namespace ShopOnline.Areas.admin.Controllers
             var product = productService.FindById(id);
             var ProductDTO  = AutoMapper.Mapper.Map<ProductDTO>(product);
             ViewBag.Data = ProductDTO;
+            var discount = discountCodeService.FindAll();
+            ViewBag.discount = AutoMapper.Mapper.Map<IEnumerable<DiscountCodeDTO>>(discount);
             var category = categoryService.FindAll();
             ViewBag.Category = AutoMapper.Mapper.Map<IEnumerable<CategoryDTO>>(category);
             var supplier = suppelierService.FindAll();

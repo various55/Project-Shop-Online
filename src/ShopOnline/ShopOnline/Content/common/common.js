@@ -9,6 +9,12 @@
 /*
  * Hàm để Get dữ liệu từ form, tham số lưu ý trên đầu
  */
+var dt = {
+    pageNumber: 1,
+    pageSize: 8,
+    search: '',
+    idCategory:0
+}
 function GetData(idForm) {
     var unindexed_array = $('#' + idForm).serializeArray();
     var indexed_array = {};
@@ -17,9 +23,41 @@ function GetData(idForm) {
     });
     return indexed_array;
 }
-/*
- * Hàm để đổ dữ liệu lên client, tham số lưu ý trên đầu
- */
+function getDataFillter(idCategory,pageNumber, url, classAppend) {
+    dt.pageNumber = pageNumber;
+    dt.idCategory = idCategory;
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: {
+            pageNumber:dt.pageNumber,
+            pageSize: dt.pageSize,
+            search: dt.search,
+            idCategory: dt.idCategory
+        },
+        beforeSend: function () {
+        },
+        success: function (res) {
+          
+            $('.' + classAppend + '').html('');
+            $('.' + classAppend + '').append(res);
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
+        }
+    })
+}
+function Search(idCategory,pageNumber,url, classAppend) {
+    $('input[name="searchname"]').keyup(function () {
+        dt.search = $(this).val();
+        getDataFillter(idCategory,pageNumber, url, classAppend);
+    })
+
+}
 function LoadData(url, classAppend) {
     $.ajax({
         url: url,
@@ -131,18 +169,38 @@ function AddLog(content,url_add) {
             console.log(url_add);
         },
         success: function (res) {
-            if (res) {
-                alert("ok")
-
-            } else {
-               
-            }
+            
         },
         error: function (res) {
             alert("lỗi")
         },
         complete: function () {
             console.log('Đóng');
+        }
+    })
+}
+function getById(id, url, classAppend) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: 'html',
+        data: {
+            id: id,
+            pageNumber: dt.pageNumber,
+            pageSize: dt.pageSize
+        },
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            $('.' + classAppend + '').html('');
+            $('.' + classAppend + '').append(res);
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
         }
     })
 }

@@ -39,7 +39,21 @@
                     </select>
                     <div class="error"></div>
                 </div>
-                
+                <div class="col-md-3">
+                    <label>Image</label>
+                    <input id="xFilePath" name="UrlImage" value="" type="text" class="form-control" />
+                    <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" />
+                </div>
+                <div class="col-md-3">
+                    <label>Đơn giá nhập</label>
+                    <input class="form-control" type="text" name="ImportPrice" value="" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Đơn giá bán</label>
+                    <input type="text" value="" name="ExportPrice" class="form-control" />
+                    <div class="error"></div>
+                </div>
                 <div class="col-md-3">
                     <label>Mô tả</label>
                     <input class="form-control" type="text" name="Description" value="" />
@@ -47,7 +61,13 @@
                 </div>
                 <div class="col-md-3">
                     <label>Giảm giá</label>
-                    <input type="number" value="" name="Discount" class="form-control" />
+                    <select name="Discount" class="form-control">
+                        <option value="-1">Chọn mã giảm giá</option>
+                        @foreach (var item in ViewBag.discount as IEnumerable<Data.DTO.DiscountCodeDTO>)
+                        {
+                            <option value="@item.ID">@item.Code</option>
+                        }
+                    </select>
                     <div class="error"></div>
                 </div>
                 <div class="col-md-3">
@@ -55,11 +75,7 @@
                     <input type="number" value="" name="TotalPurchase" class="form-control" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Số lượng đã bán</label>
-                    <input type="number" value="" name="TotalInventory" class="form-control" />
-                    <div class="error"></div>
-                </div>
+
                 <div class="col-md-3">
                     <label>Trạng thái</label>
                     <select class="form-control status" value="true" name="Status">
@@ -68,16 +84,11 @@
                     </select>
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Hiển thị lên trang</label>
-                    <input type="radio" value="" name="ShowOnHome" checked />
 
-                    <div class="error"></div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddOrUpdate', '/admin/Product/listProduct', 'dataTable');AddLog('Thêm 1 sản phẩm', '/admin/Log/addLog/'"> Thêm mới</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddOrUpdate', '/admin/Product/listProduct', 'dataTable');AddLog('Thêm 1 sản phẩm', '/admin/Log/addLog/')"> Thêm mới</button>
             </div>
         }
         else
@@ -145,7 +156,17 @@
                 </div>
                 <div class="col-md-3">
                     <label>Giảm giá</label>
-                    <input type="number" value="@ViewBag.data.Discount" name="Discount" class="form-control" />
+                    <select name="Discount" class="form-control">
+                        <option value="-1">Chọn nhà cc</option>
+                        @foreach (var item in ViewBag.discount as IEnumerable<Data.DTO.DiscountCodeDTO>)
+                        {
+                            <option value="@item.ID">@item.Code</option>
+                            if (ViewBag.data.ID == item.ID)
+                            {
+                                <option value="@item.ID" selected>@item.Code</option>
+                            }
+                        }
+                    </select>
                     <div class="error"></div>
                 </div>
                 <div class="col-md-3">
@@ -153,11 +174,7 @@
                     <input type="number" value="@ViewBag.data.TotalPurchase" name="TotalPurchase" class="form-control" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Số lượng đã bán</label>
-                    <input type="number" value="@ViewBag.data.TotalInventory" name="TotalInventory" class="form-control" />
-                    <div class="error"></div>
-                </div>
+                
                 <div class="col-md-3">
                     <label>Trạng thái</label>
                     <select name="Status" class="form-control">
@@ -173,11 +190,7 @@
                         }
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <input type="checkbox" value="@ViewBag.data.ShowOnHome" id="True" name="ShowOnHome" checked />
-                    <label for="True">Hiển thị</label>
-                    <div class="error"></div>
-                </div>
+              
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
