@@ -213,6 +213,7 @@
     <Compile Include="Areas\admin\Controllers\TagController.cs" />
     <Compile Include="Areas\admin\Controllers\TransactionController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
+    <Compile Include="Authorize\CustomAuthorize.cs" />
     <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -221,6 +222,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Controllers\User2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4373,6 +4375,7 @@
     <Content Include="Content\common\package\src\utils\setParameters.js" />
     <Content Include="Content\common\package\src\utils\Timer.js" />
     <Content Include="Content\common\package\src\utils\utils.js" />
+    <Content Include="Content\css\401.css" />
     <Content Include="Content\css\AjaxLoader.html" />
     <Content Include="Content\css\blog-styles.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -4968,6 +4971,9 @@
     <Content Include="Views\Shared\Cart\_Cart.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\listCategory.cshtml" />
+    <Content Include="Views\_401.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

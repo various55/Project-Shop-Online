@@ -125,14 +125,6 @@ D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debu
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.dll
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder.dll
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.dll
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.dll
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.dll
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder.pdb
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.pdb
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.pdb
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.pdb
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.dll
 D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.pdb
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\ShopOnline.dll.config
@@ -272,3 +264,4 @@ C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CK
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.pdb
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.pdb
 C:\Users\Admin\Desktop\TTCM\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config
