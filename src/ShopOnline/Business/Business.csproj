@@ -74,11 +74,12 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ColorService.cs" />
+    <Compile Include="Services\DiscountCodeService.cs" />
+    <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\PostsService.cs" />
-    <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\SizeService.cs" />
@@ -103,9 +104,17 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{8ab8234e-d3ff-4dd0-a91c-afb54a312cf6}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{fcdf8760-d827-475e-b65e-ba52ee392bac}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{de4ac1ed-2709-458c-b4d3-8bed01ba12d0}</Project>
+      <Name>Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

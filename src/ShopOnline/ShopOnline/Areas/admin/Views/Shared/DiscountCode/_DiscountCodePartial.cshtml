@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Data.DTO.DiscountCodeDTO>
+
+@{
+    var count = 1;
+}
+<div id="tableProducts" class="row clearfix data-Table">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Danh sách giao dịch
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <button class="btn btn-edit btn-info" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(0, '/admin/DiscountCode/FormAddOrUpdate', 'add-or-edit')">Thêm mới</button>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>CODE</th>
+                                    <th>Chi tiết</th>
+                                    <th>Giảm giá</th>
+                                    <th>Thời gian bắt đầu</th>
+                                    <th>Thời gian kết thúc</th>
+                                    <th>Người tạo</th>
+                                    <th>Trạng thái</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@(count++)</td>
+                                        <td>@item.Code</td>
+                                        <td>@item.Detail</td>
+                                        <td>@item.Discount %</td>
+                                        <td>@item.StartTime</td>
+                                        <td>@item.EndTime</td>
+                                        
+                                        <td>@((DateTime.Now-item.EndTime).Days<0?"Còn hạn":"Hết hạn")</td>
+                                        <td>
+                                            <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/DiscountCode/FormAddOrUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
+                                            <button class="btn btn-delete" data-id="@item.ID" title="Xóa" onclick="Delete(@item.ID,'/admin/DiscountCode/Delete','/admin/DiscountCode/LoadAll','dataTable')"><i class="fas fa-trash-alt text-danger"></i></button>
+                                            <button class="btn btn-details" data-id="1" data-toggle="modal" data-target="#myModal">
+                                                <i class="fas fa-info-circle text-primary"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div id="modalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="add-or-edit">
+
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+</div>
+

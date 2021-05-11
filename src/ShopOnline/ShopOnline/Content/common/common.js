@@ -9,6 +9,12 @@
 /*
  * Hàm để Get dữ liệu từ form, tham số lưu ý trên đầu
  */
+var dt = {
+    pageNumber: 1,
+    pageSize: 8,
+    search: '',
+    idCategory:0
+}
 function GetData(idForm) {
     var unindexed_array = $('#' + idForm).serializeArray();
     var indexed_array = {};
@@ -17,9 +23,41 @@ function GetData(idForm) {
     });
     return indexed_array;
 }
-/*
- * Hàm để đổ dữ liệu lên client, tham số lưu ý trên đầu
- */
+function getDataFillter(idCategory,pageNumber, url, classAppend) {
+    dt.pageNumber = pageNumber;
+    dt.idCategory = idCategory;
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: {
+            pageNumber:dt.pageNumber,
+            pageSize: dt.pageSize,
+            search: dt.search,
+            idCategory: dt.idCategory
+        },
+        beforeSend: function () {
+        },
+        success: function (res) {
+          
+            $('.' + classAppend + '').html('');
+            $('.' + classAppend + '').append(res);
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
+        }
+    })
+}
+function Search(idCategory,pageNumber,url, classAppend) {
+    $('input[name="searchname"]').keyup(function () {
+        dt.search = $(this).val();
+        getDataFillter(idCategory,pageNumber, url, classAppend);
+    })
+
+}
 function LoadData(url, classAppend) {
     $.ajax({
         url: url,
@@ -91,9 +129,7 @@ function Delete(id, url_delete, url, classAppend) {
         }
     })
 }
-/*
- * Hàm để Thêm mới hoặc cập nhật, tham số lưu ý trên đầu
- */
+
 function AddOrUpdate(idForm, url_add,url,classAppend) {
     let data = GetData(idForm);
     
@@ -108,24 +144,66 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
         },
         success: function (res) {
             if (res) {
-                MessageSuccess('Thêm thành công !');
+                MessageSuccess('thành công !');
                 LoadData(url, classAppend);
+                
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
             $('#modalAdd').modal().hide();
         },
         error: function (res) {
-            MessageSuccess('Thêm thất bại !' +res);
+        },
+        complete: function () {
+        }
+    })
+}
+function AddLog(content,url_add) {
+    $.ajax({
+        url: url_add,
+        type: 'POST',
+        dataType: "json",
+        data: { data: content},
+
+        beforeSend: function () {
+            console.log(url_add);
+        },
+        success: function (res) {
+            
+        },
+        error: function (res) {
+            alert("lỗi")
         },
         complete: function () {
             console.log('Đóng');
         }
     })
 }
-/* 
- * Hàm để set dữ liệu vào form, dùng cho chức năng cập nhật
- */
+function getById(id, url, classAppend) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: 'html',
+        data: {
+            id: id,
+            pageNumber: dt.pageNumber,
+            pageSize: dt.pageSize
+        },
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            $('.' + classAppend + '').html('');
+            $('.' + classAppend + '').append(res);
+        },
+        error: function () {
+
+        },
+        complete: function () {
+
+        }
+    })
+}
 function setDataForm(idForm,url,classAppend) {
     $.ajax({
         url: url,

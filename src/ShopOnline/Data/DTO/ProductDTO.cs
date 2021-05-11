@@ -60,6 +60,8 @@ namespace Data.DTO
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
         public virtual Category Category { get; set; }
         public virtual Suppelier Suppelier { get; set; }
+        public virtual DiscountCode DiscountCode { get; set; }
+      
 
     }
 }

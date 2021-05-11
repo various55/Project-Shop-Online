@@ -82,7 +82,6 @@ namespace Business.Services
             {
                 orderDetailRepository.add(item);
             }
-            unitOfWork.commit();
             return res != null;
         }
         public bool Remove(int id)

@@ -63,10 +63,7 @@ namespace ShopOnline.Areas.admin.Controllers
             ViewBag.Data = categoryDTO;
             return PartialView();
         }
-        public PartialViewResult aa()
-        {
-            return PartialView();
-        }
+       
         [HttpPost]
         public JsonResult Delete(int id)
         {

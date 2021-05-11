@@ -80,7 +80,9 @@
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
+    <Compile Include="DTO\DiscountCodeDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\LogDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
     <Compile Include="DTO\ProductDetaiDTO.cs" />
@@ -92,21 +94,9 @@
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
-    <Compile Include="Migrations\202105090714227_database-v1.cs" />
-    <Compile Include="Migrations\202105090714227_database-v1.designer.cs">
-      <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105071745360_fix-length-img-post.cs" />
-    <Compile Include="Migrations\202105071745360_fix-length-img-post.designer.cs">
-      <DependentUpon>202105071745360_fix-length-img-post.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105080854285_v2.cs" />
-    <Compile Include="Migrations\202105080854285_v2.designer.cs">
-      <DependentUpon>202105080854285_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105090910100_db-v2.cs" />
-    <Compile Include="Migrations\202105090910100_db-v2.designer.cs">
-      <DependentUpon>202105090910100_db-v2.cs</DependentUpon>
+    <Compile Include="Migrations\202105111505054_db-v1.cs" />
+    <Compile Include="Migrations\202105111505054_db-v1.designer.cs">
+      <DependentUpon>202105111505054_db-v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -129,6 +119,7 @@
     <Compile Include="Repositories\imp\ColorRepository.cs" />
     <Compile Include="Repositories\imp\ConfirmStatusRepository.cs" />
     <Compile Include="Repositories\imp\ContactRepository.cs" />
+    <Compile Include="Repositories\imp\DiscountCodeRepository.cs" />
     <Compile Include="Repositories\imp\ImageDetailRepository.cs" />
     <Compile Include="Repositories\imp\LogRepository.cs" />
     <Compile Include="Repositories\imp\OrderDetailRepository.cs" />
@@ -162,14 +153,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105090714227_database-v1.resx">
-      <DependentUpon>202105090714227_database-v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105090910100_db-v2.resx">
-      <DependentUpon>202105090910100_db-v2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
     <None Include="ConnectionStrings.config" />
     <None Include="packages.config" />
@@ -178,11 +161,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105071745360_fix-length-img-post.resx">
-      <DependentUpon>202105071745360_fix-length-img-post.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105080854285_v2.resx">
-      <DependentUpon>202105080854285_v2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105111505054_db-v1.resx">
+      <DependentUpon>202105111505054_db-v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
