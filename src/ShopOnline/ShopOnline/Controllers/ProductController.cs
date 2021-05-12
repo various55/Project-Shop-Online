@@ -13,26 +13,31 @@ namespace ShopOnline.Controllers
     {
         IProductService productService;
         ICategoryService categoryService;
+        IProductDetailService productDetailService;
         public ProductController()
         {
 
         }
 
-        public ProductController(IProductService productService, ICategoryService categoryService)
+        public ProductController(IProductService productService, ICategoryService categoryService, IProductDetailService productDetailService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
+            this.productDetailService = productDetailService;
         }
 
         // GET: Product
         public ActionResult Index()
         {
-           
             return View();
         }
-        public ActionResult ProductDetail()
+        public ActionResult ProductDetail(int id)
         {
-            return View();
+            var productDetail = productDetailService.Find(id);
+            var productDetailDTO = AutoMapper.Mapper.Map<ICollection<PDetailDTO>>(productDetail);
+            var product = productService.FindById(id);
+            ViewBag.product= AutoMapper.Mapper.Map<ProductDTO>(product);
+            return View(productDetailDTO);
         }
       
         public ActionResult listCategory()
@@ -43,8 +48,9 @@ namespace ShopOnline.Controllers
         }
         public ActionResult Product(int idCategory, int pageNumber, int pageSize, string search)
         {
-            var products = productService.FindAll(new String[] { "DiscountCode" });
+            var products = productService.FindAll();
             ViewBag.idCategory = idCategory;
+            TempData["idCategory"] = idCategory;
             if (idCategory == 0)
             {
                 if (search.Trim() != "") products = products.Where(x => x.Name.Contains(search)).OrderBy(x => x.Name).ToList();

@@ -20,7 +20,7 @@ namespace Data.DTO
 
         public int ID { get; set; }
         
-
+        [Required]
         public string Title { get; set; }
 
         [StringLength(256)]

@@ -57,7 +57,5 @@ namespace Data.Models
         public virtual Category Category { get; set; }
         [ForeignKey("SupplierID")]
         public virtual Suppelier Suppelier { get; set; }
-        [ForeignKey("Discount")]
-        public virtual DiscountCode DiscountCode { get; set; }
     }
 }

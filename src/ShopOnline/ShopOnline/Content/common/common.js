@@ -13,7 +13,7 @@ var dt = {
     pageNumber: 1,
     pageSize: 8,
     search: '',
-    idCategory:0
+    idCategory: 0
 }
 function GetData(idForm) {
     var unindexed_array = $('#' + idForm).serializeArray();
@@ -23,7 +23,7 @@ function GetData(idForm) {
     });
     return indexed_array;
 }
-function getDataFillter(idCategory,pageNumber, url, classAppend) {
+function getDataFillter(idCategory, pageNumber, url, classAppend) {
     dt.pageNumber = pageNumber;
     dt.idCategory = idCategory;
     $.ajax({
@@ -31,7 +31,7 @@ function getDataFillter(idCategory,pageNumber, url, classAppend) {
         type: "POST",
         dataType: "html",
         data: {
-            pageNumber:dt.pageNumber,
+            pageNumber: dt.pageNumber,
             pageSize: dt.pageSize,
             search: dt.search,
             idCategory: dt.idCategory
@@ -39,7 +39,7 @@ function getDataFillter(idCategory,pageNumber, url, classAppend) {
         beforeSend: function () {
         },
         success: function (res) {
-          
+
             $('.' + classAppend + '').html('');
             $('.' + classAppend + '').append(res);
         },
@@ -51,10 +51,10 @@ function getDataFillter(idCategory,pageNumber, url, classAppend) {
         }
     })
 }
-function Search(idCategory,pageNumber,url, classAppend) {
+function Search(idCategory, pageNumber, url, classAppend) {
     $('input[name="searchname"]').keyup(function () {
         dt.search = $(this).val();
-        getDataFillter(idCategory,pageNumber, url, classAppend);
+        getDataFillter(idCategory, pageNumber, url, classAppend);
     })
 
 }
@@ -80,7 +80,7 @@ function LoadData(url, classAppend) {
  * Hàm để xóa, tham số lưu ý trên đầu
  */
 function Delete(id, url_delete, url, classAppend) {
-    
+
     Swal.fire({
         title: 'Bạn có chắc chắn không?',
         text: "Dữ liêu sau khi xóa sẽ bị mất, bạn vẫn muốn tiếp tục chứ!",
@@ -101,7 +101,7 @@ function Delete(id, url_delete, url, classAppend) {
 
                 },
                 success: function (res) {
-                    if (res==true) {
+                    if (res == true) {
                         Swal.fire(
                             'Thành công!',
                             'Dữ liệu đã được xóa thành công.',
@@ -130,9 +130,8 @@ function Delete(id, url_delete, url, classAppend) {
     })
 }
 
-function AddOrUpdate(idForm, url_add,url,classAppend) {
+function AddOrUpdate(idForm, url_add, url, classAppend) {
     let data = GetData(idForm);
-    
     $.ajax({
         url: url_add,
         type: 'POST',
@@ -145,12 +144,13 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
         success: function (res) {
             if (res) {
                 MessageSuccess('thành công !');
-                LoadData(url, classAppend);
-                
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
+<<<<<<< HEAD
             
+=======
+>>>>>>> master
         },
         error: function (res) {
         },
@@ -158,19 +158,21 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
             $('#modalAdd').modal('toggle');
         }
     })
+    $('#modalAdd').modal('toggle');
+    LoadData(url, classAppend);
 }
-function AddLog(content,url_add) {
+function AddLog(content, url_add) {
     $.ajax({
         url: url_add,
         type: 'POST',
         dataType: "json",
-        data: { data: content},
+        data: { data: content },
 
         beforeSend: function () {
             console.log(url_add);
         },
         success: function (res) {
-            
+
         },
         error: function (res) {
             alert("lỗi")
@@ -205,7 +207,7 @@ function getById(id, url, classAppend) {
         }
     })
 }
-function setDataForm(idForm,url,classAppend) {
+function setDataForm(idForm, url, classAppend) {
     $.ajax({
         url: url,
         type: "Get",

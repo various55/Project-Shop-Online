@@ -58,6 +58,7 @@
     <link rel='stylesheet' type='text/css' media='all' href='~/Content/css/style_fashion.css' />
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/css/UserStyle.css" rel="stylesheet" />
+    <link href="~/Content/css/cart_styles.css" rel="stylesheet" />
 </head>
 
 <body class="cms-index-index">
@@ -77,10 +78,23 @@
                                         @Html.Partial("_Search")
                                         <div class="em-top-links">
                                             <div class="f-right"></div>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <a href="@Url.Action("Logout","User2")" class="link-account text-body">Đăng xuất</a>
+                                                </div>
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <a href="@Url.Action("Profile","User2")" class="link-account text-body">Xin chào @User.Identity.Name</a>
+                                                </div>
 
-                                            @Html.Partial("_Register")
+                                            }
+                                            else
+                                            {
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <a href="@Url.Action("Index","User2")" class="link-account" id="link-login" title="Login">Đăng nhập</a>
+                                                </div>
+                                            }
 
-                                            @Html.Partial("_Login")
 
                                         </div>
                                     </div>

@@ -26,8 +26,6 @@ namespace ShopOnline.Areas.admin.Controllers
         // GET: admin/User
         public ActionResult Index()
         {
-            var isLogin = HttpContext.User.Identity.IsAuthenticated;
-            if (isLogin) return Redirect("/");
             return View();
         }
 
@@ -47,6 +45,8 @@ namespace ShopOnline.Areas.admin.Controllers
                         //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
                         FormsAuthentication.SetAuthCookie(username, true);
                         Response.Cookies[CookieConst.USER].Value = res.ID.ToString();
+                        Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies[CookieConst.ROLE].Value = res.Role.Name;
                         Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(1);
                         return RedirectToAction("Index", "Home");
                     }
