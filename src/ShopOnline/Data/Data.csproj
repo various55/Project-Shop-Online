@@ -84,11 +84,13 @@
     <Compile Include="DTO\NarbarDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\LogDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
-    <Compile Include="DTO\ProductDetaiDTO.cs" />
     <Compile Include="DTO\PostsDTO.cs" />
+    <Compile Include="DTO\ProductDetaiDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\ShopInformationDTO.cs" />
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\SuppelierDTO.cs" />
     <Compile Include="DTO\TagDTO.cs" />
@@ -100,6 +102,11 @@
     <Compile Include="Migrations\202105111644236_db-v2.cs" />
     <Compile Include="Migrations\202105111644236_db-v2.Designer.cs">
       <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
+    <Compile Include="DTO\UserPasswordDTO.cs" />
+    <Compile Include="DTO\UserRegistDTO.cs" />
+    <Compile Include="Migrations\202105111641587_db-2.cs" />
+    <Compile Include="Migrations\202105111641587_db-2.designer.cs">
+      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />

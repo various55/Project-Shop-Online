@@ -35,16 +35,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_FileEditor">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_FileEditor.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_FileEditor.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_ImageResize">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_ImageResize.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_ImageResize.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_Watermark">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_Watermark.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_Watermark.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>

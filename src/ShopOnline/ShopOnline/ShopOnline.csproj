@@ -4623,6 +4623,7 @@
     <Content Include="Content\images\wysiwyg\em_ads_text_08.png" />
     <Content Include="Content\images\wysiwyg\em_ads_text_09.png" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\cart.js" />
     <Content Include="Content\js\cloud-zoom.js" />
     <Content Include="Content\js\CommonJS.js" />
     <Content Include="Content\js\custom.js" />
@@ -4990,6 +4991,11 @@
     <Content Include="Views\User\LoadFromChangePassword.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\User\UpdateBillInfo.cshtml" />
+    <Content Include="Views\User\FromRegistUser.cshtml" />
+    <Content Include="Views\User\InfoUser.cshtml" />
+    <Content Include="Views\User\LoadFromChangePassword.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\UpdateBillInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5058,7 +5064,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53225</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44365/</IISUrl>
+          <IISUrl>https://localhost:44365</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
