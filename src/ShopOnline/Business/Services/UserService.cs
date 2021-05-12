@@ -21,6 +21,7 @@ namespace Business.Services
         bool EditBillInfo(User user);
         bool ChangePass(int id, string newpassword, string password);
         User FindByUsername(string username);
+        string RegistUser(User user);
         void Save();
     }
     public class UserService : IUserService
@@ -94,7 +95,12 @@ namespace Business.Services
         }  
         public bool ChangePass(int id, string newpassword,string password)
         {
-            return _UserRepository.ChangePass(id,password, newpassword);
+            return _UserRepository.ChangePass(id,newpassword, password);
+        }
+        public string RegistUser(User user)
+        {
+
+            return _UserRepository.RegistUser(user);
         }
     }
 }

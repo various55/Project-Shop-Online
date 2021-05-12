@@ -147,10 +147,6 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
-<<<<<<< HEAD
-            
-=======
->>>>>>> master
         },
         error: function (res) {
         },

@@ -4,25 +4,6 @@
 <div class="mt-3">
     <h4>@Model.Name</h4>
     <p class="text-muted font-size-sm">@Model.Address</p>
-    <button class="btn btn-primary btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(1, '/User/UpdateBillInfo', 'edit');">Sửa thông tin thanh toán</button>
-    <button class="btn btn-primary btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(1, '/User/LoadFromChangePassword', 'edit');">Đổi mật khẩu</button>
-</div>
-
-<div id="modalAdd" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header bg-gradient-green">
-                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
-                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="edit">
-
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <button class="btn btn-primary btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm('', '/User/UpdateBillInfo', 'edit');">Sửa thông tin thanh toán</button>
+    <button class="btn btn-primary btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(''1, '/User/LoadFromChangePassword', 'edit');">Đổi mật khẩu</button>
 </div>
