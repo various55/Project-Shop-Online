@@ -151,6 +151,7 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
         error: function (res) {
         },
         complete: function () {
+            $('#modalAdd').modal('toggle');
         }
     })
     $('#modalAdd').modal('toggle');

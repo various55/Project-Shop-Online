@@ -18,7 +18,10 @@ namespace Business.Services
         ICollection<User> FindAll(string[] includes);
         User FindById(int id);
         User Login(string username,string password);
+        bool EditBillInfo(User user);
+        bool ChangePass(int id, string newpassword, string password);
         User FindByUsername(string username);
+        string RegistUser(User user);
         void Save();
     }
     public class UserService : IUserService
@@ -84,6 +87,20 @@ namespace Business.Services
         public User FindByUsername(string username)
         {
             return _UserRepository.findByCondition(x => x.Username == username).SingleOrDefault();
+        }
+
+        public bool EditBillInfo(User user)
+        {
+            return _UserRepository.EditBillInfo(user);
+        }  
+        public bool ChangePass(int id, string newpassword,string password)
+        {
+            return _UserRepository.ChangePass(id,newpassword, password);
+        }
+        public string RegistUser(User user)
+        {
+
+            return _UserRepository.RegistUser(user);
         }
     }
 }

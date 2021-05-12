@@ -36,7 +36,7 @@
                         <div class="login-slide slide">
                             <div class="d-flex height-100-percentage">
                                 <div class="align-self-center width-100-percentage">
-                                    @using (Html.BeginForm("Login", "User2", FormMethod.Post, new { @class = "floating-form" }))
+                                    @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "floating-form" }))
                                     {
                                         @Html.AntiForgeryToken()
                                         @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
@@ -56,7 +56,7 @@
                                         </div>
                                     }
                                     <div class="sign-up-txt">
-                                        Chưa có tài khoản? <a href="javascript:;" class="sign-up-click">Đăng kí</a>
+                                        Chưa có tài khoản? <a href="javascript:;" class="sign-up-click btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(0, '/User/FromRegistUser', 'edit')">Đăng kí</a>
                                     </div>
                                     <div class="forgot-txt">
                                         <a href="javascript:;" class="forgot-password-click">Quên mật khẩu</a>
