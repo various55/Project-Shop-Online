@@ -20,7 +20,7 @@ namespace Data.Repositories.imp
 
         public ProductDetail Find(int id, int size, int color)
         {
-            return DbContext.ProductDetails.Single(p => p.ProductID == id && p.SizeID == size && p.ColorID == color);
+            return DbContext.ProductDetails.SingleOrDefault(p => p.ProductID == id && p.SizeID == size && p.ColorID == color);
         }
     }
 }

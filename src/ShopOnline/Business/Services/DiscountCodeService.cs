@@ -11,6 +11,8 @@ namespace Business.Services
 {
     public interface IDiscountCodeService
     {
+        int getDiscountByCode(string code);
+
         ICollection<DiscountCode> FindAll(string[] includes=null);
         ICollection<DiscountCode> FindAll();
         DiscountCode FindById(int id);
@@ -86,5 +88,11 @@ namespace Business.Services
             return DiscountCodeRepository.findById(id);
         }
 
+        public int getDiscountByCode(string code)
+        {
+            var model = DiscountCodeRepository.findByCondition(x => x.Code == code && x.EndTime > DateTime.Now).SingleOrDefault();
+            if (model == null) return 0;
+            return (int)model.Discount;
+        }
     }
 }

@@ -41,7 +41,7 @@
                                         <td>@item.Discount %</td>
                                         <td>@item.StartTime</td>
                                         <td>@item.EndTime</td>
-                                        
+
                                         <td>@((DateTime.Now-item.EndTime).Days<0?"Còn hạn":"Hết hạn")</td>
                                         <td>
                                             <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/DiscountCode/FormAddOrUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
@@ -75,9 +75,9 @@
 
                 </div>
             </div>
-           
+
         </div>
 
     </div>
 </div>
-
+<script src="/Content/admin/js/pages/tables/jquery-datatable.js"></script>

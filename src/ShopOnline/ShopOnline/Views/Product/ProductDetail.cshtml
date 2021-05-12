@@ -19,7 +19,7 @@
                                         </div><!-- /.media-left -->
                                         <div class="more-views">
                                             <ul class="em-moreviews-slider ">
-                                                @*<li class="item">
+                                                <li class="item">
                                                     <a class="cloud-zoom-gallery" rel="useZoom:'image_zoom', smallImage:'~/Content/images/product/800x800/4_1.jpg', adjustX:5, adjustY:-5, position:'inside'" onclick="return false" href="~/Content/images/product/1000x1000/4_1.jpg"> <img src="~/Content/images/product/100x100/4_1.jpg" alt="" /> </a> <a class="no-display" href="images/product/1000x1000/4_1.jpg" rel="lightbox[em_lightbox]">lightbox moreview</a>
                                                 </li>
                                                 <li class="item">
@@ -27,7 +27,7 @@
                                                 </li>
                                                 <li class="item">
                                                     <a class="cloud-zoom-gallery" rel="useZoom:'image_zoom', smallImage:'~/Content/images/product/800x800/5_1.jpg', adjustX:5, adjustY:-5, position:'inside'" onclick="return false" href="~/Content/images/product/1000x1000/5_1.jpg"> <img src="~/Content/images/product/100x100/5_1.jpg" alt="" /> </a> <a class="no-display" href="images/product/1000x1000/5_1.jpg" rel="">lightbox moreview</a>
-                                                </li>*@
+                                                </li>
                                             </ul>
                                         </div><!-- /.more-views -->
                                     </div>
@@ -35,6 +35,7 @@
                                 <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail">
                                     <div class="product-shop  fix_menu">
                                         <div id="em-product-info-basic">
+
                                             <div class="product-name">
                                                 <h1>@ViewBag.product.Name</h1>
                                             </div>
@@ -46,82 +47,81 @@
                                                 <label>Giá bán</label>
                                                 <h1 style="color:red">@ViewBag.product.ExportPrice</h1>
                                             </div>
-                                           @if (Model.Count() > 0)
-                                           {
-                                            <div class="size-button">
-                                                <label>Chọn size</label>
-                                                <div class="form-check">
+                                            @if (Model.Count() > 0)
+                                            {
+                                                <div class="size-button">
+                                                    <label>Chọn size</label>
+                                                    <div class="form-check">
 
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        <input class="form-check-input" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px">
-                                                        <label class="form-check-label" for="@item.Size.ID" style="margin-right:7px;font-size:16px;color:red">
-                                                            @item.Size.Name
-                                                        </label>
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            <input class="form-check-input" value="@item.Size.ID" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()" checked>
+                                                            <label class="form-check-label" for="@item.Size.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Size.Name
+                                                            </label>
 
-                                                    }
+                                                        }
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="color-button">
-                                                <label>Chọn color</label>
-                                                <div class="form-check">
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        <input class="form-check-input" type="radio" name="color" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px">
-                                                        <label class="form-check-label" for="@item.Color.ID" style="margin-right:7px;font-size:16px;color:red">
-                                                            @item.Color.Name
-                                                        </label>
+                                                <div class="color-button">
+                                                    <label>Chọn color</label>
+                                                    <div class="form-check">
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.Color.ID" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px" checked>
+                                                            <label class="form-check-label" for="@item.Color.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Color.Name
+                                                            </label>
 
-                                                    }
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div>
 
-                                           }
+                                                    <p class="availability in-stock">
+                                                        Availability: <span>In stock</span>
+                                                    </p>
+
+                                                    <div class="price-box">
+                                                        <span class="regular-price" id="product-price-206"> <span class="price" content="750">@ViewBag.Product.ExportPrice $</span> </span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-to-box">
+                                                    <div class="add-to-cart">
+                                                        <label for="qty">Qty:</label>
+                                                        <div class="qty_cart">
+                                                            <div class="qty-ctl">
+                                                                <button title="decrease" onclick="changeQty(0); return false;" class="decrease">decrease</button>
+                                                            </div>
+                                                            <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
+                                                            <div class="qty-ctl">
+                                                                <button title="increase" onclick="changeQty(1); return false;" class="increase">increase</button>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="add-to-links">
+                                                            <li>
+                                                                <a title="Add to Wishlist" href="#" class="link-wishlist">Add to Wishlist</a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="separator">|</span> <a href="#" title="Add to Compare" class="link-compare">Add to Compare</a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="button_addto">
+                                                            <button type="button" title="Buy Now" id="em-buy-now" class="btn btn-success" onclick="add(@ViewBag.product.ID)">
+                                                                <span><span>Thêm vào giỏ hàng</span></span>
+                                                            </button>
+                                                        </div>
+                                                    </div><!-- /.add-to-cart -->
+                                                </div><!-- /.add-to-box -->
+                                            }
                                             else
                                             {
-                                               <div>Chưa có sản phẩm</div>
+                                                <div>Sản phẩm đã hết hàng</div>
+                                                <button class="btn btn-danger">Liên hệ</button>
                                             }
-                                            <div>
-
-                                                <p class="availability in-stock">
-                                                    Availability: <span>In stock</span>
-                                                </p>
-
-                                                <div class="price-box">
-                                                    <span class="regular-price" id="product-price-206"> <span class="price" content="750">$750.00</span> </span>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-box">
-                                                <div class="add-to-cart">
-                                                    <label for="qty">Qty:</label>
-                                                    <div class="qty_cart">
-                                                        <div class="qty-ctl">
-                                                            <button title="decrease" onclick="changeQty(0); return false;" class="decrease">decrease</button>
-                                                        </div>
-                                                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
-                                                        <div class="qty-ctl">
-                                                            <button title="increase" onclick="changeQty(1); return false;" class="increase">increase</button>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="add-to-links">
-                                                        <li>
-                                                            <a title="Add to Wishlist" href="#" class="link-wishlist">Add to Wishlist</a>
-                                                        </li>
-                                                        <li>
-                                                            <span class="separator">|</span> <a href="#" title="Add to Compare" class="link-compare">Add to Compare</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="button_addto">
-                                                        <button type="button" title="Buy Now" id="em-buy-now" class="button btn-em-buy-now">
-                                                            <span><span>Buy Now</span></span>
-                                                        </button>
-                                                        <button type="button" title="Add to Cart" id="product-addtocart-button" class="button btn-cart btn-cart-detail">
-                                                            <span><span>Add to Cart</span></span>
-                                                        </button>
-                                                    </div>
-                                                </div><!-- /.add-to-cart -->
-                                            </div><!-- /.add-to-box -->
+                                            <a class="btn btn-info" href='@Url.Action("Index", "Cart")'>Thanh toán</a>
+                                            <a href="@Url.Action("Index","Home")" class="btn btn-info">Quay lại trang mua hàng</a>
                                         </div><!-- /.em-product-info-basic -->
                                     </div>
                                 </div><!-- /.em-product-view-secondary -->
@@ -133,8 +133,7 @@
                 <div class="row">
                     <div class="em-product-view-primary col-sm-16 first"></div>
                 </div>
-                </div>
-                                   
+            </div>
         </div>
     </div>
 </div>

@@ -7965,8 +7965,8 @@ div.desc {
 /*My wishlist*/
 
 .data-table a.product-image img {
-    width: auto;
-    height: auto;
+    width: 120px;
+    height: 120px;
 }
 #wishlist-table .cart-cell .link-edit {
     float: left;
@@ -13240,7 +13240,6 @@ align-content: flex-start;	*/
     height: 100%;
     top: 0;
     opacity: 1;
-    filter: alpha(opacity=100);
     visibility: initial;
     display: flex;
     align-items: center;
@@ -13732,7 +13731,6 @@ align-content: flex-start;	*/
 
 .btn {
     width: 100%;
-    background: #000;
     color: #fff !important;
     margin-top: 10px;
     margin-bottom: 10px;
