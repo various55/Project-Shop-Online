@@ -95,6 +95,12 @@
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
+    <Compile Include="DTO\UserPasswordDTO.cs" />
+    <Compile Include="DTO\UserRegistDTO.cs" />
+    <Compile Include="Migrations\202105111644236_db-v2.cs" />
+    <Compile Include="Migrations\202105111644236_db-v2.Designer.cs">
+      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
@@ -159,7 +165,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105111644236_db-v2.resx">
+      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
