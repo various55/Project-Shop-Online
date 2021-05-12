@@ -76,6 +76,7 @@
     <Compile Include="Services\ColorService.cs" />
     <Compile Include="Services\DiscountCodeService.cs" />
     <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\NarbarService.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PostsService.cs" />

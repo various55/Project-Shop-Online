@@ -144,9 +144,11 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
         success: function (res) {
             if (res) {
                 MessageSuccess('thành công !');
+                $('#modalAdd').hide();
             } else {
-                MessageSuccess('Thêm thất bại !');
+                MessageFailed('Thêm thất bại !');
             }
+           
         },
         error: function (res) {
         },

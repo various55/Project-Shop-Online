@@ -12,13 +12,7 @@
                     <input type="text" value="" name="Name" class="form-control" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Trạng thái</label>
-                    <input class="form-check-input" type="checkbox" name="Status" value="" />
-                    Đã có mặt hàng
-                    
-                    <div class="error"></div>
-                </div>
+               
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -34,16 +28,7 @@
                     <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Trạng thái</label>
-                    <span>Đã có mặt hàng</span>
-                         @if (ViewBag.data.Status == true) {<input class="form-check-input" type="checkbox" name="status" value="true" checked/>}
-                        
-                        else { <input class="form-check-input" type="checkbox" name="Status" value="false"/>}
-                    
-                   
-                    <div class="error"></div>
-                </div>
+             
 
             </div>
 

@@ -48,6 +48,7 @@ namespace ShopOnline.Areas.admin.Controllers
         {
             model.TotalInventory = 0;
             model.ShowOnHome = true;
+            model.Discount = 0;
             var status = false;
             if (!ModelState.IsValid)
             {
@@ -111,6 +112,7 @@ namespace ShopOnline.Areas.admin.Controllers
             ViewBag.Supplier = AutoMapper.Mapper.Map<IEnumerable<SuppelierDTO>>(supplier);
             return PartialView();
         }
+       
         [HttpGet]
         public ActionResult Detail(int id)
         {

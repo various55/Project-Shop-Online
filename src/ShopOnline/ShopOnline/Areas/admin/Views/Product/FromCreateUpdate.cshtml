@@ -1,21 +1,24 @@
 ﻿
 
-
 <div class="update-info">
     <form id="formAddOrUpdate">
         @if (ViewBag.data == null)
         {
             <input type="number" name="ID" value="0" class="form-control hidden" hidden />
             <div class="row m-0">
+              
                 <div class="col-md-3">
-                    <label>Mã Sản phẩm</label>
+                    <label>Mã SP</label>
                     <input type="text" value="" name="Code" class="form-control" />
                     <div class="error"></div>
+
                 </div>
                 <div class="col-md-3">
-                    <label>Tên Sản phẩm</label>
+                    <label>Tên SP</label>
                     <input type="text" value="" name="Name" class="form-control" />
                     <div class="error"></div>
+
+
                 </div>
                 <div class="col-md-3">
                     <label>Danh mục</label>
@@ -45,31 +48,33 @@
                     <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" />
                 </div>
                 <div class="col-md-3">
-                    <label>Đơn giá nhập</label>
-                    <input class="form-control" type="text" name="ImportPrice" value="" />
+                    <label>Giá Nhập</label>
+                    <input type="text" value="" name="ImportPrice" class="form-control"  />
                     <div class="error"></div>
+
                 </div>
                 <div class="col-md-3">
-                    <label>Đơn giá bán</label>
+                    <label>Giá bán</label>
                     <input type="text" value="" name="ExportPrice" class="form-control" />
                     <div class="error"></div>
                 </div>
                 <div class="col-md-3">
                     <label>Mô tả</label>
-                    <input class="form-control" type="text" name="Description" value="" />
+                    
+                    <input type="text" value="" name="Description" class="form-control" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Giảm giá</label>
-                    <select name="Discount" class="form-control">
-                        <option value="-1">Chọn mã giảm giá</option>
-                        @foreach (var item in ViewBag.discount as IEnumerable<Data.DTO.DiscountCodeDTO>)
-                        {
-                            <option value="@item.ID">@item.Code</option>
-                        }
-                    </select>
-                    <div class="error"></div>
-                </div>
+                @*<div class="col-md-3">
+            <label>Giảm giá</label>
+            <select name="Discount" class="form-control">
+                <option value="-1">Chọn mã giảm giá</option>
+                @foreach (var item in ViewBag.discount as IEnumerable<Data.DTO.DiscountCodeDTO>)
+                {
+                    <option value="@item.ID">@item.Code</option>
+                }
+            </select>
+            <div class="error"></div>
+        </div>*@
                 <div class="col-md-3">
                     <label>Số lượng nhập</label>
                     <input type="number" value="" name="TotalPurchase" class="form-control" />
@@ -79,8 +84,8 @@
                 <div class="col-md-3">
                     <label>Trạng thái</label>
                     <select class="form-control status" value="true" name="Status">
-                        <option value="false"> Tồn nhều </option>
-                        <option value="true"> Hàng tặng </option>
+                        <option value="false"> Hàng cao cấp </option>
+                        <option value="true"> Hàng trung quốc </option>
                     </select>
                     <div class="error"></div>
                 </div>
@@ -154,21 +159,7 @@
                     <input class="form-control" type="text" name="Description" value="@ViewBag.data.Description" />
                     <div class="error"></div>
                 </div>
-                <div class="col-md-3">
-                    <label>Giảm giá</label>
-                    <select name="Discount" class="form-control">
-                        <option value="-1">Chọn nhà cc</option>
-                        @foreach (var item in ViewBag.discount as IEnumerable<Data.DTO.DiscountCodeDTO>)
-                        {
-                            <option value="@item.ID">@item.Code</option>
-                            if (ViewBag.data.ID == item.ID)
-                            {
-                                <option value="@item.ID" selected>@item.Code</option>
-                            }
-                        }
-                    </select>
-                    <div class="error"></div>
-                </div>
+                
                 <div class="col-md-3">
                     <label>Số lượng nhập</label>
                     <input type="number" value="@ViewBag.data.TotalPurchase" name="TotalPurchase" class="form-control" />
@@ -180,13 +171,13 @@
                     <select name="Status" class="form-control">
                         @if (ViewBag.data.Status == false)
                         {
-                            <option value="true">Hàng hot</option>
-                            <option value="false" selected>Hàng tặng</option>
+                            <option value="true">Hàng Cao cấp</option>
+                            <option value="false" selected>Hàng Quảng Châu</option>
                         }
                         @if (ViewBag.data.Status == true)
                         {
-                            <option value="true" selected>Hàng hot</option>
-                            <option value="false">Hàng tặng</option>
+                            <option value="true" selected>Hàng Cao Cấp</option>
+                            <option value="false">Hàng Quảng Châu</option>
                         }
                     </select>
                 </div>

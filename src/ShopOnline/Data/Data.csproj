@@ -81,6 +81,7 @@
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\DiscountCodeDTO.cs" />
+    <Compile Include="DTO\NarbarDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\LogDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
@@ -94,10 +95,6 @@
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.designer.cs">
-      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
@@ -106,6 +103,7 @@
     <Compile Include="Models\DiscountCode.cs" />
     <Compile Include="Models\ImageDetail.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Narbar.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Post.cs" />
@@ -122,6 +120,7 @@
     <Compile Include="Repositories\imp\DiscountCodeRepository.cs" />
     <Compile Include="Repositories\imp\ImageDetailRepository.cs" />
     <Compile Include="Repositories\imp\LogRepository.cs" />
+    <Compile Include="Repositories\imp\NarbarRepository.cs" />
     <Compile Include="Repositories\imp\OrderDetailRepository.cs" />
     <Compile Include="Repositories\imp\OrderRepository.cs" />
     <Compile Include="Repositories\imp\PostRepository.cs" />
@@ -160,11 +159,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105111641587_db-2.resx">
-      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
