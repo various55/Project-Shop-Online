@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace Data.DTO
 {
-    public class CategoryDTO
+    public class NarbarDTO
     {
+        [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage ="Bạn phải nhập tên danh mục")]
         [StringLength(50)]
         public string Name { get; set; }
 
-        public bool? Status { get; set; }
-
+        public int local { get; set; }
     }
 }

@@ -2,31 +2,15 @@
 @{
     ViewBag.Title = "_CategoriesLeft";
 }
+<ul class="em-tabs-control tabs-control r-tabs-nav">
+    <li class="r-tabs-tab r-tabs-state-active" onclick="getDataFillter(0,1,'/Product/Product','product')">
+        <a class="r-tabs-anchor active" href="#tab_emtabs_1_1" data-hover="Shirt"> <span class="icon"></span>Tất cả</a>
+    </li>
+    @foreach (var item in Model)
+    {
+        <li class="r-tabs-state-default r-tabs-tab" onclick="getDataFillter(@item.ID, 1, '/Product/Product', 'product')">
+            <a class="r-tabs-anchor" href="#tab_emtabs_1_2" data-hover="Skirt"> <span class="icon"></span>@item.Name</a>
+        </li>
 
-<div id="menuleftText" class="all_categories">
-    <div class="menuleftText-title">
-        <div class="menuleftText">
-            <span class="em-text-upercase">Categories</span>
-        </div>
-    </div>
-</div><!-- /.menuleftText -->
-<div class="menuleft">
-    <div id="menu-default" class="mega-menu em-menu-icon">
-        <div class="megamenu-wrapper wrapper-5_4607">
-            <div class="em_nav" id="toogle_menu_5_4607">
-                <ul class="vnav em-menu-icon effect-menu em-menu-long">
-                    <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last" onclick="getDataFillter(0,1,'/Product/Product','product')">
-                        <a class="em-menu-link"><span> Tất cả</span></a>
-                    </li>
-                    @foreach (var item in Model)
-                    {
-                        <li class="menu-item-link menu-item-depth-0 em-more-menu fa fa-tags hidden-md hidden-sm last" onclick="getDataFillter(@item.ID, 1, '/Product/Product', 'product')">
-                            <a class="em-menu-link"><span> @item.Name</span></a>
-                        </li>
-                    }
-
-                </ul><!-- /.vnav -->
-            </div>
-        </div><!-- /.megamenu-wrapper -->
-    </div>
-</div><!-- /.menuleft -->
+    }
+</ul>

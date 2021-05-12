@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Data.DTO.ProductDTO>
 @{
+    var clas = "";
     ViewBag.Title = "_Product";
+
 }
 
 
@@ -21,9 +23,11 @@
                             <div class="products-grid ">
                                 @for (int i = 0; i < Model.Count(); i++)
                                 {
-
-                                    if (i % 4 == 0)
-                                    {<div class="item first" style="  ">
+                                    if (i % 4 == 0) { clas = "item first"; }
+                                    else if(i%4==1|i%4==2) { clas = "item first"; }
+                                    else { clas = "item first"; }
+                                  
+                                        <div class=@clas style="  ">
                                             <div class="product-item">
                                                 <div class="product-shop-top">
                                                     <a href="#" title="@Model.ElementAt(i).Name" class="product-image">
@@ -78,130 +82,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> }
-                                    if (i % 4 == 1 || i % 4 == 2)
-                                    { <div class="item" style="  ">
-                                            <div class="product-item">
-                                                <div class="product-shop-top">
-                                                    <a href="#" title=" Metallic Midi Cut Out Midi Dress" class="product-image">
-                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="@Model.ElementAt(i).UrlImage" data-original="@Model.ElementAt(i).UrlImage" alt=" Metallic Midi Cut Out Midi Dress" height="350" width="350">
-                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="@Model.ElementAt(i).UrlImage" data-original="@Model.ElementAt(i).UrlImage" alt=" Metallic Midi Cut Out Midi Dress" height="350" width="350">
-                                                    </a>
-                                                    <div class="em-element-display-hover bottom">
-                                                        <div class="em-btn-addto">
-                                                            <!--product add to cart-->
-                                                            <button type="button" title="Add to Cart" class="button btn-cart">
-                                                                <span><span>Add to Cart</span></span>
-                                                            </button>
-                                                            <!--product add to compare-wishlist-->
-                                                            <ul class="add-to-links">
-                                                                <li>
-                                                                    <a onclick="" href="#177" class="link-wishlist" title="Add to Wishlist">Add to Wishlist</a>
-                                                                </li>
-                                                                <li>
-                                                                    <span class="separator">|</span> <a href="#177" class="link-compare" title="Add to Compare">Add to Compare</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quickshop-link-container">
-                                                            <a  href='/Product/ProductDetail/@Model.ElementAt(i).ID' class="quickshop-link" title="Quickshop">Quickshop</a>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.product-shop-top -->
-
-                                                <div class="product-shop">
-                                                    <div class="f-fix">
-                                                        @Model.ElementAt(i).Category.Name
-                                                        <h3 style="min-height: 19px;" class="product-name"><a href="#" title=" Metallic Midi Cut Out Midi Dress">@Model.ElementAt(i).Name</a></h3>
-                                                        <!--product description-->
-                                                        <!--product reviews-->
-                                                        <div class="ratings">
-                                                            <div class="rating-box">
-                                                                <div class="rating" style="width:67%"></div>
-                                                            </div>
-                                                            <span class="amount"><a href="#">(1)</a></span>
-                                                        </div>
-                                                        Product Price
-                                                        <div class="price-box">
-                                                            <span class="regular-price" id="product-price-177-emprice-659da6b027ea5433ad0a985675d8fd89">
-                                                                <span class="price">@Model.ElementAt(i).ExportPrice</span>
-                                                            </span>
-
-                                                        </div>
-                                                        Sale
-                                                        <div class="price-box sale">
-                                                            <span class="regular-price" id="product-price-170-emprice-2fd1cdd203d2809e7354d43dcdbdb613">
-                                                                <span class="price">@Model.ElementAt(i).Discount</span>
-                                                            </span>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    }
-                                    if (i % 4 == 3)
-                                    { <div class="item last" style="  ">
-                                            <div class="product-item">
-                                                <div class="product-shop-top">
-                                                    <a href="#" title="A Line Skirt" class="product-image">
-                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="@Model.ElementAt(i).UrlImage" data-original="@Model.ElementAt(i).UrlImage" alt="A Line Skirt" height="350" width="350">
-                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="@Model.ElementAt(i).UrlImage" data-original="@Model.ElementAt(i).UrlImage" alt="A Line Skirt" height="350" width="350">
-                                                    </a>
-                                                    <div class="em-element-display-hover bottom">
-                                                        <div class="em-btn-addto">
-                                                            <!--product add to cart-->
-                                                            <button type="button" title="Add to Cart" class="button btn-cart">
-                                                                <span><span>Add to Cart</span></span>
-                                                            </button>
-                                                            <!--product add to compare-wishlist-->
-                                                            <ul class="add-to-links">
-                                                                <li>
-                                                                    <a href="#" class="link-wishlist" title="Add to Wishlist">Add to Wishlist</a>
-                                                                </li>
-                                                                <li>
-                                                                    <span class="separator">|</span> <a href="#" class="link-compare" title="Add to Compare">Add to Compare</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quickshop-link-container">
-                                                            <a   href='/Product/ProductDetail/@Model.ElementAt(i).ID' class="quickshop-link" title="Quickshop">Quickshop</a>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.product-shop-top -->
-
-                                                <div class="product-shop">
-                                                    <div class="f-fix">
-                                                        @Model.ElementAt(i).Category.Name
-                                                        <h3 style="min-height: 19px;" class="product-name"><a href="#" title="A Line Skirt">@Model.ElementAt(i).Name</a></h3>
-
-                                                        <div class="ratings">
-                                                            <div class="rating-box">
-                                                                <div class="rating" style="width:0%"></div>
-                                                            </div>
-                                                            <span class="amount"><a href="#">(0)</a></span>
-                                                        </div>
-                                                        product price
-                                                        <div class="price-box">
-                                                            <span class="regular-price" id="product-price-173-emprice-897fea772af63e74d163fe59805544c1">
-                                                                <span class="price">@Model.ElementAt(i).ExportPrice</span>
-                                                            </span>
-
-                                                        </div>
-                                                        Sale
-                                                        <div class="price-box sale">
-                                                            <span class="regular-price" id="product-price-170-emprice-2fd1cdd203d2809e7354d43dcdbdb613">
-                                                                <span class="price">@Model.ElementAt(i).Discount</span>
-                                                            </span>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div><!-- /.product-shop -->
-                                            </div>
-                                        </div>}
-
-                                }
+                                        </div> 
+                                        }
+                                
 
                             </div><!-- /.products-grid -->
                         </div><!-- /.emcatalog-desktop-4 -->

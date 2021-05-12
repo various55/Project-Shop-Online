@@ -14,7 +14,7 @@
                                     <div class="product-img-box">
                                         <div class="media-left">
                                             <p class="product-image">
-                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="~/Content/images/product/1000x1000/5_1.jpg"> <img class="em-product-main-img" src="~/Content/images/product/800x800/5_1.jpg" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="~/Content/images/product/1000x1000/5_1.jpg" title="WIASSI Version 1">Zoom</a>
+                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="@ViewBag.product.UrlImage"> <img class="em-product-main-img" src="@ViewBag.product.UrlImage" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="@ViewBag.product.UrlImage" title="WIASSI Version 1">Zoom</a>
                                             </p>
                                         </div><!-- /.media-left -->
                                         <div class="more-views">
@@ -32,8 +32,8 @@
                                         </div><!-- /.more-views -->
                                     </div>
                                 </div><!-- /.em-product-view-primary -->
-                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail">
-                                    <div class="product-shop  fix_menu">
+                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail m-4">
+                                    <div class="product-shop fix_menu">
                                         <div id="em-product-info-basic">
 
                                             <div class="product-name">
@@ -45,7 +45,7 @@
                                             </div>
                                             <div class="product-price">
                                                 <label>Giá bán</label>
-                                                <h1 style="color:red">@ViewBag.product.ExportPrice</h1>
+                                                <h1 style="color:red;font-size:20px">@ViewBag.product.ExportPrice</h1>
                                             </div>
                                             @if (Model.Count() > 0)
                                             {
@@ -55,7 +55,7 @@
 
                                                         @foreach (var item in Model)
                                                         {
-                                                            <input class="form-check-input" value="@item.Size.ID" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()" checked>
+                                                            <input class="form-check-input" value="@item.Size.ID" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()">
                                                             <label class="form-check-label" for="@item.Size.ID" style="margin-right:7px;font-size:16px;color:red">
                                                                 @item.Size.Name
                                                             </label>
@@ -69,7 +69,7 @@
                                                     <div class="form-check">
                                                         @foreach (var item in Model)
                                                         {
-                                                            <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.Color.ID" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px" checked>
+                                                            <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.Color.ID" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px">
                                                             <label class="form-check-label" for="@item.Color.ID" style="margin-right:7px;font-size:16px;color:red">
                                                                 @item.Color.Name
                                                             </label>
@@ -121,7 +121,7 @@
                                                 <button class="btn btn-danger">Liên hệ</button>
                                             }
                                             <a class="btn btn-info" href='@Url.Action("Index", "Cart")'>Thanh toán</a>
-                                            <a href="@Url.Action("Index","Home")" class="btn btn-info">Quay lại trang mua hàng</a>
+                                            <a href="@Url.Action("Index","Product")" class="btn btn-info">Quay lại trang mua hàng</a>
                                         </div><!-- /.em-product-info-basic -->
                                     </div>
                                 </div><!-- /.em-product-view-secondary -->

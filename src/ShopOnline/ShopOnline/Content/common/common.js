@@ -144,9 +144,11 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
         success: function (res) {
             if (res) {
                 MessageSuccess('thành công !');
+                $('#modalAdd').hide();
             } else {
-                MessageSuccess('Thêm thất bại !');
+                MessageFailed('Thêm thất bại !');
             }
+           
         },
         error: function (res) {
         },
@@ -157,6 +159,8 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
     $('#modalAdd').modal('toggle');
     LoadData(url, classAppend);
 }
+
+
 function AddLog(content, url_add) {
     $.ajax({
         url: url_add,
@@ -225,9 +229,10 @@ function setDataForm(idForm, url, classAppend) {
         }
     })
 }
-/* Validation form
- */
+
+
 function Validation(idForm) {
+
 
 }
 function ValidEmail(email) {

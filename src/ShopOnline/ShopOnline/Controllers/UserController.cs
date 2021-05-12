@@ -35,19 +35,14 @@ namespace ShopOnline.Controllers
             if (ModelState.IsValid)
             {
                 var res = userService.Login(username, MD5.CreateMD5(password));
-                if (res != null)
-                {
+                if (res != null) { 
                     var role = res.Role.Name;
-                    if (role != RoleConst.CUSTOMER) ModelState.AddModelError("", "Chỉ tài khoản customer mới có quyền truy cập !!!");
-                    else
-                    {
                         FormsAuthentication.SetAuthCookie(username, true);
                         Response.Cookies[CookieConst.USER].Value = res.ID.ToString();
                         Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(1);
                         Response.Cookies[CookieConst.ROLE].Value = res.Role.Name;
                         Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(1);
                         return RedirectToAction("Index", "Home");
-                    }
                 }
                 else
                 {
@@ -61,7 +56,7 @@ namespace ShopOnline.Controllers
             FormsAuthentication.SignOut();
             Response.Cookies[CookieConst.USER].Expires = DateTime.Now.AddDays(-2);
             Response.Cookies[CookieConst.ROLE].Expires = DateTime.Now.AddDays(-2);
-            return RedirectToAction("Index", "User2");
+            return RedirectToAction("Index", "User");
         }
         public ActionResult GetUser()
         {
@@ -170,7 +165,8 @@ namespace ShopOnline.Controllers
 
                 if (model.ConfirmPassword == model.Password)
                 {
-                    msg = userService.RegistUser(user);
+                    // Đăng ký thiếu file r, mai bảo Khanh
+                    //msg = userService.RegistUser(user);
                     if (msg.Length == 0) status = true;
                 }
 

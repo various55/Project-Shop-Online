@@ -50,7 +50,7 @@ namespace ShopOnline.Controllers
         {
             var products = productService.FindAll();
             ViewBag.idCategory = idCategory;
-            TempData["idCategory"] = idCategory;
+            
             if (idCategory == 0)
             {
                 if (search.Trim() != "") products = products.Where(x => x.Name.Contains(search)).OrderBy(x => x.Name).ToList();
