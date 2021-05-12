@@ -4,7 +4,7 @@
     <div class="card">
         <div class="header">
             <h2>
-                Danh sách sản phẩm
+                Danh sách bài viết
             </h2>
             <ul class="header-dropdown m-r--5">
                 <button class="btn btn-danger btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(0,'/admin/Posts/FromCreateUpdate','add-or-edit')">Thêm mới</button>
@@ -15,32 +15,34 @@
                 <table id="example" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
                     <thead>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.Title)
-                      </th>
+                            <th>@Html.DisplayNameFor(model => model.Title)</th>
+                            <th>@Html.DisplayNameFor(model => model.Image)</th>
                             <th>@Html.DisplayNameFor(model => model.Description)</th>
                             <th>@Html.DisplayNameFor(model => model.Status)</th>
                             <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
-                           
+
+                            
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                                <td>@Html.DisplayFor(modelItem => item.user.Name)</td>
-                                
-                                <td>
-                                    <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Posts/FromCreateUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
-                                    <button class="btn btn-delete" data-id="@item.ID" title="Xóa" onclick="Delete(@item.ID,'/admin/Posts/Delete','/admin/Posts/ListPost','dataTable')"><i class="fas fa-trash-alt text-danger"></i></button>
-                                    <button class="btn btn-details" data-id="1" data-toggle="modal" data-target="#myModal">
-                                        <i class="fas fa-info-circle text-primary"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                            <td><img src="@Html.DisplayFor(modelItem => item.Image)" style="width:100px;height:100px;"></td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                            <td>@Html.DisplayFor(modelItem => item.user.Name)</td>
+
+                            <td>
+                                <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Posts/FromCreateUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
+                                <button class="btn btn-delete" data-id="@item.ID" title="Xóa" onclick="Delete(@item.ID,'/admin/Posts/Delete','/admin/Posts/ListPost','dataTable')"><i class="fas fa-trash-alt text-danger"></i></button>
+                                <button class="btn btn-details" data-id="1" data-toggle="modal" data-target="#modalDetail" onclick="setDataForm(@item.ID,'/admin/Posts/InfoDetail','detail') ">
+                                    <i class="fas fa-info-circle text-primary"></i>
+                                </button>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                     <tfoot>
@@ -69,6 +71,27 @@
            
         </div>
        
+    </div>
+</div>
+<div id="modalDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
+            </div>
+            <div class="modal-body">
+                <div class="detail">
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
 </div>
 <script>

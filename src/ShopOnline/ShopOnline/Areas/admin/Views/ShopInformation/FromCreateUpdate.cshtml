@@ -29,7 +29,7 @@
 
             <div class="col-md-3">
                 <label>Số điện thoại</label>
-                <input type="text" value="" name="Mobile" class="form-control" />
+                <input type="text" value="" name="Moblie" class="form-control" />
                 <div class="error"></div>
             </div>
             <div class="col-md-3">
@@ -37,42 +37,34 @@
                 <input type="text" value="" name="Email" class="form-control" />
                 <div class="error"></div>
             </div>
-            <div class="col-md-5">
-                <label>Facebook</label>
-                <span><input id="xFilePath" name="Facebook" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
-
+            <div class="col-md-3">
+                <label>Facebook  </label>
+                <input type="text" value="" name="Facebook" class="form-control" />
                 <div class="error"></div>
             </div>
-            <div class="col-md-5">
-                <label>Instagram</label>
-                <span><input id="xFilePath" name="Instagram" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
-
+            <div class="col-md-3">
+                <label>Instagram  </label>
+                <input type="text" value="" name="Instagram" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Twitter  </label>
+                <input type="text" value="" name="Twitter" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Youtube  </label>
+                <input type="text" value="" name="Youtube" class="form-control" />
                 <div class="error"></div>
             </div>
 
-            <div class="col-md-5">
-                <label>Twitter</label>
-                <span><input id="xFilePath" name="Twitter" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
-
+            <div class="col-md-3">
+                <label>Zalo  </label>
+                <input type="text" value="" name="Zalo" class="form-control" />
                 <div class="error"></div>
             </div>
-            <div class="col-md-5">
-                <label>Youtube</label>
-                <span><input id="xFilePath" name="Youtube" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
 
-                <div class="error"></div>
-            </div>
-            <div class="col-md-5">
-                <label>Zalo</label>
-                <span><input id="xFilePath" name="Zalo" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
 
-                <div class="error"></div>
-            </div>
         </div>
             <div class="modal-footer">
                 <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/ShopInformation/AddOrUpdate' , '/ShopInformation/ListShopInformation' , 'dataTable')"> Thêm mới</button>
@@ -81,6 +73,7 @@
         }
         else
         {
+
     <div class="row m-0">
         <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
         <div class="col-md-3">
@@ -92,8 +85,6 @@
             <label>Logo</label>
             <span><input id="xFilePath" name="Logo" type="text" class="form-control" value="@ViewBag.data.Logo" /></span>
             <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
-
-
             <div class="error"></div>
         </div>
         <div class="col-md-3">
@@ -108,7 +99,7 @@
         </div>
         <div class="col-md-3">
             <label>Số điện thoại</label>
-            <input type="text" value="@ViewBag.data.Mobile" name="Mobile" class="form-control" />
+            <input type="text" value="@ViewBag.data.Moblie" name="Moblie" class="form-control" />
             <div class="error"></div>
         </div>
         <div class="col-md-3">
@@ -116,15 +107,39 @@
             <input type="text" value="@ViewBag.data.Email" name="Email" class="form-control" />
             <div class="error"></div>
         </div>
-
+        <div class="col-md-3">
+            <label>Facebook</label>
+            <input type="text" value="@ViewBag.data.Facebook" name="Facebook" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Instagram</label>
+            <input type="text" value="@ViewBag.data.Instagram" name="Instagram" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Twitter</label>
+            <input type="text" value="@ViewBag.data.Twitter" name="Twitter" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Youtube</label>
+            <input type="text" value="@ViewBag.data.Youtube" name="Youtube" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Zalo</label>
+            <input type="text" value="@ViewBag.data.Zalo" name="Zalo" class="form-control" />
+            <div class="error"></div>
+        </div>
     </div>
             <div class="modal-footer">
-                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Posts/AddOrUpdate' , '/Posts/ListPost' , 'dataTable')"> Cập nhật</button>
+                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/ShopInformation/AddOrUpdate' , '/ShopInformation/ListShopInformation' , 'dataTable')"> Cập nhật</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
             </div>
         }
-
-    </form>
+</form>
 </div>
 <script>
 

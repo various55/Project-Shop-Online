@@ -396,6 +396,10 @@ C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Deb
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csproj.CopyComplete
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.dll
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
+D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config
+C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.dll
+C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Constants.pdb
+C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder.dll
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.dll
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.dll
@@ -403,4 +407,3 @@ C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKF
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_FileEditor.pdb
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_ImageResize.pdb
 C:\Users\Matt Cann\Desktop\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\CKFinder_Watermark.pdb
-D:\UTC\Ki_6\TTCM\Projects\Project-Shop-Online\src\ShopOnline\ShopOnline\bin\Helpers.dll.config

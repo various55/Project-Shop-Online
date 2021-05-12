@@ -42,8 +42,9 @@ namespace Business.Services
 
         public ICollection<Post> FindAll()
         {
-            var x = PostRepository.findAll();
-            return PostRepository.findAll(new string[] { "user" });
+            return PostRepository.findAll();
+           /* var x = PostRepository.findAll();
+            return PostRepository.findAll(new string[] { "user" });*/
         }
         public Post FindById(int id)
         {

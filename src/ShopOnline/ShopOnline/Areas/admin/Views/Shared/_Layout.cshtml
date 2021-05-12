@@ -72,9 +72,9 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            @if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
-                @Html.Action("GetUser","User")
+               
             }
             <!-- #User Info -->
             <!-- Left Menu -->
