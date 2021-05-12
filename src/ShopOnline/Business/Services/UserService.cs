@@ -99,7 +99,6 @@ namespace Business.Services
         }
         public string RegistUser(User user)
         {
-
             return _UserRepository.RegistUser(user);
         }
     }

@@ -223,6 +223,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\User2Controller.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4979,6 +4980,11 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User2\Index.cshtml" />
     <Content Include="Views\Shared\_QuickCartPartial.cshtml" />
+    <Content Include="Views\User\FromRegistUser.cshtml" />
+    <Content Include="Views\User\InfoUser.cshtml" />
+    <Content Include="Views\User\LoadFromChangePassword.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\UpdateBillInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
