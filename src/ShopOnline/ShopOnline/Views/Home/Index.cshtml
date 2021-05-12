@@ -3,50 +3,10 @@
 <div class="em-wrapper-main">
     <div class="container container-main">
         <div class="em-inner-main">
-
-
-    <div class="em-main-container em-col2-left-layout">
+        <div class="em-main-container em-col2-left-layout">
         <div class="row">
             <div class="col-sm-18 col-sm-push-6 em-col-main">
                 @Html.Partial("Banner")
-                <div class="em-wrapper-new-arrivals-tabs">
-                    <div class="em-new-arrivals-tabs em-line-01">
-                        <div class="emtabs-ajaxblock-loaded">
-                            <div class="em-tabs-widget tabs-widget ">
-                                <div class="widget-title em-widget-title">
-                                    <h3><span>New Arrivals</span></h3>
-                                </div>
-
-                                <div id="emtabs_1" class="em-tabs emtabs r-tabs">
-                                    <ul class="em-tabs-control tabs-control r-tabs-nav">
-                                        <li class="r-tabs-tab r-tabs-state-active">
-                                            <a class="r-tabs-anchor active" href="#tab_emtabs_1_1" data-hover="Shirt"> <span class="icon"></span>Shirt</a>
-                                        </li>
-                                        <li class="r-tabs-state-default r-tabs-tab">
-                                            <a class="r-tabs-anchor" href="#tab_emtabs_1_2" data-hover="Skirt"> <span class="icon"></span>Skirt</a>
-                                        </li>
-                                        <li class="r-tabs-state-default r-tabs-tab">
-                                            <a class="r-tabs-anchor" href="#tab_emtabs_1_3" data-hover="Dresses"> <span class="icon"></span>Dresses</a>
-                                        </li>
-                                        <li class="r-tabs-state-default r-tabs-tab">
-                                            <a class="r-tabs-anchor" href="#tab_emtabs_1_4" data-hover="Outerwear"> <span class="icon"></span>Outerwear</a>
-                                        </li>
-                                    </ul>
-                                    <div>
-                                        <span class="bg-blue">Tìm kiếm sp</span>
-                                        <input name="searchname" class="form-control" placeholder="Search entire store here..." />
-                                    </div>
-                                    <div class="product">
-
-
-                                    </div>
-                                </div><!-- /.tab-content -->
-                            </div><!-- /#emtabs_1 -->
-                        </div>
-                    </div>
-                </div><!-- /.em-new-arrivals-tabs -->
-                    
-                    
                 <div class="em-wrapper-banners hidden-xs">
                     <div class="em-effect06">
                         <a class="em-eff06-03" title="em-sample-title" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/Content/images/wysiwyg/em_ads_10.jpg" /> </a>
@@ -54,21 +14,13 @@
                 </div>
                 @Html.Partial("Sale")
                 </div>
-
                 <div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
-
-
                     <div class="row">
                         <div class="col-sm-24">
                             @Html.Partial("BlogLeft")
                         </div>
                     </div><!-- /.row -->
-                    <div class="em-wrapper-area02">
-                        <div class="menu-wrapper hidden-xs">
-                            @Html.Action("listCategory", "Product");
-
-                        </div>
-                    </div>
+                  
                     <div class="img-banner hidden-xs">
                         @Html.Partial("LeftFooter")
 
@@ -84,12 +36,3 @@
 </div>
 
 
-@section scripts{
-    <script>
-        $(document).ready(() => {
-            getDataFillter(0, 1, '/Product/Product/', 'product');
-            Search(0, 1, '/Product/Product/', 'product');
-        })
-       
-    </script>
-}

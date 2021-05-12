@@ -226,9 +226,10 @@ function setDataForm(idForm, url, classAppend) {
         }
     })
 }
-/* Validation form
- */
+
+
 function Validation(idForm) {
+
 
 }
 function ValidEmail(email) {
