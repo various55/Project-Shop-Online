@@ -53,10 +53,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive-tabs.css" media="all" />
     <!-- Print CSS -->
     <link rel="stylesheet" type="text/css" href="~/Content/css/print.css" media="print" />
-
+    <link href="~/Content/common/package/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- Style Fashion CSS -->
     <link rel='stylesheet' type='text/css' media='all' href='~/Content/css/style_fashion.css' />
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/css/UserStyle.css" rel="stylesheet" />
     <link href="~/Content/css/cart_styles.css" rel="stylesheet" />
 </head>
 
@@ -67,7 +68,23 @@
         <div class="page two-columns-left">
 
             <div class="em-wrapper-header">
+                <div id="modalAdd" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
 
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header bg-gradient-green">
+                                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
+                                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="edit">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="hidden-xs em-header-style08">
                     <div class="em-header-top">
                         <div class="container">
@@ -80,17 +97,20 @@
                                             @if (User.Identity.IsAuthenticated)
                                             {
                                                 <div id="em-login-link" class="account-link f-right em-non-login">
-                                                    <a href="@Url.Action("Logout","User2")" class="link-account text-body">Đăng xuất</a>
+                                                    <a href="@Url.Action("Logout","User")" class="link-account text-body">Đăng xuất</a>
                                                 </div>
                                                 <div id="em-login-link" class="account-link f-right em-non-login">
-                                                    <a href="@Url.Action("Profile","User2")" class="link-account text-body">Xin chào @User.Identity.Name</a>
+                                                    <a href="@Url.Action("Profile","User")" class="link-account text-body">Xin chào @User.Identity.Name</a>
                                                 </div>
 
                                             }
                                             else
                                             {
                                                 <div id="em-login-link" class="account-link f-right em-non-login">
-                                                    <a href="@Url.Action("Index","User2")" class="link-account" id="link-login" title="Login">Đăng nhập</a>
+                                                    <a href="@Url.Action("Index","User")" class="link-account" id="link-login" title="Login">Đăng nhập</a>
+                                                </div>
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <button class="link-account btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(1, '/User/FromRegistUser', 'edit');">Tạo tài khoản</button>
                                                 </div>
                                             }
 
@@ -142,6 +162,7 @@
     <!-- Fancybox Js -->
     <script type="text/javascript" src="~/Content/js/jquery.fancybox.js"></script>
     <script type="text/javascript" src="~/Content/js/cloud-zoom.js"></script>
+    <script src="~/Content/common/package/dist/sweetalert2.all.min.js"></script>
     <!-- Custom Js -->
     <script type="text/javascript" src="~/Content/js/custom.js"></script>
     <script src="~/Content/common/common.js"></script>
