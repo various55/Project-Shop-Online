@@ -89,7 +89,7 @@ namespace ShopOnline.Controllers
             var carts = ShoppingCart.Cart.Items;
             var cartDTO = AutoMapper.Mapper.Map<List<OrderDetailDTO>>(carts);
             // return Mutil partialview
-            var quickCartPartial = ViewToString.RenderRazorViewToString(this.ControllerContext,"Cart/_QuickCart",cartDTO);
+            var quickCartPartial = ViewToString.RenderRazorViewToString(this.ControllerContext,"_QuickCartPartial",cartDTO);
             var cartPartial = ViewToString.RenderRazorViewToString(this.ControllerContext,"Cart/_Cart",cartDTO);
             var json = Json(new { quickCartPartial, cartPartial }, JsonRequestBehavior.AllowGet);
             return json;

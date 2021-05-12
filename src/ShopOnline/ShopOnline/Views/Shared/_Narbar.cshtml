@@ -35,13 +35,14 @@
                     </div>
                 </div><!-- /.em-search -->
                 <div class="em-top-cart-sticky em-top-cart f-right">
-                    <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
+                    <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop" id="quickCart">
                         <div class="em-container-topcart">
                             <div class="em-summary-topcart">
                                 <a class="em-amount-js-topcart em-amount-topcart" title="Shopping Cart" href="/Cart/Index"> <span class="em-topcart-text">My Cart:</span> <span class="em-topcart-qty">0</span> </a>
                             </div>
                             <div class="em-container-js-topcart topcart-popup" style="display:none">
-                                <div class="topcart-popup-content" id="quickCart">
+                                <!-- Div cha nó đây này-->
+                                <div class="topcart-popup-content">
                                     <!-- Quick cart-->
                                 </div>
                             </div>
@@ -56,11 +57,11 @@
                                     <ul class="hnav em_hoz_menu effect-menu">
                                         <li class="menu-item-link menu-item-depth-0  menu-item-parent">
                                             <a class="em-menu-link" href="https://localhost:44365/Home/index"> <span> Home </span> </a>
-
-                                        </li><!-- /.menu-item-link -->
-
-
-
+                                        </li>
+                                        <!-- /.menu-item-link-->
+                                        <li class="menu-item-link menu-item-depth-0  menu-item-parent">
+                                            <a class="em-menu-link" href="@Url.Action("Index","Cart")"> <span> Giỏ hàng </span> </a>
+                                        </li>
                                         <li class="menu-item-link menu-item-depth-0 hidden-sm hidden-md menu-item-parent">
                                             <a class="em-menu-link" href="#"> <span> Fashion </span> </a>
                                             <ul class="menu-container" style="padding-bottom:130px;background-image:url(~/Content/images/menu/bkg-menu.jpg); background-repeat:no-repeat; background-position: right bottom">
@@ -178,4 +179,4 @@
         </div>
     </div><!-- /.container -->
 
-  
+

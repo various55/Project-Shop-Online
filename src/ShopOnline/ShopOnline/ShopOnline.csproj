@@ -4408,7 +4408,8 @@
     <Content Include="Content\css\print.css" />
     <Content Include="Content\css\responsive-tabs.css" />
     <Content Include="Content\css\responsive.css" />
-    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\cart_styles.css" />
     <Content Include="Content\css\style_fashion.css" />
     <Content Include="Content\fonts\fontawesome-webfont862f.svg" />
     <Content Include="Content\fonts\maki.svg" />
@@ -4645,6 +4646,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\images\quansort.jpg" />
+    <Content Include="Images\images\_nik7678_bcf812b2d59c4ffb9379412fe9989264_master.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\admin\Views\web.config" />
@@ -4974,12 +4977,12 @@
     <Content Include="Views\_401.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User2\Index.cshtml" />
+    <Content Include="Views\Shared\_QuickCartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Shared\Product\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoryLeft\" />
     <Folder Include="Views\Shared\Order\" />
