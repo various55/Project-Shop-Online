@@ -1,54 +1,65 @@
-﻿
-<form id="formAddOrUpdate">
-    <div class="row m-0">
-        <input type="number" value="0" name="ID" class="form-control hidden" hidden />
-        <input type="number" value="@ViewBag.data.ID" name="ProductID" class="form-control hidden" hidden />
-        <div class="col-md-3">
-            <label>Name</label>
-            <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" readonly />
-            <div class="error"></div>
+﻿@model Data.DTO.ProductDetaiDTO
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form id="formAddOrUpdate">
+        <div class="row m-0">
+            @Html.ValidationSummary(true)
+            <input type="number" value="0" name="ID" class="form-control hidden" hidden />
+            <input type="number" value="@Model.ID" name="ProductID" class="form-control hidden" hidden />
+            
+            <div class="col-md-3">
+                <label>Name</label>
+                <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" readonly />
+                <div class="error"></div>
+              
+            </div>
+            <div class="col-md-3">
+                <label>Size</label>
+                <select name="SizeID" class="form-control">
+                    <option value="-1">Chọn Size</option>
+                    @foreach (var item in ViewBag.Size as IEnumerable<Data.DTO.SizeDTO>)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Color</label>
+                <select name="ColorID" class="form-control">
+                    <option value="-1">Chọn Color</option>
+                    @foreach (var item in ViewBag.Color as IEnumerable<Data.DTO.ColorDTO>)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+                <div class="error"></div>
+            </div>
+            <div class="col-md-4">
+                <label>Ảnh</label>
+                <label>Image</label>
+                <input id="xFilePath" name="UrlImage" value="" type="text" class="form-control" />
+                <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" />
+                <div class="error"></div>
+               
+            </div>
+            <div class="col-md-3">
+                <label>Số lượng</label>
+                <input class="form-control" type="number" name="Invenory" value="" />
+                @Html.ValidationMessageFor(Model => Model.Invenory)
+                <div class="error"></div>
+            </div>
         </div>
-        <div class="col-md-3">
-            <label>Size</label>
-            <select name="SizeID" class="form-control">
-                <option value="-1">Chọn Size</option>
-                @foreach (var item in ViewBag.Size as IEnumerable<Data.DTO.SizeDTO>)
-                {
-                    <option value="@item.ID">@item.Name</option>
-                }
-            </select>
-            <div class="error"></div>
-        </div>
-        <div class="col-md-3">
-            <label>Color</label>
-            <select name="ColorID" class="form-control">
-                <option value="-1">Chọn Color</option>
-                @foreach (var item in ViewBag.Color as IEnumerable<Data.DTO.ColorDTO>)
-                {
-                    <option value="@item.ID">@item.Name</option>
-                }
-            </select>
-            <div class="error"></div>
-        </div>
-        <div class="col-md-4">
-            <label>Ảnh</label>
-            <label>Image</label>
-            <input id="xFilePath" name="UrlImage" value="" type="text" class="form-control" />
-            <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" />
-            <div class="error"></div>
-        </div>
-        <div class="col-md-3">
-            <label>Số lượng</label>
-            <input class="form-control" type="number" name="Invenory" value="" />
-            <div class="error"></div>
-        </div>
-    </div>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddProductDetail', '/admin/Product/listProductDetail', 'dataTable');AddLog('Thêm thông tin sản phẩm ở bảng chi tiết sản phẩm', '/admin/Log/addLog/')"> Thêm mới</button>
-    </div>
-</form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Product/AddProductDetail', '/admin/Product/listProductDetail', 'dataTable');AddLog('Thêm thông tin sản phẩm ở bảng chi tiết sản phẩm', '/admin/Log/addLog/')"> Thêm mới</button>
+        </div>
+    </form>
+
+
+}
 
 <script>
     function BrowseServer() {

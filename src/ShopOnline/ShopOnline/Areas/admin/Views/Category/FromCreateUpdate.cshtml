@@ -1,43 +1,48 @@
 ﻿
+@model Data.DTO.CategoryDTO
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="update-info">
+        <form id="formAddOrUpdate">
+
+            @if (ViewBag.data == null)
+            {
+                <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+                <div class="row m-0">
+                    <div class="col-md-3">
+                        <label>Tên Danh mục</label>
+                        <input type="text" value="" name="Name" class="form-control" />
+                        <div class="error"></div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Category/AddOrUpdate', '/admin/Category/listCategory', 'dataTable');AddLog('Thêm danh mục sản phẩm', '/admin/Log/addLog/')"> Thêm mới</button>
+                </div>
+            }
+            else
+            {
+                < input type = "number" name = "ID" value = "@ViewBag.data.ID" class="form-control hidden" readonly hidden />
+                <div class="row m-0">
+                    <div class="col-md-3">
+                        <label>Tên danh mục</label>
+                        <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" />
+                        <div class="error"></div>
+                    </div>
 
 
-
-<div class="update-info">
-    <form id="formAddOrUpdate">
-        @if (ViewBag.data == null)
-        {
-            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
-            <div class="row m-0">
-                <div class="col-md-3">
-                    <label>Tên Danh mục</label>
-                    <input type="text" value="" name="Name" class="form-control" />
-                    <div class="error"></div>
                 </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Category/AddOrUpdate', '/admin/Category/listCategory', 'dataTable');AddLog('Thêm danh mục sản phẩm', '/admin/Log/addLog/')"> Thêm mới</button>
-            </div>
-        }
-        else
-        {
-            <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
-            <div class="row m-0">
-                <div class="col-md-3">
-                    <label>Tên danh mục</label>
-                    <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" />
-                    <div class="error"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Category/AddOrUpdate', '/admin/Category/listCategory', 'dataTable'); AddLog('Update danh mục sản phẩm có ID=' +@ViewBag.data.ID, '/admin/Log/addLog/')"> Cập nhập</button>
                 </div>
+            }
+        </form>
+    </div>
 
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Category/AddOrUpdate', '/admin/Category/listCategory', 'dataTable'); AddLog('Update danh mục sản phẩm có ID=' +@ViewBag.data.ID, '/admin/Log/addLog/')"> Cập nhập</button>
-            </div>
-        }
-    </form>
-</div>
-
+    }//bắt lỗi form này

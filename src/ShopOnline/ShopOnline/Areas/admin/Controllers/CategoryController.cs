@@ -38,8 +38,9 @@ namespace ShopOnline.Areas.admin.Controllers
         [HttpPost]
         public JsonResult AddOrUpdate(CategoryDTO model)
         {
-            var status = true;
-            if (ModelState.IsValid) {
+            var status = false;
+            if (ModelState.IsValid)
+            {
                 Category category = new Category();
                 category.ID = model.ID;
                 category.Name = model.Name;
@@ -47,13 +48,14 @@ namespace ShopOnline.Areas.admin.Controllers
 
                 if (model.ID == 0)
                 {
-                    categoryService.Add(category);
+                    status = categoryService.Add(category);
                 }
                 else
                 {
-                    categoryService.Update(category);
+                    status = categoryService.Update(category);
                 }
-                categoryService.Save();
+               categoryService.Save();
+               
             }
             return Json(status, JsonRequestBehavior.AllowGet);
         }

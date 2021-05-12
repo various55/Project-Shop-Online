@@ -158,6 +158,8 @@ function AddOrUpdate(idForm, url_add, url, classAppend) {
     $('#modalAdd').modal('toggle');
     LoadData(url, classAppend);
 }
+
+
 function AddLog(content, url_add) {
     $.ajax({
         url: url_add,

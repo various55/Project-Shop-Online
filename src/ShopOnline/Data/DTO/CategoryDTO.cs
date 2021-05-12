@@ -11,6 +11,7 @@ namespace Data.DTO
     {
         public int ID { get; set; }
 
+        [Required(ErrorMessage ="Bạn phải nhập tên danh mục")]
         [StringLength(50)]
         public string Name { get; set; }
 

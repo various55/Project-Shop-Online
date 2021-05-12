@@ -59,6 +59,9 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BSS">
+      <HintPath>D:\CAMHOME\CAMHOME\bin\BSS.dll</HintPath>
+    </Reference>
     <Reference Include="CKFinder">
       <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
@@ -217,6 +220,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -4986,6 +4990,7 @@
     <Folder Include="Areas\admin\Views\Shared\Product\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\CategoryLeft\" />
+    <Folder Include="Views\Color\" />
     <Folder Include="Views\Shared\Order\" />
     <Folder Include="Views\Tags\" />
   </ItemGroup>
