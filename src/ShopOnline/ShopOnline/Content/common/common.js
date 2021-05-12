@@ -150,11 +150,12 @@ function AddOrUpdate(idForm, url_add,url,classAppend) {
             } else {
                 MessageSuccess('Thêm thất bại !');
             }
-            $('#modalAdd').modal().hide();
+            
         },
         error: function (res) {
         },
         complete: function () {
+            $('#modalAdd').modal('toggle');
         }
     })
 }
