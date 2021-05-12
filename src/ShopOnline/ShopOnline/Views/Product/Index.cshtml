@@ -1,0 +1,49 @@
+﻿
+
+<div class="em-wrapper-main">
+    <div class="container container-main">
+        <div class="em-inner-main">
+            <div class="col-sm-pull-18 em-col-left em-sidebar">
+             
+                <div class="em-new-arrivals-tabs em-line-01">
+                    <div class="emtabs-ajaxblock-loaded">
+                        <div class="em-tabs-widget tabs-widget ">
+                            <div class="widget-title em-widget-title">
+                                <h3><span>New Arrivals</span></h3>
+                            </div>
+                            <div id="emtabs_1" class="em-tabs emtabs r-tabs">
+                                @Html.Action("listCategory", "Product")
+
+                                <div>
+                                   
+                                    <input name="searchname" class="form-control" placeholder="Search entire store here..." />
+                                </div>
+
+                                <div class="product">
+
+
+                                </div>
+
+                            </div><!-- /#emtabs_1 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div><!-- /.em-inner-main -->
+    </div><!-- /.container -->
+</div>
+
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(() => {
+            getDataFillter(0, 1, '/Product/Product/', 'product');
+            Search(0, 1, '/Product/Product/', 'product');
+        })
+
+    </script>
+}
+

@@ -14,7 +14,7 @@
                                     <div class="product-img-box">
                                         <div class="media-left">
                                             <p class="product-image">
-                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="~/Content/images/product/1000x1000/5_1.jpg"> <img class="em-product-main-img" src="~/Content/images/product/800x800/5_1.jpg" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="~/Content/images/product/1000x1000/5_1.jpg" title="WIASSI Version 1">Zoom</a>
+                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="@ViewBag.product.UrlImage"> <img class="em-product-main-img" src="@ViewBag.product.UrlImage" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="@ViewBag.product.UrlImage" title="WIASSI Version 1">Zoom</a>
                                             </p>
                                         </div><!-- /.media-left -->
                                         <div class="more-views">
@@ -32,10 +32,10 @@
                                         </div><!-- /.more-views -->
                                     </div>
                                 </div><!-- /.em-product-view-primary -->
-                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail">
-                                    <div class="product-shop  fix_menu">
+                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail m-4">
+                                    <div class="product-shop fix_menu">
                                         <div id="em-product-info-basic">
-                                            <div class="product-name">
+                                            <div class="product-name m-4">
                                                 <h1>@ViewBag.product.Name</h1>
                                             </div>
                                             <div class="product-code">
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="product-price">
                                                 <label>Giá bán</label>
-                                                <h1 style="color:red">@ViewBag.product.ExportPrice</h1>
+                                                <h1 style="color:red;font-size:20px">@ViewBag.product.ExportPrice</h1>
                                             </div>
                                            @if (Model.Count() > 0)
                                            {
@@ -116,7 +116,7 @@
                                                         <button type="button" title="Buy Now" id="em-buy-now" class="button btn-em-buy-now">
                                                             <span><span>Buy Now</span></span>
                                                         </button>
-                                                        <button type="button" title="Add to Cart" id="product-addtocart-button" class="button btn-cart btn-cart-detail">
+                                                        <button type="button" title="Add to Cart" id="product-addtocart-button" class="button  btn-cart-detail">
                                                             <span><span>Add to Cart</span></span>
                                                         </button>
                                                     </div>
@@ -130,9 +130,7 @@
                         </div><!-- /.product-view-detail -->
                     </form>
                 </div><!-- /.product-essential -->
-                <div class="row">
-                    <div class="em-product-view-primary col-sm-16 first"></div>
-                </div>
+              
                 </div>
                                    
         </div>

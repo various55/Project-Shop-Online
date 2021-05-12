@@ -48,6 +48,7 @@ namespace ShopOnline.Areas.admin.Controllers
         {
             model.TotalInventory = 0;
             model.ShowOnHome = true;
+            model.Discount = 0;
             var status = false;
             if (!ModelState.IsValid)
             {
@@ -84,12 +85,7 @@ namespace ShopOnline.Areas.admin.Controllers
         public JsonResult AddProductDetail(ProductDetaiDTO model)
         {
             ProductDetail product = new ProductDetail();
-            product.ID = model.ID;
-            product.ProductID = model.ProductID;
-            product.SizeID = model.SizeID;
-            product.ColorID = model.SizeID;
-            product.UrlImage = model.UrlImage;
-            product.Invenory = model.Invenory;
+            product=AutoMapper.Mapper.Map<ProductDetail>(product);
             bool status = false;
             status = productDetailService.Add(product);
             productDetailService.Save();
@@ -111,6 +107,7 @@ namespace ShopOnline.Areas.admin.Controllers
             ViewBag.Supplier = AutoMapper.Mapper.Map<IEnumerable<SuppelierDTO>>(supplier);
             return PartialView();
         }
+       
         [HttpGet]
         public ActionResult Detail(int id)
         {
