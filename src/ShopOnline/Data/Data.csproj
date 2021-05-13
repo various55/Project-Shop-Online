@@ -102,12 +102,9 @@
     <Compile Include="Migrations\202105111644236_db-v2.cs" />
     <Compile Include="Migrations\202105111644236_db-v2.Designer.cs">
       <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\UserPasswordDTO.cs" />
     <Compile Include="DTO\UserRegistDTO.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.designer.cs">
-      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />

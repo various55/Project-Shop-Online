@@ -38,7 +38,10 @@ namespace ShopOnline.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            return View();
+            var username = User.Identity.Name;
+            var user = userService.FindByUsername(username);
+            var userDTO = AutoMapper.Mapper.Map<UserDTO>(user);
+            return View(userDTO);
         }
         [HttpPost]
         public ActionResult GetCode(string code)
@@ -53,12 +56,13 @@ namespace ShopOnline.Controllers
                 discount = discountCodeService.getDiscountByCode(code);
                 status = discount > 0;
                 if (status) cart.discount = discount > 0 ? discount : 0;
-                var totalDiscount = cart.Total()*(1-discount/100.0);
+                var totalDiscount = cart.Total() * (1 - discount / 100.0);
                 save = (int)(total - totalDiscount);
             }
             var json = Json(new { status, discount, total, save }, JsonRequestBehavior.AllowGet);
             return json;
         }
+        [HttpPost]
 
         public ActionResult Checkout(OrderDTO orderDTO)
         {
@@ -70,7 +74,7 @@ namespace ShopOnline.Controllers
             order.OrderDetais = cart.Items;
             // Lấy code kiểm tra
             order.Discount = cart.discount;
-            order.Fee = order.Fee??0;
+            order.Fee = order.Fee ?? 0;
             order.Total = cart.Total() * (1 - order.Discount / 100.0) + order.Fee;
             order.ConfirmStatusId = 1;
             order.CreatedAt = DateTime.Now;
@@ -94,27 +98,17 @@ namespace ShopOnline.Controllers
                 status = carts.Remove(id);
                 return Json(status, JsonRequestBehavior.AllowGet);
             }
-            var product = productService.FindById(id);
-            if (product == null) return Json(status, JsonRequestBehavior.AllowGet);
+            else if (action == "update")
+            {
+                status = carts.Update(id, (int)quantity);
+            }
             else
             {
-                var productDetail = productDetailService.Find(id, (int)size, (int)color);
-                if (productDetail != null)
-                {
-                    switch (action)
-                    {
-                        case "update":
-                            status = carts.Update(productDetail.ID, (int)quantity);
-                            break;
-                        case "add":
-                            status = carts.Add(productDetail.ID, (int)quantity);
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                var p = productDetailService.Find(id,(int) size,(int) color);
+                if (p == null) status = false;
+                else
+                    status = carts.Add(p.ID, (int)quantity);
             }
-
             return Json(status, JsonRequestBehavior.AllowGet);
         }
         public ActionResult LoadAll()
@@ -126,6 +120,7 @@ namespace ShopOnline.Controllers
                 var test = productDetailService.FindById(item.ProductDetaiID);
                 item.ProductDetail = productDetailService.FindById(item.ProductDetaiID);
             }
+            ViewBag.Discount = ShoppingCart.Cart.discount;
             var cartDTO = AutoMapper.Mapper.Map<IEnumerable<OrderDetailDTO>>(cartModel);
             // return Mutil partialview
             var quickCart = ViewToString.RenderRazorViewToString(this.ControllerContext, "_QuickCartPartial", cartDTO);

@@ -75,3 +75,7 @@ _[Ss]cripts
 *.dot[Cc]over
 # File config connection string
 ConnectionStrings.config
+/src/ShopOnline/UpgradeLog10.htm
+/src/ShopOnline/UpgradeLog9.htm
+/src/ShopOnline/ShopOnline/ConnectionStrings.config
+/src/ShopOnline/Data/ConnectionStrings.config
