@@ -30,7 +30,7 @@ namespace Data.Repositories.imp
         public bool EditBillInfo(User user)
         {
             var existingEntity = DbContext.Users.Find(user.ID);
-
+            user.Username = existingEntity.Username;
             user.Password = existingEntity.Password;
             user.RoleID = existingEntity.RoleID;
             user.Status = existingEntity.Status;

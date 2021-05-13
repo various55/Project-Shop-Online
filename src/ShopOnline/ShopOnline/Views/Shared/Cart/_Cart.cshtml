@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Data.DTO.OrderDetailDTO>
-    @{ var total = 0;}
+    @{ float total = 0;}
 
 @if (Model.Count() > 0)
 {
@@ -45,7 +45,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            total = total + (int)item.ProductDetail.Product.ExportPrice * (int)item.Quantity * (int)(1 - item.ProductDetail.Product.Discount / 100.0);
+                            total = total + (float)item.ProductDetail.Product.ExportPrice * (float)item.Quantity *(float)(1 - (float)item.ProductDetail.Product.Discount / 100.0);
                             <input type="hidden" name="color" value="@item.ProductDetail.ColorID" />
                             <input type="hidden" name="size" value="@item.ProductDetail.SizeID" />
                             <input type="hidden" name="id" value="@item.ProductDetaiID" />
@@ -67,14 +67,14 @@
                                 </td>
                                 <td class="a-center">
                                     <div class="qty_cart">
-                                        <input id="@item.ProductDetail.Product.ID" name="quantity" value="@item.Quantity" onchange="update(@item.ProductDetail.Product.ID)" size="4" title="Qty" class="input-text qty" maxlength="2" type="number" />
+                                        <input id="@item.ProductDetail.ID" name="quantity" value="@item.Quantity" onchange="update(@item.ProductDetail.ID)" size="4" title="Qty" class="input-text qty" maxlength="2" type="number" />
                                     </div>
                                 </td>
                                 <td class="a-center">
                                     @item.ProductDetail.Product.Discount %
                                 </td>
                                 <td class="a-right">
-                                    <span class="cart-price"> <span class="price">@(item.ProductDetail.Product.ExportPrice*@item.Quantity*(1-@item.ProductDetail.Product.Discount/100))</span> </span>
+                                    <span class="cart-price"> <span class="price">@((float)item.ProductDetail.Product.ExportPrice * (float)item.Quantity *(float)(1 - (float)item.ProductDetail.Product.Discount / 100.0))</span> </span>
                                 </td>
                             </tr>
                         }
@@ -120,7 +120,7 @@
                             <tbody>
                                 <tr>
                                     <td style="" class="a-right" colspan="1">
-                                        <strong>Tổng tiền</strong>
+                                        <strong>Tạm tính</strong>
                                     </td>
                                     <td style="" class="a-right">
                                         <strong><span class="price" id="price">@total</span></strong>
@@ -128,7 +128,7 @@
                                 </tr>
                                 <tr>
                                     <td style="" class="a-right" colspan="1">
-                                        <strong>Tổng tiền</strong>
+                                        <strong>Giảm giá</strong>
                                     </td>
                                     <td style="" class="a-right">
                                         <strong><span class="price" id="discount">0 %</span></strong>
@@ -137,7 +137,7 @@
                                 <tr>
 
                                 <tr>
-                                    <td style="" class="a-right" colspan="1"> Giảm giá</td>
+                                    <td style="" class="a-right" colspan="1">Số tiền giảm giá</td>
                                     <td style="" class="a-right">
                                         <span class="save" id="save">0</span>
                                     </td>
@@ -158,41 +158,7 @@
 
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Xác nhận thông tin mua hàng</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form id="Checkout">
-                                                    <div class="form-group">
-                                                        <label for="Name">Họ và tên</label>
-                                                        <input type="text" class="form-control" name="Name" aria-describedby="emailHelp" placeholder="Enter email">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Address">Địa chỉ nhà</label>
-                                                        <input type="text" class="form-control" name="Address" placeholder="Address">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Mobile">Số điện thoại</label>
-                                                        <input type="text" class="form-control" name="Mobile" placeholder="Mobile">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Note">Ghi chú</label>
-                                                        <input type="text" class="form-control" name="Note" placeholder="Note">
-                                                    </div>
-                                                    <button type="button" onclick="Checkout()" class="btn btn-primary">Xác nhận</button>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
 
                             </li>

@@ -37,6 +37,10 @@ namespace ShopOnline.Controllers
             var productDetailDTO = AutoMapper.Mapper.Map<ICollection<PDetailDTO>>(productDetail);
             var product = productService.FindById(id);
             ViewBag.product= AutoMapper.Mapper.Map<ProductDTO>(product);
+            var sizes = productDetailService.FindSizeByProduct(id);
+            var colors = productDetailService.FindColorByProduct(id);
+            ViewBag.size = AutoMapper.Mapper.Map<ICollection<SizeDTO>>(sizes);
+            ViewBag.color = AutoMapper.Mapper.Map<ICollection<ColorDTO>>(colors);
             return View(productDetailDTO);
         }
       

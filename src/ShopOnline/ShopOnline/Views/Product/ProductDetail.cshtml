@@ -53,11 +53,21 @@
                                                     <label>Chọn size</label>
                                                     <div class="form-check">
 
-                                                        @foreach (var item in Model)
+                                                        @{var count = 0; }
+                                                        @foreach (var item in ViewBag.size)
                                                         {
-                                                            <input class="form-check-input" value="@item.Size.ID" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()">
-                                                            <label class="form-check-label" for="@item.Size.ID" style="margin-right:7px;font-size:16px;color:red">
-                                                                @item.Size.Name
+
+                                                            if (@count == 0)
+                                                            {
+                                                                <input class="form-check-input" value="@item.ID" type="radio" name="size" id="@item.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()" checked>
+                                                                count = count + 1;
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input" value="@item.ID" type="radio" name="size" id="@item.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()">
+                                                            }
+                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Name
                                                             </label>
 
                                                         }
@@ -67,11 +77,20 @@
                                                 <div class="color-button">
                                                     <label>Chọn color</label>
                                                     <div class="form-check">
-                                                        @foreach (var item in Model)
+                                                        @{var x = 0;}
+                                                        @foreach (var item in ViewBag.color)
                                                         {
-                                                            <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.Color.ID" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px">
-                                                            <label class="form-check-label" for="@item.Color.ID" style="margin-right:7px;font-size:16px;color:red">
-                                                                @item.Color.Name
+                                                            if (x == 0)
+                                                            {
+                                                                <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.ID" id="@item.Name" style="width:20px;height:20px;margin-right:5px" checked>
+                                                                x = x + 1;
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.ID" id="@item.Name" style="width:20px;height:20px;margin-right:5px" @x= =0?"checked":>
+                                                            }
+                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Name
                                                             </label>
 
                                                         }
@@ -137,60 +156,68 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    layout = '1column';
-</script>
+@section scripts{
+    <script type="text/javascript">
+        layout = '1column';
+    </script>
+    <script>
+        $(document).ready(() => {
+            changeSize();
+            changeColor();
+        })
+
+        jQuery('.cloud-zoom-gallery').click(function () {
+            jQuery('#zoom-btn').attr('href', this.href);
+        });
+        function doSliderMoreview() {
+            var owl = $("ul.em-moreviews-slider");
+            if (owl.length) {
+                owl.owlCarousel({
+                    // Navigation
+                    navigation: true,
+                    navigationText: ["Previous", "Next"],
+                    pagination: false,
+                    paginationNumbers: false,
+                    // Responsive
+                    responsive: true,
+                    items: 7,
+                    /*items above 1200px browser width*/
+                    itemsDesktop: [1200, 4],
+                    /*//items between 1199px and 981px*/
+                    itemsDesktopSmall: [992, 7],
+                    itemsTablet: [768, 3],
+                    itemsMobile: [480, 2],
+                    // CSS Styles
+                    baseClass: "owl-carousel",
+                    theme: "owl-theme",
+                    transitionStyle: false,
+                    addClassActive: true,
+                });
+            }
+        }
+
+        function changeQty(increase) {
+            var qty = parseInt($('#qty').val());
+            if (!isNaN(qty)) {
+                console.log(qty)
+                qty = increase ? qty + 1 : (qty > 1 ? qty - 1 : 1);
+                $('#qty').val(qty);
+            }
+        }
+        (function ($) {
+            $(window).load(function () {
+                if (!isPhone) {
+                    $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+                }
+                doSliderMoreview();
+            });
+        })(jQuery);
+    </script>
+}
+
 <!-- Product View Js -->
 <script type="text/javascript" src="~/Content/js/em_product_view.js"></script>
 <!-- Lightbox Js -->
 <script type="text/javascript" src="~/Content/js/lightbox.min.js"></script>
-<script type="text/javascript">
-    jQuery('.cloud-zoom-gallery').click(function () {
-        jQuery('#zoom-btn').attr('href', this.href);
-    });
-    function doSliderMoreview() {
-        var owl = $("ul.em-moreviews-slider");
-        if (owl.length) {
-            owl.owlCarousel({
-                // Navigation
-                navigation: true,
-                navigationText: ["Previous", "Next"],
-                pagination: false,
-                paginationNumbers: false,
-                // Responsive
-                responsive: true,
-                items: 7,
-                /*items above 1200px browser width*/
-                itemsDesktop: [1200, 4],
-                /*//items between 1199px and 981px*/
-                itemsDesktopSmall: [992, 7],
-                itemsTablet: [768, 3],
-                itemsMobile: [480, 2],
-                // CSS Styles
-                baseClass: "owl-carousel",
-                theme: "owl-theme",
-                transitionStyle: false,
-                addClassActive: true,
-            });
-        }
-    }
-
-    function changeQty(increase) {
-        var qty = parseInt($('#qty').val());
-        if (!isNaN(qty)) {
-            console.log(qty)
-            qty = increase ? qty + 1 : (qty > 1 ? qty - 1 : 1);
-            $('#qty').val(qty);
-        }
-    }
-    (function ($) {
-        $(window).load(function () {
-            if (!isPhone) {
-                $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
-            }
-            doSliderMoreview();
-        });
-    })(jQuery);
-</script>
 
 

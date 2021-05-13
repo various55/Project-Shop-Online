@@ -18,7 +18,8 @@ namespace Business.Services
         ICollection<ProductDetail> Find(int id);
         ICollection<ProductDetail> FindAll(string[] includes);
         ProductDetail FindById(int id);
-
+        ICollection<Size> FindSizeByProduct(int idProduct);
+        ICollection<Color> FindColorByProduct(int idProduct);
         ProductDetail Find(int id, int size, int color);
         ProductDetail FindByProduct(int id);
         void Save();
@@ -87,5 +88,26 @@ namespace Business.Services
             unitOfWork.commit();
         }
 
+        public ICollection<Size> FindSizeByProduct(int idProduct)
+        {
+            var sizes = new List<Size>();
+            var products = productDetailRepository.findByCondition(x=>x.ProductID==idProduct ,new string[] { "Size" }).Select(x=>x.Size).Distinct();
+            foreach(var item in products)
+            {
+                sizes.Add(item);
+            }
+            return sizes;
+        }
+
+        public ICollection<Color> FindColorByProduct(int idProduct)
+        {
+            var sizes = new List<Color>();
+            var products = productDetailRepository.findByCondition(x=>x.ProductID==idProduct,new string[] { "Color" }).Select(x => x.Color).Distinct();
+            foreach (var item in products)
+            {
+                sizes.Add(item);
+            }
+            return sizes;
+        }
     }
 }
