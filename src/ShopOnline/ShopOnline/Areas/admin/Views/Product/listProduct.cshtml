@@ -17,8 +17,10 @@
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.Code)</th>
                             <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model=>model.UrlImage)</th>
                             <th>@Html.DisplayNameFor(model => model.ImportPrice)</th>
                             <th>@Html.DisplayNameFor(model => model.ExportPrice)</th>
+                            
 
                             <th>Actions</th>
                         </tr>
@@ -29,13 +31,14 @@
                             <tr>
                                 <td>@Html.DisplayFor(modelItem => item.Code)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td><img src="@item.UrlImage" style="width:80px;height:80px" /></td>
                                 <td>@Html.DisplayFor(modelItem => item.ImportPrice)</td>
                                 <td>@Html.DisplayFor(modelItem => item.ExportPrice)</td>
 
                                 <td>
                                     <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Product/FromCreateUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
                                     <button class="btn btn-add" data-id="@item.ID" title="Thêm" data-toggle="modal" data-target="#modalPDetail" onclick="setDataForm(@item.ID, '/admin/Product/FormProductDetail', 'add-detail')"><i class="far fa-calendar-plus"></i></button>
-                                    <button class="btn btn-details" data-toggle="modal" data-target="#myModal">
+                                    <button class="btn btn-details" data-toggle="modal" data-target="#myModal" onclick="setDataForm(@item.ID,'/admin/Product/Detail','details')">
                                         <i class="fas fa-info-circle text-primary"></i>
                                     </button>
                                 </td>

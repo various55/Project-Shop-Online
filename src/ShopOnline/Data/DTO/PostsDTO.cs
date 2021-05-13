@@ -19,28 +19,28 @@ namespace Data.DTO
         }
 
         public int ID { get; set; }
-        [Display(Name = "Tiêu đề")]
-
+        
+        [Required]
         public string Title { get; set; }
 
         [StringLength(256)]
-        [Display(Name = "Ảnh")]
+        [Display(Name = "Tiêu đề")]
         public string Image { get; set; }
 
         [StringLength(256)]
-        [Display(Name = "Mô tả")]
+        [Display(Name = "Ảnh")]
         public string Description { get; set; }
-        [Display(Name = "Nội dung")]
+        [Display(Name = "Mô tả")]
         public string Content { get; set; }
-        [Display(Name = "Trạng thái")]
+        [Display(Name = "Nội dung")]
         public bool? Status { get; set; }
-        [Display(Name = "Người tạo")]
+        [Display(Name = "Trạng thái")]
         public int? CreatedBy { get; set; }
-        [Display(Name = "Thời gian  tạo")]
+        [Display(Name = "Người tạo")]
         public DateTime? CreatedAt { get; set; }
-        [Display(Name = "Người chỉnh sửa")]
+
         public int? ModifyBy { get; set; }
-        [Display(Name = "Thời gian chỉnh sửa")]
+
         public DateTime? ModifyAt { get; set; }
 
         public virtual User user { get; set; }

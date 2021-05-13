@@ -42,7 +42,7 @@ namespace Data.Models
         [Column(TypeName = "text")]
         public string Description { get; set; }
 
-        public double? Discount { get; set; }
+        public int? Discount { get; set; }
 
         public int? TotalPurchase { get; set; }
 

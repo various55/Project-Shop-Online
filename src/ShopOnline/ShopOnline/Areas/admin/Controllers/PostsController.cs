@@ -1,6 +1,7 @@
 ﻿using Business.Services;
 using Data.DTO;
 using Data.Models;
+using ShopOnline.Authorize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 namespace ShopOnline.Areas.admin.Controllers
 {
     [Authorize]
+    [CustomAuthorize("ADMIN,STAFF")]
     public class PostsController : Controller
 
     {
@@ -55,12 +57,13 @@ namespace ShopOnline.Areas.admin.Controllers
         public JsonResult AddOrUpdate(PostsDTO model)
         {
             model.Status = true;
-            model.CreatedBy = 1;
-            model.ModifyBy = 1;
-            model.ModifyAt = DateTime.Now;
-            model.CreatedAt = DateTime.Now;
             var status = false;
-            
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+            }
+            if (ModelState.IsValid)
+            {
                 Post posts= new Post();
                 posts = AutoMapper.Mapper.Map<Post>(model);
                 if (model.ID==0)
@@ -69,7 +72,7 @@ namespace ShopOnline.Areas.admin.Controllers
                 }
                 else { status = PostService.Update(posts); }
                 PostService.Save();
-            
+            }
             return Json(status, JsonRequestBehavior.AllowGet);
         }
      

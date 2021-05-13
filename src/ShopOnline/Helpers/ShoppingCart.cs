@@ -32,21 +32,28 @@ namespace Helpers
             }
         }
         public List<OrderDetail> Items = new List<OrderDetail>();
+        public int discount { get; set; }
 
         public bool Add(int id,int quantity)
         {
             if (id > 0)
             {
                 // Tìm xem có sản phẩm đó k, nếu k thì return false luôn
-                var product = dbContext.ProductDetails.Find(id);
+                var product = dbContext.ProductDetails.Include("Product").Include("Size").Include("Color").FirstOrDefault(x=>x.ID == id);
                 if(product!= null)
                 {
-                    var item = Items.Single(i => i.ProductDetaiID == id);
+                    var item = Items.SingleOrDefault(i => i.ProductDetaiID == id);
                     // Nếu chưa tồn tại trong giỏ thì add
                     if (item == null)
                     {
-                        item.Quantity = quantity;
-                        Items.Add(item);
+
+                        OrderDetail orderDetail = new OrderDetail();
+                        orderDetail.ProductDetail = product;
+                        orderDetail.Discount = product.Product.Discount;
+                        orderDetail.Price = product.Product.ExportPrice;
+                        orderDetail.ProductDetaiID = product.ID;
+                        orderDetail.Quantity = quantity;
+                        Items.Add(orderDetail);
                     }
                     else
                     {
@@ -83,8 +90,8 @@ namespace Helpers
         }
         public float Total()
         {
-            var sum = (float) Items.Sum(i => i.Quantity * i.Price * (1 - i.Discount / 100));
-            return sum;
+            var sum = (double) Items.Sum(i => i.Quantity * i.Price * (1 - i.Discount / 100));
+            return (float)sum;
         }
     }
 }

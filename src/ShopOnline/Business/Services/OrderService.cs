@@ -78,12 +78,12 @@ namespace Business.Services
         public bool Add(Order order)
         {
             var res = OrderRepository.add(order);
+            unitOfWork.commit();
             foreach(var item in order.OrderDetais)
             {
                 orderDetailRepository.add(item);
             }
-            unitOfWork.commit();
-            return res != null;
+             return res != null;
         }
         public bool Remove(int id)
         {

@@ -1,6 +1,7 @@
 ﻿using Business.Services;
 using Data.DTO;
 using Data.Models;
+using ShopOnline.Authorize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 namespace ShopOnline.Areas.admin.Controllers
 {
     [Authorize]
+    [CustomAuthorize("ADMIN,STAFF")]
     public class CategoryController : Controller
     {
         // GET: admin/Category
@@ -36,8 +38,9 @@ namespace ShopOnline.Areas.admin.Controllers
         [HttpPost]
         public JsonResult AddOrUpdate(CategoryDTO model)
         {
-            var status = true;
-            if (ModelState.IsValid) {
+            var status = false;
+            if (ModelState.IsValid)
+            {
                 Category category = new Category();
                 category.ID = model.ID;
                 category.Name = model.Name;
@@ -45,13 +48,14 @@ namespace ShopOnline.Areas.admin.Controllers
 
                 if (model.ID == 0)
                 {
-                    categoryService.Add(category);
+                    status = categoryService.Add(category);
                 }
                 else
                 {
-                    categoryService.Update(category);
+                    status = categoryService.Update(category);
                 }
-                categoryService.Save();
+               categoryService.Save();
+               
             }
             return Json(status, JsonRequestBehavior.AllowGet);
         }
@@ -63,10 +67,7 @@ namespace ShopOnline.Areas.admin.Controllers
             ViewBag.Data = categoryDTO;
             return PartialView();
         }
-        public PartialViewResult aa()
-        {
-            return PartialView();
-        }
+       
         [HttpPost]
         public JsonResult Delete(int id)
         {

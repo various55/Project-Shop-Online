@@ -37,6 +37,8 @@ namespace Data.DTO
         [Display(Name = "Tổng tiền")]
         public double? Total { get; set; }
 
+        public String CodeDiscount { get; set; }
+
         [Display(Name = "Phí")]
 
         public double? Fee { get; set; }

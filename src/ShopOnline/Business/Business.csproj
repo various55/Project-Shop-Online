@@ -35,16 +35,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_FileEditor">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_FileEditor.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_FileEditor.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_ImageResize">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_ImageResize.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_ImageResize.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder_Watermark">
-      <HintPath>..\..\..\..\..\..\Downloads\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Release\CKFinder_Watermark.dll</HintPath>
+      <HintPath>..\..\..\..\..\Test\lib\ckfinder_aspnet_2.6.2.1\ckfinder\bin\Debug\CKFinder_Watermark.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -52,8 +52,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -74,15 +74,15 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ColorService.cs" />
-    <Compile Include="Services\ContactService.cs" />
+    <Compile Include="Services\DiscountCodeService.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\NarbarService.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\ProductDetailService.cs" />
-    <Compile Include="Services\ProductDetailService.cs" />
     <Compile Include="Services\ProductService.cs" />
-    <Compile Include="Services\ShopInformationService.cs" />
     <Compile Include="Services\SizeService.cs" />
     <Compile Include="Services\SuppelierService.cs" />
     <Compile Include="Services\TagsService.cs" />
@@ -105,9 +105,17 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{8ab8234e-d3ff-4dd0-a91c-afb54a312cf6}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{fcdf8760-d827-475e-b65e-ba52ee392bac}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{de4ac1ed-2709-458c-b4d3-8bed01ba12d0}</Project>
+      <Name>Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

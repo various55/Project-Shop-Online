@@ -1,5 +1,6 @@
 ﻿using Business.Services;
 using Data.DTO;
+using ShopOnline.Authorize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 namespace ShopOnline.Areas.admin.Controllers
 {
     [Authorize]
+    [CustomAuthorize("ADMIN")]
     public class TransactionController : Controller
     {
         ITransactionService transactionService;

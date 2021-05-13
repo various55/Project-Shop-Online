@@ -1,40 +1,38 @@
-﻿<script>
-    var editor = CKEDITOR.replace('txtContent', { customConfig: '/Content/plugins/ckeditor/config.js' });
-</script>
-<div class="update-post">
-   
+﻿<div class="update-post">
     <form id="formAddOrUpdate">
         @if (ViewBag.data == null)
         {
-        <div class="row m-8">
-            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
-            <div class="col-md-3">
-                <label>Tiêu đề</label>
-                <input type="text" value="" name="Title" class="form-control" />
-                <div class="error"></div>
-            </div>
-            <div class="col-md-5">
-                <label>Hình ảnh</label>
-                <span><input id="xFilePath" name="Image" type="text" class="form-control" /></span>
-                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+            <div class="row m-0">
+                <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+                <div class="col-md-3">
+                    <label>Tiêu đề</label>
+                    <input type="text" value="" name="Title" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-5">
+                    <label>Hình ảnh</label>
+                    <span><input id="xFilePath" name="Image" type="text" class="form-control" /></span>
+                    <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
 
-                <div class="error"></div>
-            </div>
-            <div class="col-md-3">
-                <label>Mô tả</label>
-                <input type="text" value="" name="Description" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Mô tả</label>
+                    <input type="text" value="" name="Description" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Nội dung</label>
+                    <input type="text" value="" name="Content" class="form-control" />
+                    <div class="error"></div>
+                </div>
 
-                <div class="error"></div>
+                <div class="col-md-3">
+                    <label>người add</label>
+                    <input type="text" value="" name="CreatedBy" class="form-control" />
+                    <div class="error"></div>
+                </div>
             </div>
-            <div class="col-md-8">
-                <label>Nội dung/label>
-                <input type="text" value="" name="Content" class="form-control" />
-
-                <div class="error"></div>
-            </div>
-           
-
-        </div>
             <div class="modal-footer">
                 <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Posts/AddOrUpdate' , '/Posts/ListPost' , 'dataTable')"> Thêm mới</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -42,35 +40,37 @@
         }
         else
         {
-            <div class="row m-8">
+            <div class="row m-0">
                 <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
                 <div class="col-md-3">
                     <label>Tiêu đề</label>
-                    <input type="text" name="Title" class="form-control" value="@ViewBag.data.Title" />
+                    <input type="text" name="Title" class="form-control"  value="@ViewBag.data.Title"/>
                     <div class="error"></div>
                 </div>
                 <div class="col-md-3">
                     <label>Hình ảnh</label>
-                    <span><input id="xFilePath" name="Image" type="text" class="form-control" value="@ViewBag.data.Image" /></span>
+                    <span><input id="xFilePath" name="Image" type="text" class="form-control" value="@ViewBag.data.Image"  /></span>
                     <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                  
                     <div class="error"></div>
                 </div>
                 <div class="col-md-3">
                     <label>Mô tả</label>
-                    <input type="text" name="Description" class="form-control" value="@ViewBag.data.Description" />
+                    <input type="text"  name="Description" class="form-control"  value="@ViewBag.data.Description"/>
                     <div class="error"></div>
                 </div>
-                <div class="col-md-8">
-                    <label>Nội  dung</label>
-                    <input type="text" name="Content" class="form-control" value="@ViewBag.data.Content" />
+                <div class="col-md-3">
+                    <label>Nội dung</label>
+                    <input type="text" value="@ViewBag.data.Content" name="Content" class="form-control" />
                     <div class="error"></div>
                 </div>
-
                 <div class="col-md-3">
                     <label>Trạng thái</label>
                     <input type="text" value="@ViewBag.data.Status" name="Status" class="form-control" />
                     <div class="error"></div>
                 </div>
+               
             </div>
             <div class="modal-footer">
                 <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Posts/AddOrUpdate' , '/Posts/ListPost' , 'dataTable')"> Cập nhật</button>
@@ -86,15 +86,8 @@
         finder.basePath = '~/ckfinder';
         finder.selectActionFunction = SetFileField;
         finder.popup();
-        
-
     }
     function SetFileField(fileUrl) {
         document.getElementById('xFilePath').value = fileUrl;
-
     }
-    function(){
-     
-    }
- 
 </script>
