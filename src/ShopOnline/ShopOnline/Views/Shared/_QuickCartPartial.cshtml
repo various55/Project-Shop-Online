@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Data.DTO.OrderDetailDTO>
+    @{ var count = 0; }
+
+@if (Model.Count() > 0) { 
+    <div class="em-container-topcart">
+    <div class="em-summary-topcart">
+        <a class="em-amount-js-topcart em-amount-topcart" title="Shopping Cart" href="/Cart/Index"> <span class="em-topcart-text">My Cart:</span> <span class="em-topcart-qty">@Model.Count()</span> </a>
+    </div>
+    <div class="em-container-js-topcart topcart-popup" style="display:none">
+        <!-- Div cha nó đây này-->
+        <div class="topcart-popup-content">
+            <div class="single-bar` shopping">
+                <a href="@Url.Action("Index","Cart")" class="single-icon"><i class="ti-bag"></i> <span class="total-count"></span></a>
+                <!-- Shopping Item -->
+                <div class="shopping-item">
+                    <div class="dropdown-cart-header">
+                        <span>@Model.Count() SẢN PHẨM</span>
+                        <a href="@Url.Action("Index","Cart")" style="float: right; color: #000;">XEM GIỎ HÀNG</a>
+                    </div>
+                    <ul class="shopping-list">
+                        @{ var sum = 0;}
+                        @foreach (var item in Model)
+                        {
+                            sum= sum+(int)item.ProductDetail.Product.ExportPrice *(int) item.Quantity * (int) (1 - item.ProductDetail.Product.Discount / 100.0);
+                            count = count + (int) item.Quantity;
+                            <li>
+                                <a class="cart-img" href="#"><img src="@item.ProductDetail.UrlImage" alt="#"></a>
+                                <a href="#" style="color:#000">@item.ProductDetail.Product.Name [@item.ProductDetail.Size.Name] [@item.ProductDetail.Color.Name]</a>
+                                <p class="quantity">
+                                    @item.Quantity x <span class="amount">@item.ProductDetail.Product.ExportPrice</span>
+                                    <hr />
+                                </p>
+                                <a href="#" onclick="remove(@item.ProductDetail.ID)" name="Name" class="remove btn-del-cart" title="Remove this item">X</a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="bottom">
+                        <div class="total">
+                            <span>TOTAL</span>
+                            <span class="total-amount">@sum</span>
+                        </div>
+                        <a href="@Url.Action("Index","Cart")" class="btn btn-success">Checkout</a>
+                    </div>
+                </div>
+                <!--/ End Shopping Item -->
+            </div>
+        </div><!-- /.em-wrapper-js-topcart -->
+    </div><!-- /.em-top-cart -->
+</div>
+}

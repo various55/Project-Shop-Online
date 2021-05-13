@@ -1,0 +1,96 @@
+﻿@model Data.DTO.DiscountCodeDTO
+
+<div class="update-info">
+    <form id="formAddOrUpdate">
+        @if (Model == null)
+        {
+            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-12">
+                    <label>
+                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
+                    </label>
+                    <div class="form-line">
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mã khuyến mại " } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label>
+                        @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label" })
+                    </label>
+                    <div class="form-line">
+                        @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", @placeholder = "Discount" } })
+                        @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label" })
+                    </label>
+                    <div class="form-line">
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Chi tiết" } })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label>
+                        @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label" })
+                    </label>
+                    <div class="form-line">
+                        <input type="date" name="StartTime" class="form-control" value="" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label>
+                        @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label" })
+                    </label>
+                    <div class="form-line">
+                        <input type="date" name="EndTime" class="form-control" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/DiscountCode/AddOrUpdate','/admin/DiscountCode/LoadAll','dataTable')">Thêm mới</button>
+            </div>
+        }
+        else
+        {
+            <input type="number" name="id" value="@Model.ID" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-12">
+                    <label>CODE</label>
+                    <input type="text" value="@Model.Code" name="@Model.Code" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-12">
+                    <label>Chi tiết</label>
+                    <input type="text" value="@Model.Discount" name="@Model.Discount" class="form-control" />
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label>Giảm giá 0-100%</label>
+                <input type="number" value="@Model.Detail" name="@Model.Detail" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-6">
+                <label for="example-datetime-local-input" class="col-2 col-form-label">Thời gian bắt đầu</label>
+                <div class="col-10">
+                    <input type="date" name="StartTime" class="form-control" value="@Model.StartTime.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="example-datetime-local-input" class="col-2 col-form-label">Thời gian kết thúc</label>
+                <div class="form-line">
+                    <input type="date" name="EndTime" class="form-control" value="@Model.EndTime.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/DiscountCode/AddOrUpdate','/admin/DiscountCode/LoadAll','dataTable')"> Cập nhập</button>
+            </div>
+        }
+    </form>
+</div>

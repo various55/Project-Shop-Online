@@ -1,4 +1,5 @@
-﻿<div class="em-main-container em-col1-layout">
+﻿@model IEnumerable<Data.DTO.PDetailDTO>
+<div class="em-main-container em-col1-layout">
     <div class="row">
         <div class="em-col-main col-sm-22 col-sm-offset-1">
             <div id="messages_product_view"></div>
@@ -13,12 +14,12 @@
                                     <div class="product-img-box">
                                         <div class="media-left">
                                             <p class="product-image">
-                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="~/Content/images/product/1000x1000/5_1.jpg"> <img class="em-product-main-img" src="~/Content/images/product/800x800/5_1.jpg" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="~/Content/images/product/1000x1000/5_1.jpg" title="WIASSI Version 1">Zoom</a>
+                                                <a class="cloud-zoom" id="image_zoom" rel="zoomWidth: 500,zoomHeight: 500,position: 'inside'" href="@ViewBag.product.UrlImage"> <img class="em-product-main-img" src="@ViewBag.product.UrlImage" alt='' title="WIASSI Version 1" /> </a> <a id="zoom-btn" rel="lightbox[em_lightbox]" href="@ViewBag.product.UrlImage" title="WIASSI Version 1">Zoom</a>
                                             </p>
                                         </div><!-- /.media-left -->
                                         <div class="more-views">
                                             <ul class="em-moreviews-slider ">
-                                                @*<li class="item">
+                                                <li class="item">
                                                     <a class="cloud-zoom-gallery" rel="useZoom:'image_zoom', smallImage:'~/Content/images/product/800x800/4_1.jpg', adjustX:5, adjustY:-5, position:'inside'" onclick="return false" href="~/Content/images/product/1000x1000/4_1.jpg"> <img src="~/Content/images/product/100x100/4_1.jpg" alt="" /> </a> <a class="no-display" href="images/product/1000x1000/4_1.jpg" rel="lightbox[em_lightbox]">lightbox moreview</a>
                                                 </li>
                                                 <li class="item">
@@ -26,96 +27,101 @@
                                                 </li>
                                                 <li class="item">
                                                     <a class="cloud-zoom-gallery" rel="useZoom:'image_zoom', smallImage:'~/Content/images/product/800x800/5_1.jpg', adjustX:5, adjustY:-5, position:'inside'" onclick="return false" href="~/Content/images/product/1000x1000/5_1.jpg"> <img src="~/Content/images/product/100x100/5_1.jpg" alt="" /> </a> <a class="no-display" href="images/product/1000x1000/5_1.jpg" rel="">lightbox moreview</a>
-                                                </li>*@
+                                                </li>
                                             </ul>
                                         </div><!-- /.more-views -->
                                     </div>
                                 </div><!-- /.em-product-view-primary -->
-                                <div class="em-product-view-secondary em-product-shop col-sm-8">
-                                    <div class="product-shop  fix_menu">
+                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail m-4">
+                                    <div class="product-shop fix_menu">
                                         <div id="em-product-info-basic">
+
                                             <div class="product-name">
-                                                <h1>WIASSI Version 1</h1>
+                                                <h1>@ViewBag.product.Name</h1>
                                             </div>
-                                            <div class="em-review-email">
-                                                <p class="no-rating">
-                                                    <a href="#" class="r-lnk link_review_form">Be the first to review this product</a>
-                                                </p>
-                                                <p class="email-friend">
-                                                    <a href="#">Email to a Friend</a>
-                                                </p>
+                                            <div class="product-code">
+                                                <label>Mã sản phẩm</label>
+                                                <h3>@ViewBag.product.Code</h3>
                                             </div>
-                                            <div class="em-sku-availability">
-                                                <p class="sku">SKU: Sho_1</p>
-                                                <p class="availability in-stock">
-                                                    Availability: <span class="value">In stock</span>
-                                                </p>
+                                            <div class="product-price">
+                                                <label>Giá bán</label>
+                                                <h1 style="color:red;font-size:20px">@ViewBag.product.ExportPrice</h1>
                                             </div>
-                                            <div class="short-description">
-                                                <h2>Quick Overview</h2>
-                                                <div class="std">Morbi at ex at arcu posuere luctus. Maecenas eu nulla libero. Duis vulputate blandit hendrerit. Vestibulum mollis mattis justo nec auctor. Morbi non libero felis. Praesent porttitor blandit dui, nec mollis risus tempus ut. Fusce tincidunt</div>
-                                            </div>
-                                            <div class="em-addthis-plug">
-                                                <span>Share</span>
-                                                <a href="#" target="_blank">
-                                                    <img alt="Facebook" src="~/Content/images/social/facebook.png" />
-                                                </a>
-                                                <a href="#" target="_blank">
-                                                    <img alt="Twitter" src="~/Content/images/social/twitter.png" />
-                                                </a>
-                                                <a href="#" target="_blank">
-                                                    <img alt="Google+" src="~/Content/images/social/google_plusone_share.png" />
-                                                </a>
-                                                <a href="#" target="_blank">
-                                                    <img alt="Pinterest" src="~/Content/images/social/pinterest.png" />
-                                                </a>
-                                                <a href="#" target="_blank">
-                                                    <img alt="LinkedIn" src="~/Content/images/social/linkedin.png" />
-                                                </a>
-                                                <a href="#" target="_blank">
-                                                    <img alt="Email" src="~/Content/images/social/email.png" />
-                                                </a>
-                                            </div><!-- /.em-addthis-plug -->
-                                            <div>
+                                            @if (Model.Count() > 0)
+                                            {
+                                                <div class="size-button">
+                                                    <label>Chọn size</label>
+                                                    <div class="form-check">
 
-                                                <p class="availability in-stock">
-                                                    Availability: <span>In stock</span>
-                                                </p>
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            <input class="form-check-input" value="@item.Size.ID" type="radio" name="size" id="@item.Size.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()">
+                                                            <label class="form-check-label" for="@item.Size.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Size.Name
+                                                            </label>
 
-                                                <div class="price-box">
-                                                    <span class="regular-price" id="product-price-206"> <span class="price" content="750">$750.00</span> </span>
+                                                        }
+
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="add-to-box">
-                                                <div class="add-to-cart">
-                                                    <label for="qty">Qty:</label>
-                                                    <div class="qty_cart">
-                                                        <div class="qty-ctl">
-                                                            <button title="decrease" onclick="changeQty(0); return false;" class="decrease">decrease</button>
-                                                        </div>
-                                                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
-                                                        <div class="qty-ctl">
-                                                            <button title="increase" onclick="changeQty(1); return false;" class="increase">increase</button>
-                                                        </div>
+                                                <div class="color-button">
+                                                    <label>Chọn color</label>
+                                                    <div class="form-check">
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.Color.ID" id="@item.Color.Name" style="width:20px;height:20px;margin-right:5px">
+                                                            <label class="form-check-label" for="@item.Color.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                                @item.Color.Name
+                                                            </label>
+
+                                                        }
                                                     </div>
-                                                    <ul class="add-to-links">
-                                                        <li>
-                                                            <a title="Add to Wishlist" href="#" class="link-wishlist">Add to Wishlist</a>
-                                                        </li>
-                                                        <li>
-                                                            <span class="separator">|</span> <a href="#" title="Add to Compare" class="link-compare">Add to Compare</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="button_addto">
-                                                        <button type="button" title="Buy Now" id="em-buy-now" class="button btn-em-buy-now">
-                                                            <span><span>Buy Now</span></span>
-                                                        </button>
-                                                        <button type="button" title="Add to Cart" id="product-addtocart-button" class="button btn-cart btn-cart-detail">
-                                                            <span><span>Add to Cart</span></span>
-                                                        </button>
+                                                </div>
+                                                <div>
+
+                                                    <p class="availability in-stock">
+                                                        Availability: <span>In stock</span>
+                                                    </p>
+
+                                                    <div class="price-box">
+                                                        <span class="regular-price" id="product-price-206"> <span class="price" content="750">@ViewBag.Product.ExportPrice $</span> </span>
                                                     </div>
-                                                </div><!-- /.add-to-cart -->
-                                            </div><!-- /.add-to-box -->
+                                                </div>
+                                                <div class="add-to-box">
+                                                    <div class="add-to-cart">
+                                                        <label for="qty">Qty:</label>
+                                                        <div class="qty_cart">
+                                                            <div class="qty-ctl">
+                                                                <button title="decrease" onclick="changeQty(0); return false;" class="decrease">decrease</button>
+                                                            </div>
+                                                            <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
+                                                            <div class="qty-ctl">
+                                                                <button title="increase" onclick="changeQty(1); return false;" class="increase">increase</button>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="add-to-links">
+                                                            <li>
+                                                                <a title="Add to Wishlist" href="#" class="link-wishlist">Add to Wishlist</a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="separator">|</span> <a href="#" title="Add to Compare" class="link-compare">Add to Compare</a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="button_addto">
+                                                            <button type="button" title="Buy Now" id="em-buy-now" class="btn btn-success" onclick="add(@ViewBag.product.ID)">
+                                                                <span><span>Thêm vào giỏ hàng</span></span>
+                                                            </button>
+                                                        </div>
+                                                    </div><!-- /.add-to-cart -->
+                                                </div><!-- /.add-to-box -->
+                                            }
+                                            else
+                                            {
+                                                <div>Sản phẩm đã hết hàng</div>
+                                                <button class="btn btn-danger">Liên hệ</button>
+                                            }
+                                            <a class="btn btn-info" href='@Url.Action("Index", "Cart")'>Thanh toán</a>
+                                            <a href="@Url.Action("Index","Product")" class="btn btn-info">Quay lại trang mua hàng</a>
                                         </div><!-- /.em-product-info-basic -->
                                     </div>
                                 </div><!-- /.em-product-view-secondary -->
@@ -127,200 +133,7 @@
                 <div class="row">
                     <div class="em-product-view-primary col-sm-16 first"></div>
                 </div>
-                <div class="row">
-                    <div class="em-product-view-primary col-sm-16 first">
-                        <div class="em-product-info ">
-                            <div class="em-product-details ">
-                                <div class="em-details-tabs product-collateral">
-                                    <div class="em-details-tabs-content">
-                                        <div class="box-collateral em-line-01 box-description">
-                                            <div class="em-block-title">
-                                                <h2>Details</h2>
-                                            </div>
-                                            <div class="box-collateral-content">
-                                                <div class="std"> Morbi at ex at arcu posuere luctus. Maecenas eu nulla libero. Duis vulputate blandit hendrerit. Vestibulum mollis mattis justo nec auctor. Morbi non libero felis. Praesent porttitor blandit dui, nec mollis risus tempus ut. Fusce tincidunt</div>
-                                            </div>
-                                        </div><!-- /.box-collateral -->
-                                        <div class="box-collateral box-tags em-line-01">
-                                            <div class="em-block-title">
-                                                <h2>Product Tags</h2>
-                                            </div>
-                                            <div class="box-collateral-content">
-                                                <form id="addTagForm" method="get">
-                                                    <div class="form-add">
-                                                        <label for="productTagName">Add Your Tags:</label>
-                                                        <div class="input-box">
-                                                            <input type="text" class="input-text required-entry" name="productTagName" id="productTagName" />
-                                                        </div>
-                                                        <button type="button" title="Add Tags" class="button">
-                                                            <span> <span>Add Tags</span> </span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                                <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
-                                            </div><!-- /.box-collateral-content -->
-                                        </div><!-- /.box-collateral -->
-                                        <div class="box-collateral  em-line-01">
-                                            <div class="em-block-title">
-                                                <h2>Custom Tab N</h2>
-                                            </div>
-                                            <div class="box">
-                                                <p>Sample Block Here ...</p>
-                                                <p>A sample of additional collateral tabs that you can insert in static the backend.</p>
-                                            </div>
-                                        </div><!-- /.box-collateral -->
-                                        <div class="box-collateral em-line-01">
-                                            <div class="em-block-title">
-                                                <h2>Custom Tab 1</h2>
-                                            </div>
-                                            <div class="box">
-                                                <p>Sample Block Here ...</p>
-                                                <p>A sample of additional collateral tabs that you can insert in static the backend.</p>
-                                            </div>
-                                        </div><!-- /.box-collateral -->
-                                    </div><!-- /.em-details-tabs-content -->
-                                </div><!-- /.em-details-tabs -->
-                                <div class="box-collateral box-reviews em-line-01" id="customer-reviews">
-                                    <div class="form_review no_reviews">
-                                        <div class="form-add" id="customer_review_form">
-                                            <div class="em-block-title">
-                                                <h2>Write Your Own Review</h2>
-                                            </div>
-                                            <form method="post" id="review-form">
-                                                <fieldset>
-                                                    <h3>You're reviewing: <span>WIASSI Version 1</span></h3>
-                                                    <ul class="form-list">
-                                                        <li>
-                                                            <label for="nickname_field" class="required"><em>*</em>Nickname</label>
-                                                            <div class="input-box">
-                                                                <input type="text" name="nickname" id="nickname_field" class="input-text required-entry" value="" />
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <label for="summary_field" class="required"><em>*</em>Summary of Your Review</label>
-                                                            <div class="input-box">
-                                                                <input type="text" name="title" id="summary_field" class="input-text required-entry" value="" />
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <label for="review_field" class="required"><em>*</em>Review</label>
-                                                            <div class="input-box">
-                                                                <textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry"></textarea>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </fieldset>
-                                                <h4>How do you rate this product? <em class="required">*</em></h4> <span id="input-message-box"></span>
-                                                <table class="data-table" id="product-review-table">
-                                                    <col style="width:1%;" />
-                                                    <col style="width:1%;" />
-                                                    <col style="width:1%;" />
-                                                    <col style="width:1%;" />
-                                                    <col style="width:1%;" />
-                                                    <col style="width:1%;" />
-                                                    <thead>
-                                                        <tr>
-                                                            <th>&nbsp;</th>
-                                                            <th>
-                                                                <span class="nobr">1 star</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="nobr">2 stars</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="nobr">3 stars</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="nobr">4 stars</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="nobr">5 stars</span>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th>Price</th>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[3]" id="Price_1" value="11" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[3]" id="Price_2" value="12" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[3]" id="Price_3" value="13" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[3]" id="Price_4" value="14" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[3]" id="Price_5" value="15" class="radio" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Value</th>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[2]" id="Value_1" value="6" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[2]" id="Value_2" value="7" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[2]" id="Value_3" value="8" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[2]" id="Value_4" value="9" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[2]" id="Value_5" value="10" class="radio" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Quality</th>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[1]" id="Quality_1" value="1" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[1]" id="Quality_2" value="2" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[1]" id="Quality_3" value="3" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[1]" id="Quality_4" value="4" class="radio" />
-                                                            </td>
-                                                            <td class="value">
-                                                                <input type="radio" name="ratings[1]" id="Quality_5" value="5" class="radio" />
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <input type="hidden" name="validate_rating" class="validate-rating" value="" />
-                                                <div class="buttons-set">
-                                                    <button type="submit" title="Submit Review" class="button">
-                                                        <span><span>Submit Review</span></span>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div><!-- /.form_review -->
-                                </div><!-- /.box-collateral -->
-                                <div class="block block-sample">
-                                    <div class="em-line-01">
-                                        <div class="em-block-title">
-                                            <h2><span>This is sample static block replacing upsell products</span></h2>
-                                        </div>
-                                        <div class="block-content box">
-                                            <p>This is sample static block replacing upsell products. Put your own content here: filter widget,text, html, images - whatever you want.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- /.block -->
-                            </div><!-- /.em-product-details -->
-                        </div><!-- /.em-product-info -->
-                        <div id="em-product-shop-pos-bottom" style="display:inline-block;"></div>
-                    </div>
-                </div>
-            </div><!-- /.product-view -->
+            </div>
         </div>
     </div>
 </div>
@@ -379,6 +192,5 @@
         });
     })(jQuery);
 </script>
-            </div>
 
 

@@ -1,0 +1,140 @@
+﻿<div class="update-ShopInformation">
+    <form id="formAddOrUpdate">
+        @if (ViewBag.data == null)
+        {
+        <div class="row m-0">
+            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+            <div class="col-md-3">
+                <label>Tên shop</label>
+                <input type="text" value="" name="Name" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-5">
+                <label>Logo</label>
+                <span><input id="xFilePath" name="Logo" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Mã số thuế</label>
+                <input type="text" value="" name="Taxcode" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Địa chỉ</label>
+                <input type="text" value="" name="Address" class="form-control" />
+                <div class="error"></div>
+            </div>
+
+            <div class="col-md-3">
+                <label>Số điện thoại</label>
+                <input type="text" value="" name="Mobile" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Email  </label>
+                <input type="text" value="" name="Email" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-5">
+                <label>Facebook</label>
+                <span><input id="xFilePath" name="Facebook" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+            <div class="col-md-5">
+                <label>Instagram</label>
+                <span><input id="xFilePath" name="Instagram" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+
+            <div class="col-md-5">
+                <label>Twitter</label>
+                <span><input id="xFilePath" name="Twitter" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+            <div class="col-md-5">
+                <label>Youtube</label>
+                <span><input id="xFilePath" name="Youtube" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+            <div class="col-md-5">
+                <label>Zalo</label>
+                <span><input id="xFilePath" name="Zalo" type="text" class="form-control" /></span>
+                <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+                <div class="error"></div>
+            </div>
+        </div>
+            <div class="modal-footer">
+                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/ShopInformation/AddOrUpdate' , '/ShopInformation/ListShopInformation' , 'dataTable')"> Thêm mới</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        }
+        else
+        {
+    <div class="row m-0">
+        <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
+        <div class="col-md-3">
+            <label>Tên shop</label>
+            <input type="text" name="Name" class="form-control" value="@ViewBag.data.Name" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Logo</label>
+            <span><input id="xFilePath" name="Logo" type="text" class="form-control" value="@ViewBag.data.Logo" /></span>
+            <span> <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" /></span>
+
+
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Mã số thuế</label>
+            <input type="text" name="TaxCode" class="form-control" value="@ViewBag.data.TaxCode" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Địa chỉ</label>
+            <input type="text" value="@ViewBag.data.Address" name="Address" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Số điện thoại</label>
+            <input type="text" value="@ViewBag.data.Mobile" name="Mobile" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Email</label>
+            <input type="text" value="@ViewBag.data.Email" name="Email" class="form-control" />
+            <div class="error"></div>
+        </div>
+
+    </div>
+            <div class="modal-footer">
+                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Posts/AddOrUpdate' , '/Posts/ListPost' , 'dataTable')"> Cập nhật</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        }
+
+    </form>
+</div>
+<script>
+
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '~/ckfinder';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('xFilePath').value = fileUrl;
+    }
+</script>

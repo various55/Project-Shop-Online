@@ -9,7 +9,7 @@ namespace Data.Repositories.imp
 {
     public interface IProductDetailRepository : IRepository<ProductDetail>
     {
-
+        ProductDetail Find(int id, int size, int color);
     }
     public class ProductDetailRepository : RepositoryBase<ProductDetail>, IProductDetailRepository
     {
@@ -18,5 +18,9 @@ namespace Data.Repositories.imp
 
         }
 
+        public ProductDetail Find(int id, int size, int color)
+        {
+            return DbContext.ProductDetails.SingleOrDefault(p => p.ProductID == id && p.SizeID == size && p.ColorID == color);
+        }
     }
 }

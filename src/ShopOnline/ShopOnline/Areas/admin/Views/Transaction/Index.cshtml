@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@section MyCss{
+    <link href="~/Content/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
+}
+<section class="content">
+    <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div id="tableProducts" class="row clearfix data-Table">
+
+        </div>
+
+        <!-- #END# Exportable Table -->
+    </div>
+
+
+</section>
+@section MyJs{
+    <script>
+        $(document).ready(() => {
+            $('#example').DataTable();
+            
+            LoadData('/admin/Transaction/LoadAll', 'data-Table');
+        })
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Data.DTO.OrderDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section MyCss{
+    <link href="~/Content/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
+}
+<section class="content">
+    <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div id="tableProducts" class="row clearfix dataTable">
+            
+        </div>
+       
+        <!-- #END# Exportable Table -->
+        <input id="xFilePath" name="FilePath" type="text" class="input-block-level" />
+        <input type="button" value="Browse Server" onclick="BrowseServer();" class="controls" />
+    </div>
+
+
+</section>
+
+@section js{
+
+}
+@section MyJs{
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();  
+        });
+        LoadData('/admin/Base/listbase', 'dataTable');
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.basePath = '~/ckfinder';
+            finder.selectActionFunction = SetFileField;
+            finder.popup();
+        }
+        function SetFileField(fileUrl) {
+            document.getElementById('xFilePath').value = fileUrl;
+        }
+    </script>
+}

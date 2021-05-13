@@ -1,0 +1,60 @@
+﻿
+
+
+<div class="update-info">
+    <form id="FromCreateUpdate">
+       
+        
+            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-3">
+                    <label>Tên khách hanngf</label>
+                    <input type="text" value="" name="name" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Địa chỉ</label>
+                    <input type="text" value="" name="node" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Số điện thoại</label>
+                    <input type="text" value="" name="phone" class="form-control" />
+                    <div class="error"></div>
+                </div>
+            </div>
+        
+        else
+        {
+            <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-3">
+                    <label>Tên tòa nhà</label>
+                    <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Địa chỉ</label>
+                    <input type="text" value="@ViewBag.data.Address" name="Address" class="form-control" />
+                    <div class="error"></div>
+                </div>
+
+            </div>
+          
+            <div class="col-md-3">
+                <label>Số ĐT</label>
+                <input type="text" value="@ViewBag.data.Mobile" name="Mobile" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Payment</label>
+                <input type = "text" value= "@ViewBag.data.Payment" name= "Payment" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrEdit','/admin/Base/AddOrUpdate','/admin/Base/listbase','dataTable')"> Cập nhập</button>
+            </div>
+        }
+    </form>
+    </div>

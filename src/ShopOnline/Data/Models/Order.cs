@@ -35,6 +35,9 @@ namespace Data.Models
 
         public int? ConfirmStatusId { get; set; }
 
+        public DateTime? CreatedAt { get; set; }
+
+        [ForeignKey("UserID")]
         public virtual User UserMember { get; set; }
 
         public virtual ConfirmStatus ConfirmStatus { get; set; }

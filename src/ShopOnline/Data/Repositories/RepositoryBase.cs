@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,14 +30,20 @@ namespace Data.Repositories
 
         public virtual T add(T model)
         {
-            return dbSet.Add(model);
+            try
+            {
+                return dbSet.Add(model);
+            }catch
+            {
+                throw;
+            }
         }
 
-        public virtual void update(T model)
+        public virtual bool update(T model)
         {
             dbSet.Attach(model);
             context.Entry(model).State = EntityState.Modified;
-            context.SaveChanges();
+            return context.SaveChanges()>0;
         }
 
         public virtual T delete(int id)
@@ -60,9 +67,8 @@ namespace Data.Repositories
             return dbSet.Remove(model);
         }
 
-        public virtual ICollection<T> findAll(string[] includes = null)
+        public virtual ICollection<T> findAll(string[] includes)
         {
-            if (includes == null) return findAll();
             if (includes != null && includes.Count() > 0)
             {
                 var query = context.Set<T>().Include(includes.First());
@@ -72,6 +78,17 @@ namespace Data.Repositories
             }
 
             return context.Set<T>().AsQueryable().ToList();
+        }
+        public virtual ICollection<T> findByCondition(Expression<Func<T,bool>> expression,string[] includes)
+        {
+            if (includes != null && includes.Count() > 0)
+            {
+                var query = context.Set<T>().Include(includes.First());
+                foreach (var include in includes.Skip(1))
+                    query = query.Include(include);
+                return  query.Where<T>(expression).ToList();
+            }
+            return context.Set<T>().Where<T>(expression).ToList();
         }
     }
 }

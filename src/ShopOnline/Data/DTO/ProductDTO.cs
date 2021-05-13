@@ -1,33 +1,34 @@
-﻿namespace Data.Models
-{
-    using System;
+﻿    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
-    public partial class ProductDTO
+namespace Data.DTO
+    {
+    public class ProductDTO
     {
         public int ID { get; set; }
-
+        [Required]
         [Display(Name = "Mã sản phẩm")]
         [StringLength(12)]
         public string Code { get; set; }
-
+        [Required(ErrorMessage ="Nhập tên")]
         [Display(Name = "Tên sản phẩm")]
         [StringLength(50)]
         public string Name { get; set; }
 
         [Display(Name="Danh mục")]
+        [Required]
         public int? CategoryID { get; set; }
 
         [Display(Name="Nhà cung cấp")]
+        [Required]
         public int? SupplierID { get; set; }
 
         [Display(Name="Ảnh mô tả")]
         [StringLength(256)]
         public string UrlImage { get; set; }
-
+        [Required]
         [Display(Name="Giá nhập")]
         public double? ImportPrice { get; set; }
 
@@ -57,5 +58,8 @@
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
         public virtual Category Category { get; set; }
         public virtual Suppelier Suppelier { get; set; }
+        public virtual DiscountCode DiscountCode { get; set; }
+      
+
     }
 }

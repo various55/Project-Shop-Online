@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,10 +38,10 @@
       <HintPath>..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -75,22 +78,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\ColorDTO.cs" />
+    <Compile Include="DTO\DiscountCodeDTO.cs" />
+    <Compile Include="DTO\NarbarDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\LogDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\PDetailDTO.cs" />
+    <Compile Include="DTO\PostsDTO.cs" />
+    <Compile Include="DTO\ProductDetaiDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
-    <Compile Include="Migrations\202105051511553_create-database.cs" />
-    <Compile Include="Migrations\202105051511553_create-database.Designer.cs">
-      <DependentUpon>202105051511553_create-database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105051955581_update-db-v1.cs" />
-    <Compile Include="Migrations\202105051955581_update-db-v1.Designer.cs">
-      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
+    <Compile Include="DTO\ShopInformationDTO.cs" />
+    <Compile Include="DTO\SizeDTO.cs" />
+    <Compile Include="DTO\SuppelierDTO.cs" />
+    <Compile Include="DTO\TagDTO.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\ShopInformationDTO.cs" />
+    <Compile Include="DTO\UserPasswordDTO.cs" />
+    <Compile Include="DTO\UserRegistDTO.cs" />
+    <Compile Include="Migrations\202105111644236_db-v2.cs" />
+    <Compile Include="Migrations\202105111644236_db-v2.Designer.cs">
+      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
+    <Compile Include="DTO\UserPasswordDTO.cs" />
+    <Compile Include="DTO\UserRegistDTO.cs" />
+    <Compile Include="Migrations\202105111641587_db-2.cs" />
+    <Compile Include="Migrations\202105111641587_db-2.designer.cs">
+      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\ConfirmStatus.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\DiscountCode.cs" />
     <Compile Include="Models\ImageDetail.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Narbar.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Post.cs" />
@@ -104,8 +130,10 @@
     <Compile Include="Repositories\imp\ColorRepository.cs" />
     <Compile Include="Repositories\imp\ConfirmStatusRepository.cs" />
     <Compile Include="Repositories\imp\ContactRepository.cs" />
+    <Compile Include="Repositories\imp\DiscountCodeRepository.cs" />
     <Compile Include="Repositories\imp\ImageDetailRepository.cs" />
     <Compile Include="Repositories\imp\LogRepository.cs" />
+    <Compile Include="Repositories\imp\NarbarRepository.cs" />
     <Compile Include="Repositories\imp\OrderDetailRepository.cs" />
     <Compile Include="Repositories\imp\OrderRepository.cs" />
     <Compile Include="Repositories\imp\PostRepository.cs" />
@@ -136,7 +164,6 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="ConnectionStrings.config" />
@@ -146,12 +173,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105051511553_create-database.resx">
-      <DependentUpon>202105051511553_create-database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105051955581_update-db-v1.resx">
-      <DependentUpon>202105051955581_update-db-v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105111644236_db-v2.resx">
+      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

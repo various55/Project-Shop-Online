@@ -8,6 +8,17 @@ namespace Data.Models
 
     public partial class Product
     {
+        public Product()
+        {
+            Discount = 0;
+            TotalPurchase = 0;
+          
+            ImportPrice = 0;
+            ExportPrice = 0;
+            Status = true;
+            ShowOnHome = true;
+        }
+
         [Key]
         public int ID { get; set; }
 
@@ -31,7 +42,7 @@ namespace Data.Models
         [Column(TypeName = "text")]
         public string Description { get; set; }
 
-        public double? Discount { get; set; }
+        public int? Discount { get; set; }
 
         public int? TotalPurchase { get; set; }
 
@@ -42,7 +53,9 @@ namespace Data.Models
         public bool? ShowOnHome { get; set; }
 
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
+        [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
+        [ForeignKey("SupplierID")]
         public virtual Suppelier Suppelier { get; set; }
     }
 }

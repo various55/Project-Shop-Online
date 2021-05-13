@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Data.DTO.TagDTO>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Danh sách sản phẩm
+            </h2>
+            <ul class="header-dropdown m-r--5">
+                <button class="btn btn-danger btn-addOrUpdate" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(0,'/admin/Tag/FromCreateUpdate','add-or-edit')">Thêm mới</button>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Detail)</th>
+                            
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Detail)</td>
+
+
+                            <td>
+                                <button class="btn btn-edit" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Tag/FromCreateUpdate', 'add-or-edit')"><i class="fas fa-edit text-success"></i></button>
+                                <button class="btn btn-delete" data-id="@item.ID" title="Xóa" onclick="Delete(@item.ID,'/admin/Tag/Delete','/admin/Tag/listTag','dataTable')"><i class="fas fa-trash-alt text-danger"></i></button>
+                                <button class="btn btn-details" data-toggle="modal" data-target="#myModal">
+                                    <i class="fas fa-info-circle text-primary"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="add-or-edit">
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Cập nhập thông tin</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="details">
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+

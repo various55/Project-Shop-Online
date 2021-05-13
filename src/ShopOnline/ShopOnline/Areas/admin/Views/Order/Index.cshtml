@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Data.DTO.OrderDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section MyCss{
+    <link href="~/Content/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+}
+<section class="content">
+    <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div id="tableProducts" class="row clearfix data-Table">
+        </div>
+
+        <!-- #END# Exportable Table -->
+    </div>
+
+
+</section>
+<div id="modalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-green">
+                <h4 class="modal-title text-white"> Xác nhận đơn hàng</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="confirm">
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="Confirm()"> Xác nhận</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section js{
+}
+@section MyJs{
+    <script>
+        function loadAll(){
+            $.ajax({
+                url: 'Order/LoadAll',
+                type: 'post',
+                dataType: 'html',
+                success: (res) => {
+                    $('.data-Table').html('')
+                    $('.data-Table').html(res)
+                },
+                error: (res) => {
+                    console.log(res)
+                },
+                complete: () => {
+
+                }
+            })
+        }
+        $(document).ready(() => {
+            loadAll();
+        })
+        function Confirm() {
+            Swal.fire({
+                title: 'Xác nhận đơn hàng',
+                html:
+                    '<input name="note" class="swal2-input">' +
+                    '<select class="form-control confirm-status" name="status">' +
+                    '<option value="true">Xác nhận</option>' +
+                    '<option value="false">Hủy đơn</option>' +
+                    '</select >',
+                focusConfirm: false,
+                showCancelButton: true,
+                confirmButtonText: 'Xác nhận',
+                showLoaderOnConfirm: true,
+                preConfirm: () => {
+                    var id = $('input[name="ID"]').val();
+                    var note = $('input[name="note"]').val();
+                    var status = $('.confirm-status').val();
+                    console.log(id + note + status);
+                    $.ajax({
+                        url: 'Order/Confirm',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            id: id,
+                            note: note,
+                            status:status
+                        },
+                        success: (res) => {
+                            if (res) {
+                                MessageSuccess("Xác nhận đơn hàng thành công !");
+                            } else {
+                                MessageFailed("Có lỗi ra xảy khi xác nhận đơn hàng !");
+                            }
+                        },
+                        error: (res) => {
+                            console.log(res)
+                        },
+                        complete: () => {
+
+                        }
+                    })
+                    $("#modalAdd").modal('toggle');
+                    loadAll();
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            })
+        }
+    </script>
+
+}

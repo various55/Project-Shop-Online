@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Data.DTO.OrderDTO>
+
+@{ var count = 1;}
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Danh sách Order
+            </h2>
+        </div>
+        <div class="body">
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered table-hover dataTable js-exportable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Address)</th>
+                            <th>@Html.DisplayNameFor(model => model.Mobile)</th>
+                            <th>@Html.DisplayNameFor(model => model.Payment)</th>
+                            <th>@Html.DisplayNameFor(model => model.Total)</th>
+                            <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                            <th>Xác nhận đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(count++)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Mobile)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Payment)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                                <td>
+                                    <button class="btn btn-edit btn-success" type="button" data-toggle="modal" data-target="#modalAdd" onclick="setDataForm(@item.ID, '/admin/Order/LoadOrderDetail', 'confirm')">Xác nhận đơn hàng</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/Content/admin/js/pages/tables/jquery-datatable.js"></script>

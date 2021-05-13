@@ -1,0 +1,84 @@
+﻿
+@model Data.DTO.SuppelierDTO
+
+<div class="update-info">
+    <form id="formAddOrUpdate">
+       
+        @if (ViewBag.data == null)
+        {
+            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-3">
+                    <label>Tên NCC</label>
+                    <input type="text" value="" name="Name" class="form-control" />
+                    
+                    <div class="error"></div>
+
+                </div>
+                <div class="col-md-4">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Andress" value="" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Số điện thoại</label>
+                    <input type="text" value="" name="Mobile" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-4">
+                    <label>Email</label>
+                    <input type="text" name="Email" value="" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Là quản lý cty</label>
+                    <input type="text" name="Manager" value="" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Suppelier/AddOrUpdate', '/admin/Suppelier/listSuppelier', 'dataTable');AddLog('Thêm 1 Nhà Cung cấp', '/admin/Log/addLog/')"> Thêm mới</button>
+            </div>
+        }
+        else
+        {
+            <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
+            <div class="row m-0">
+                <div class="col-md-3">
+                    <label>Tên NCC</label>
+                    <input type="text" value="@ViewBag.data.Name" name="Name" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-4">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Andress" value="@ViewBag.data.Andress" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Số điện thoại</label>
+                    <input type="text" value="@ViewBag.data.Mobile" name="Mobile" class="form-control" />
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-4">
+                    <label>Email</label>
+                    <input type="text" name="Email" value="@ViewBag.data.Email" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+                <div class="col-md-3">
+                    <label>Là quản lý cty</label>
+                    <input type="text" name="Manager" value="@ViewBag.data.Manager" class="form-control"/>
+                    <div class="error"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Suppelier/AddOrUpdate', '/admin/Suppelier/listSuppelier', 'dataTable'); AddLog('Thay đổi thông tin 1 Nhà Cung cấp có ID=' +@ViewBag.data.ID, '/admin/Log/addLog/')"> Cập nhập</button>
+            </div>
+        }
+    </form>
+</div>
+
+
