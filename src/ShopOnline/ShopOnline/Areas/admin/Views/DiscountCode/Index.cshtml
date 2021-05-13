@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Data.DTO.OrderDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section MyCss{
+    <link href="~/Content/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
+}
+<section class="content">
+    <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div id="tableProducts" class="row clearfix dataTable">
+
+        </div>
+
+
+
+</section>
+
+@section js{
+
+}
+@section MyJs{
+    <script>
+
+        LoadData('/admin/DiscountCode/LoadAll', 'dataTable');
+
+    </script>
+}
