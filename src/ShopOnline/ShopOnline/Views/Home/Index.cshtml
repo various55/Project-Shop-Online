@@ -1,38 +1,86 @@
-﻿
-
-<div class="em-wrapper-main">
+﻿<div class="em-wrapper-main">
     <div class="container container-main">
         <div class="em-inner-main">
-        <div class="em-main-container em-col2-left-layout">
-        <div class="row">
-            <div class="col-sm-18 col-sm-push-6 em-col-main">
-                @Html.Partial("Banner")
-                <div class="em-wrapper-banners hidden-xs">
-                    <div class="em-effect06">
-                        <a class="em-eff06-03" title="em-sample-title" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/Content/images/wysiwyg/em_ads_10.jpg" /> </a>
-                    </div>
-                </div>
-                @Html.Partial("Sale")
-                </div>
-                <div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
-                    <div class="row">
-                        <div class="col-sm-24">
-                            @Html.Partial("BlogLeft")
+
+
+            <div class="em-main-container em-col2-left-layout">
+                <div class="row">
+                    <div class="col-sm-18 col-sm-push-6 em-col-main">
+                        @Html.Partial("Banner")
+                        @Html.Partial("Product")
+                        <div class="em-wrapper-banners hidden-xs">
+                            <div class="em-effect06">
+                                <a class="em-eff06-03" title="em-sample-title" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/Content/images/wysiwyg/em_ads_10.jpg" /> </a>
+                            </div>
                         </div>
-                    </div><!-- /.row -->
-                  
-                    <div class="img-banner hidden-xs">
-                        @Html.Partial("LeftFooter")
+                        @Html.Partial("Sale")
+                    </div>
 
-                    </div><!-- /.img-banner -->
-                </div><!-- /.em-sidebar -->
-            </div>
-        </div><!-- /.em-main-container -->
-        @Html.Partial("BannerFooter")
-        <!-- /.em-wrapper-area06 -->
+                    <div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
+                        <div class="em-wrapper-area02">
+                            <div class="menu-wrapper hidden-xs">
+                                @Html.Action("CategoriesLeft","home");
+                                <!--Gọi như này nó có chuyền cái gì đâu mà chả k null ??-->
 
-    </div><!-- /.em-inner-main -->
-</div><!-- /.container -->
+                            </div>
+                        </div><!-- /.em-wrapper-area02 -->
+                        <div class="em-wrapper-banners hidden-xs">
+                            <div class="em-effect06">
+                                <a class="em-eff06-04" href="#">
+                                    <img class="img-responsive retina-img" alt="em_ads_01.jpg" src="~/Content/images/wysiwyg/em_ads_01.jpg" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-24">
+                                @Html.Partial("Left")
+                            </div>
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-sm-24">
+                                @Html.Partial("BlogLeft")
+                            </div>
+                        </div><!-- /.row -->
+                        <div class="img-banner hidden-xs">
+                            @Html.Partial("LeftFooter")
+
+                        </div><!-- /.img-banner -->
+                    </div><!-- /.em-sidebar -->
+                </div>
+            </div><!-- /.em-main-container -->
+            @Html.Partial("BannerFooter")
+            <!-- /.em-wrapper-area06 -->
+
+        </div><!-- /.em-inner-main -->
+    </div><!-- /.container -->
 </div>
-
+<div class="popup-content" id="em-popup" style="display: none;">
+    <div class="popup-subscribe">
+        <div class="em-wrapper-newsletter">
+            <div class="em-block-title">
+                <h2><span>newsletter</span></h2>
+            </div>
+            <p>Sign up to our email newsletter to be the first to hear about great offers and more</p>
+            <div class="em-newsletter-style05">
+                <div class="block block-subscribe">
+                    <form method="post" id="em-popup-newsletter-validate-detail">
+                        <div class="block-content">
+                            <div class="form-subscribe-content">
+                                <div class="input-box">
+                                    <input type="text" name="email" id="popup-newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Sign up for your email ..." />
+                                </div>
+                                <div class="actions">
+                                    <button type="submit" title="Subscribe" class="button">
+                                        <span><span>Subscribe</span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.em-newsletter-style05 -->
+        </div>
+    </div>
+    <div class="popup-content-block"></div>
+</div>
 

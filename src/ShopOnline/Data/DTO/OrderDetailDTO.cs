@@ -9,7 +9,6 @@ namespace Data.DTO
 {
     public class OrderDetailDTO
     {
-        public int ProductDetaiID { get; set; }
         public virtual ProductDetail ProductDetail { get; set; }
 
         public double? Price { get; set; }

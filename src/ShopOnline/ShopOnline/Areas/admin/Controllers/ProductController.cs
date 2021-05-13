@@ -1,7 +1,6 @@
 ﻿using Business.Services;
 using Data.DTO;
 using Data.Models;
-using ShopOnline.Authorize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,6 @@ using System.Web.Mvc;
 namespace ShopOnline.Areas.admin.Controllers
 {
     [Authorize]
-    [CustomAuthorize("ADMIN,STAFF")]
     public class ProductController : Controller
     {
       
@@ -21,12 +19,11 @@ namespace ShopOnline.Areas.admin.Controllers
         IProductDetailService productDetailService;
         IColorService colorService;
         ISizeService sizeService;
-        IDiscountCodeService discountCodeService;
         public ProductController()
         {
 
         }
-        public ProductController(IProductService productService, ICategoryService categoryService, ISuppelierService suppelierService, IProductDetailService productDetailService, IColorService colorService, ISizeService sizeService, IDiscountCodeService discountCodeService)
+        public ProductController(IProductService productService, ICategoryService categoryService, ISuppelierService suppelierService, IProductDetailService productDetailService, IColorService colorService, ISizeService sizeService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
@@ -34,7 +31,6 @@ namespace ShopOnline.Areas.admin.Controllers
             this.productDetailService = productDetailService;
             this.colorService = colorService;
             this.sizeService = sizeService;
-            this.discountCodeService = discountCodeService;
         }
 
         // GET: admin/Order
@@ -46,16 +42,13 @@ namespace ShopOnline.Areas.admin.Controllers
         [HttpPost]
         public JsonResult AddOrUpdate(ProductDTO model)
         {
-            model.TotalInventory = 0;
-            model.ShowOnHome = true;
-            model.Discount = 0;
             var status = false;
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-            }
-            if (ModelState.IsValid)
-            {
+            //if (!ModelState.IsValid)
+            //{
+            //    var errors = ModelState.Values.SelectMany(v => v.Errors);
+            //}
+            //if (ModelState.IsValid)
+            //{
                 Product product = new Product();
                 product = AutoMapper.Mapper.Map<Product>(model);
             
@@ -68,7 +61,7 @@ namespace ShopOnline.Areas.admin.Controllers
                    status= productService.Update(product);
                 }
                 productService.Save();
-            }
+           // }
             return Json(status, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
@@ -85,7 +78,12 @@ namespace ShopOnline.Areas.admin.Controllers
         public JsonResult AddProductDetail(ProductDetaiDTO model)
         {
             ProductDetail product = new ProductDetail();
-            product=AutoMapper.Mapper.Map<ProductDetail>(product);
+            product.ID = model.ID;
+            product.ProductID = model.ProductID;
+            product.SizeID = model.SizeID;
+            product.ColorID = model.SizeID;
+            product.UrlImage = model.UrlImage;
+            product.Invenory = model.Invenory;
             bool status = false;
             status = productDetailService.Add(product);
             productDetailService.Save();
@@ -99,22 +97,21 @@ namespace ShopOnline.Areas.admin.Controllers
             var product = productService.FindById(id);
             var ProductDTO  = AutoMapper.Mapper.Map<ProductDTO>(product);
             ViewBag.Data = ProductDTO;
-            var discount = discountCodeService.FindAll();
-            ViewBag.discount = AutoMapper.Mapper.Map<IEnumerable<DiscountCodeDTO>>(discount);
             var category = categoryService.FindAll();
             ViewBag.Category = AutoMapper.Mapper.Map<IEnumerable<CategoryDTO>>(category);
             var supplier = suppelierService.FindAll();
             ViewBag.Supplier = AutoMapper.Mapper.Map<IEnumerable<SuppelierDTO>>(supplier);
             return PartialView();
         }
-       
         [HttpGet]
-        public ActionResult Detail(int id)
+        public PartialViewResult Detail(int id)
         {
-            var product= productService.FindBy(id).FirstOrDefault();
-           
-            var ProductsDTO = AutoMapper.Mapper.Map<ProductDTO>(product);
-            return PartialView(ProductsDTO);
+            //t muốn kết hợp giữa lấy theo id và join vs các bảng 
+            Product product = productService.FindById(id);
+            var productDetail = productService.FindAll(new string[] { "product", "Color", "Size" });
+
+            var ProductsDTO = AutoMapper.Mapper.Map<ICollection<PDetailDTO>>(productDetail);
+            return PartialView();
         }
         [HttpPost]
         public JsonResult Delete(int id)

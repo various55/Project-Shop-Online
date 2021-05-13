@@ -21,7 +21,7 @@ namespace Business.Services
         bool Update(Category category);
         void Save();
     }
-   public class CategoryService: ICategoryService
+    class CategoryService: ICategoryService
     {
         public ICategoryRepository CategoryRepository;
         public IUserRepository userRepository;

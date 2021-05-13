@@ -19,12 +19,7 @@ namespace ShopOnline
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Mapper.Initialize(config: cfg =>
-            {
-                cfg.AddProfile<AutoMapperProfile>();
-                cfg.ValidateInlineMaps = false;
-            }
-            );
+            Mapper.Initialize(config: cfg => cfg.AddProfile<AutoMapperProfile>());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

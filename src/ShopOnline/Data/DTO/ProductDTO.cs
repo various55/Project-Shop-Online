@@ -10,11 +10,11 @@ namespace Data.DTO
     public class ProductDTO
     {
         public int ID { get; set; }
-        [Required]
+
         [Display(Name = "Mã sản phẩm")]
         [StringLength(12)]
         public string Code { get; set; }
-        [Required(ErrorMessage ="Nhập tên")]
+
         [Display(Name = "Tên sản phẩm")]
         [StringLength(50)]
         public string Name { get; set; }
@@ -30,7 +30,7 @@ namespace Data.DTO
         [Display(Name="Ảnh mô tả")]
         [StringLength(256)]
         public string UrlImage { get; set; }
-        [Required]
+
         [Display(Name="Giá nhập")]
         public double? ImportPrice { get; set; }
 
@@ -60,8 +60,6 @@ namespace Data.DTO
         public virtual ICollection<ImageDetail> ImageDetails { get; set; }
         public virtual Category Category { get; set; }
         public virtual Suppelier Suppelier { get; set; }
-        public virtual DiscountCode DiscountCode { get; set; }
-      
 
     }
 }

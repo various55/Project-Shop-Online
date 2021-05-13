@@ -80,34 +80,19 @@
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
-    <Compile Include="DTO\DiscountCodeDTO.cs" />
-    <Compile Include="DTO\NarbarDTO.cs" />
-    <Compile Include="DTO\OrderDetailDTO.cs" />
-    <Compile Include="DTO\LogDTO.cs" />
+    <Compile Include="DTO\ContactDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\PDetailDTO.cs" />
-    <Compile Include="DTO\PostsDTO.cs" />
     <Compile Include="DTO\ProductDetaiDTO.cs" />
+    <Compile Include="DTO\PostsDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
-    <Compile Include="DTO\ShopInformationDTO.cs" />
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\SuppelierDTO.cs" />
     <Compile Include="DTO\TagDTO.cs" />
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ShopInformationDTO.cs" />
-    <Compile Include="DTO\UserPasswordDTO.cs" />
-    <Compile Include="DTO\UserRegistDTO.cs" />
-    <Compile Include="Migrations\202105111644236_db-v2.cs" />
-    <Compile Include="Migrations\202105111644236_db-v2.Designer.cs">
-      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
-    <Compile Include="DTO\UserPasswordDTO.cs" />
-    <Compile Include="DTO\UserRegistDTO.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.cs" />
-    <Compile Include="Migrations\202105111641587_db-2.designer.cs">
-      <DependentUpon>202105111641587_db-2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
@@ -116,7 +101,6 @@
     <Compile Include="Models\DiscountCode.cs" />
     <Compile Include="Models\ImageDetail.cs" />
     <Compile Include="Models\Log.cs" />
-    <Compile Include="Models\Narbar.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Post.cs" />
@@ -130,10 +114,8 @@
     <Compile Include="Repositories\imp\ColorRepository.cs" />
     <Compile Include="Repositories\imp\ConfirmStatusRepository.cs" />
     <Compile Include="Repositories\imp\ContactRepository.cs" />
-    <Compile Include="Repositories\imp\DiscountCodeRepository.cs" />
     <Compile Include="Repositories\imp\ImageDetailRepository.cs" />
     <Compile Include="Repositories\imp\LogRepository.cs" />
-    <Compile Include="Repositories\imp\NarbarRepository.cs" />
     <Compile Include="Repositories\imp\OrderDetailRepository.cs" />
     <Compile Include="Repositories\imp\OrderRepository.cs" />
     <Compile Include="Repositories\imp\PostRepository.cs" />
@@ -171,11 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105111644236_db-v2.resx">
-      <DependentUpon>202105111644236_db-v2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    [Table("DiscountCode")]
     public class DiscountCode
     {
         [Key]
         public int ID { get; set; }
         public string Code { get; set; }
-        [Range(0, 100)]
-        public int? Discount { get; set; }
+
         public string Detail { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

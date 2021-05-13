@@ -67,7 +67,7 @@ namespace Data.Repositories
             return dbSet.Remove(model);
         }
 
-        public virtual ICollection<T> findAll(string[] includes)
+        public virtual ICollection<T> findAll(string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -79,7 +79,7 @@ namespace Data.Repositories
 
             return context.Set<T>().AsQueryable().ToList();
         }
-        public virtual ICollection<T> findByCondition(Expression<Func<T,bool>> expression,string[] includes)
+        public virtual ICollection<T> findByCondition(Expression<Func<T,bool>> expression,string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {

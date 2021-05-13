@@ -11,15 +11,13 @@ namespace ShopOnline.Controllers
     public class HomeController : Controller
     {
         ICategoryService categoryService;
-        IProductService productService;
         public HomeController()
         {
 
         }
-        public HomeController(ICategoryService categoryService, IProductService productService)
+        public HomeController(ICategoryService categoryService)
         {
             this.categoryService = categoryService;
-            this.productService = productService;
         }
         public ActionResult Index()
         {
@@ -42,9 +40,16 @@ namespace ShopOnline.Controllers
         {
             return PartialView();
         }
-       
-        
-    
+        public ActionResult CategoriesLeft()
+        {
+            var categories = categoryService.FindAll();
+            var categoriDTO = AutoMapper.Mapper.Map<IEnumerable<CategoryDTO>>(categories);
+            return PartialView(categoriDTO);
+        }
+        public PartialViewResult Product()
+        {
+            return PartialView();
+        }
         public PartialViewResult LeftFooter()
         {
             return PartialView();

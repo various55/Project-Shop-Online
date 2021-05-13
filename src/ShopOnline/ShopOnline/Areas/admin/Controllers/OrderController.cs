@@ -2,7 +2,6 @@
 using Constants;
 using Data.DTO;
 using Data.Models;
-using ShopOnline.Authorize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ using System.Web.Mvc;
 namespace ShopOnline.Areas.admin.Controllers
 {
     [Authorize]
-    [CustomAuthorize("ADMIN,STAFF")]
     public class OrderController : Controller
     {
         IOrderService orderService;

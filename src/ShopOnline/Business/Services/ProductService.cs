@@ -14,21 +14,19 @@ namespace Business.Services
         bool Add(Product product);
         bool Update(Product product);
         bool Delete(int id);
-        
         ICollection<Product> FindAll();
         ICollection<Product> FindAll(string[] includes);
         Product FindById(int id);
-        ICollection<Product> FindBy(int id);
+        ICollection<Product> FindByCategory(int id);
         ICollection<Product> FindBySupplier(int id);
         void Save();
-        ICollection<Product> FindByCategory(int idCategory);
     }
     public class ProductService : IProductService
     {
         public IProductRepository productRepository;
 
         public IUnitOfWork unitOfWork;
-        
+
         public ProductService()
         {
 
@@ -68,12 +66,12 @@ namespace Business.Services
             return products;
         }
 
-        public ICollection<Product> FindBy(int id)
+        public ICollection<Product> FindByCategory(int id)
         {
-            var products = productRepository.findByCondition(x => x.ID == id  , new string[] { "Category", "Suppelier" });
+            // Làm theo cái này, join thì join cái kia, findByCondition này tìm theo nhiều điều kiện + join đc nhiều bảng đc, kieeru ddaasy
+            var products = productRepository.findByCondition(x => x.CategoryID == id  , new string[] { "Color","Size","ProductDetail" });
             return products;
         }
-      
 
         public Product FindById(int id)
         {
@@ -85,11 +83,7 @@ namespace Business.Services
             var products = productRepository.findByCondition(x => x.SupplierID == id, new string[] { "Category" });
             return products;
         }
-        public ICollection<Product> FindByCategory(int idCategory)
-        {
-            var products = productRepository.findByCondition(x => x.CategoryID == idCategory);
-            return products;
-        }
+
         public void Save()
         {
             unitOfWork.commit();

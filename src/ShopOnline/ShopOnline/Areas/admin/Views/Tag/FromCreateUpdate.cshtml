@@ -25,7 +25,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Tag/AddOrUpdate', '/admin/Suppelier/listTag', 'dataTable');AddLog('Update 1 khuyến mãi', '/admin/Log/addLog/')"> Thêm mới</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Tag/AddOrUpdate','/admin/Suppelier/listTag','dataTable')"> Thêm mới</button>
             </div>
         }
         else
@@ -49,7 +49,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate', '/admin/Tag/AddOrUpdate', '/admin/Tag/listTag', 'dataTable'); AddLog('Thay đổi thông tin 1 khuyến mãi có ID=' +@ViewBag.datID, '/admin/Log/addLog/')"> Cập nhập</button>
+                <button class="btn-update btn btn-primary" type="button" onclick="AddOrUpdate('formAddOrUpdate','/admin/Tag/AddOrUpdate','/admin/Tag/listTag','dataTable')"> Cập nhập</button>
             </div>
         }
     </form>

@@ -1,0 +1,90 @@
+﻿<div class="update-post">
+    <form id="formAddOrUpdate">
+        @if (ViewBag.data == null)
+        {
+        <div class="row m-0">
+            <input type="number" name="ID" value="0" class="form-control hidden" readonly hidden />
+            <div class="col-md-3">
+                <label>Tên </label>
+                <input type="text" value="" name="Name" class="form-control" />
+                <div class="error"> </div>
+            </div>
+            <div class="col-md-3">
+                <label>Email  </label>
+                <input type="text" value="" name="Email" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Số điện thoại </label>
+                <input type="text" value="" name="Mobile" class="form-control" />
+                <div class="error"></div>
+            </div>
+            <div class="col-md-3">
+                <label>Tiêu đề </label>
+                <input type="text" value="" name="Title" class="form-control" />
+                <div class="error"></div>
+            </div>
+
+            <div class="col-md-3">
+                <label>Nội dung </label>
+                <input type="text" value="" name="Content" class="form-control" />
+                <div class="error"></div>
+            </div>
+
+        </div>
+            <div class="modal-footer">
+                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Contact/AddOrUpdate' , '/Contact/ListContact' , 'dataTable')"> Thêm mới</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        }
+        else
+        {
+
+    <div class="row m-0">
+        <input type="number" name="ID" value="@ViewBag.data.ID" class="form-control hidden" readonly hidden />
+        <div class="col-md-3">
+            <label>Tên </label>
+            <input type="text" name="Name" class="form-control" value="@ViewBag.data.Name" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Email </label>
+            <input type="text" name="Email" class="form-control" value="@ViewBag.data.Email" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Số điện thoại</label>
+            <input type="text" name="Mobile" value="@ViewBag.data.Mobile"  class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Tiêu đề </label>
+            <input type="text" value="@ViewBag.data.Title" name="Title" class="form-control" />
+            <div class="error"></div>
+        </div>
+        <div class="col-md-3">
+            <label>Nội dung </label>
+            <input type="text" value="@ViewBag.data.Content" name="Content" class="form-control" />
+            <div class="error"></div>
+        </div>
+    </div>
+            <div class="modal-footer">
+                <button class="btn-createEdit btn btn-success" onclick="AddOrUpdate('formAddOrUpdate' , '/Contact/AddOrUpdate' , '/Contact/ListContact' , 'dataTable')"> Cập nhật</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        }
+
+    </form>
+</div>
+<script>
+
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.basePath = '~/ckfinder';
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('xFilePath').value = fileUrl;
+    }
+</script>

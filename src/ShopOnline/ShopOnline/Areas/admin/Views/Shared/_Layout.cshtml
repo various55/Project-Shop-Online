@@ -59,7 +59,7 @@
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Top Bar -->
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">Quản trị shop</a>
@@ -72,9 +72,9 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            @if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
-                @Html.Action("GetUser","User")
+               
             }
             <!-- #User Info -->
             <!-- Left Menu -->
@@ -148,9 +148,8 @@
     <script src="~/Content/admin/js/pages/tables/jquery-datatable.js"></script>
     <!-- Common Custom-->
     <script src="~/Content/common/common.js"></script>
-    <script src="/Content/ckfinder_aspnet_2.6.2.1/ckfinder/ckfinder.js"></script>
-    <script src="~/Content/js/LogJS.js"></script>
 </body>
 @RenderSection("Js", required: false)
 @RenderSection("MyJs", required: false)
+<script src="/Content/ckfinder_aspnet_2.6.2.1/ckfinder/ckfinder.js"></script>
 </html>
