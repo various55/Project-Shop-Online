@@ -15,7 +15,8 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>User</th>
+                            <th>Username</th>
+                            <th>Số điện thoại</th>
                             <th>Tên khách hàng</th>
                             <th>Địa chỉ</th>
                             <th>Tổng tiền</th>
@@ -31,7 +32,8 @@
                         {
                             <tr>
                                 <td>@(count++)</td>
-                                <td>@(item.Order.UserMember == null ? "Guest":"Member")</td>
+                                <td>@(item.Order.UserMember == null ? "Guest": item.Order.UserMember.Username)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Order.Mobile)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Order.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Order.Address)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Order.Total)</td>

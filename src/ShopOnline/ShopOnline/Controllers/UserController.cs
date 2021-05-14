@@ -74,7 +74,10 @@ namespace ShopOnline.Controllers
         // GET: User
         public ActionResult Profile()
         {
-            return View();
+            var username = User.Identity.Name;
+            var user = userService.FindByUsername(username);
+            var userDTO = AutoMapper.Mapper.Map<UserDTO>(user);
+            return View(userDTO);
         }
         public ActionResult InfoUser()
         {
