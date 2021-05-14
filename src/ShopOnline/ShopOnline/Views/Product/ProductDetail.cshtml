@@ -1,4 +1,30 @@
-﻿@model IEnumerable<Data.DTO.PDetailDTO>
+﻿<style>
+    *{
+        outline:none
+    }
+    .product-view-detail .product-img-box {
+        width: 500px;
+        text-align: center;
+        padding-top: 20px;
+        margin: 0 auto;
+    }
+    .product-view-detail .product-shop .product-name {
+        font-size: 18px;
+        padding-top: 40px;
+    }
+    .btn{
+        width:80%
+    }
+    .link-compare, .link-wishlist {
+        border: 1px solid #e1e1e1 !important
+    }
+    .product-view-detail .qty_cart input.qty {
+        margin-left: 43px;
+        width: 60px !important;
+        border: 1px solid #e1e1e1
+    }
+</style>
+@model IEnumerable<Data.DTO.PDetailDTO>
 <div class="em-main-container em-col1-layout">
     <div class="row">
         <div class="em-col-main col-sm-22 col-sm-offset-1">
@@ -32,20 +58,21 @@
                                         </div><!-- /.more-views -->
                                     </div>
                                 </div><!-- /.em-product-view-primary -->
-                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail m-4">
+                                <div class="em-product-view-secondary em-product-shop col-sm-8 product_Detail m-4 ">
                                     <div class="product-shop fix_menu">
-                                        <div id="em-product-info-basic">
+                                        <div id="em-product-info-basic ">
 
-                                            <div class="product-name">
-                                                <h1>@ViewBag.product.Name</h1>
+                                            <div class="product-name text-xl-center">
+                                                <p>@ViewBag.product.Name</p>
                                             </div>
+                                            <hr />
                                             <div class="product-code">
                                                 <label>Mã sản phẩm</label>
                                                 <h3>@ViewBag.product.Code</h3>
                                             </div>
                                             <div class="product-price">
                                                 <label>Giá bán</label>
-                                                <h1 style="color:red;font-size:20px">@ViewBag.product.ExportPrice</h1>
+                                                <h1 style="font-size:20px">@ViewBag.product.ExportPrice $</h1>
                                             </div>
                                             @if (Model.Count() > 0)
                                             {
@@ -66,7 +93,7 @@
                                                             {
                                                                 <input class="form-check-input" value="@item.ID" type="radio" name="size" id="@item.ID" style="width:20px;height:20px;margin-right:5px" onchange="changeSize()">
                                                             }
-                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;">
                                                                 @item.Name
                                                             </label>
 
@@ -89,7 +116,7 @@
                                                             {
                                                                 <input class="form-check-input" onchange="changeColor()" type="radio" name="color" value="@item.ID" id="@item.Name" style="width:20px;height:20px;margin-right:5px" @x= =0?"checked":>
                                                             }
-                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;color:red">
+                                                            <label class="form-check-label" for="@item.ID" style="margin-right:7px;font-size:16px;">
                                                                 @item.Name
                                                             </label>
 
@@ -103,7 +130,7 @@
                                                     </p>
 
                                                     <div class="price-box">
-                                                        <span class="regular-price" id="product-price-206"> <span class="price" content="750">@ViewBag.Product.ExportPrice $</span> </span>
+                                                        <span class="regular-price" id="product-price-206"> <span class="price" content="750">@ViewBag.Product.ExportPrice $ </span> </span>
                                                     </div>
                                                 </div>
                                                 <div class="add-to-box">
